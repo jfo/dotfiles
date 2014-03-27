@@ -1,0 +1,26 @@
+alias serve='python -m SimpleHTTPServer 4321'
+
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+alias killswap='rm /var/tmp/*.sw* | rm ./*.sw*'
+alias daynotes="vim ~/code/hsnotes/$( date '+%d-%m_' )notes.md"
+
+alias c='clear'
+alias batt='pmset -g batt'
+alias sand='cd ~/code/sandbox'
+
+# specific program shortcuts
+alias gl='git log --graph --pretty=oneline'
+
+# most likely temporary shortcuts
+alias jb='jekyll build'
+alias js='jekyll server --port 9393'
+
+# dumbah crap
+alias such=git
+alias very=git
+alias wow='git add -A'
+
+# meta:
+alias aliases='less ~/.aliases'
