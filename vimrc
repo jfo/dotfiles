@@ -1,4 +1,5 @@
 " don't bother with vi compatibility
+
 set nocompatible
 
 " enable syntax highlighting
@@ -7,14 +8,18 @@ syntax enable
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
-  source ~/.vimrc.bundles.local
 endif
+
+call vundle#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -256,7 +261,7 @@ let g:gist_clip_command = 'pbcopy'
 " in order to ensure that vim is congruent with zsh:
 set shell=/bin/sh
 
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 " map <LEADER><SPACE> :%Eval<CR>
 map <SPACE> :Eval<CR>
