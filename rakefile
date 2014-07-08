@@ -3,4 +3,6 @@ task :link do
   puts "Symlinked to ~/dotfiles/naninani.conf"
   system "ln -s ~/dotfiles/vimrc ~/.vimrc"
   system "ln -s ~/dotfiles/tmux.conf ~/.tmux.conf"
+  system "ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles"
+  system "ln -s ~/dotfiles/aliases ~/.aliases"
 end

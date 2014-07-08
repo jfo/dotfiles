@@ -38,3 +38,12 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/matchit.zip'
+
+Bundle "urthbound/vim-runners"
+Bundle "tpope/vim-fireplace"
+Bundle "tpope/vim-classpath"
+Bundle "guns/vim-clojure-static"
+Bundle "kien/rainbow_parentheses.vim"
+Bundle "mattn/gist-vim"
+Bundle "mattn/webapi-vim"
+" Bundle "vim-scripts/paredit.vim"
