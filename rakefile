@@ -1,0 +1,6 @@
+desc "Linkup symlinks to dotfiles"
+task :link do
+  puts "Symlinked to ~/dotfiles/naninani.conf"
+  system "ln -s ~/dotfiles/vimrc ~/.vimrc"
+  system "ln -s ~/dotfiles/tmux.conf ~/.tmux.conf"
+end
