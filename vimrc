@@ -69,7 +69,7 @@ nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
-nmap <leader><space> :call whitespace#strip_trailing()<CR>
+" nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>q :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -269,14 +269,14 @@ map <SPACE> :Eval<CR>
 set background=light
 
 " thanks to http://vimcasts.org/e/4
-function! whitespace#strip_trailing()
-  let previous_search=@/
-  let previous_cursor_line=line('.')
-  let previous_cursor_column=col('.')
-  %s/\s\+$//e
-  let @/=previous_search
-  call cursor(previous_cursor_line, previous_cursor_column)
-endfunction
+" function! whitespace#strip_trailing()
+"   let previous_search=@/
+"   let previous_cursor_line=line('.')
+"   let previous_cursor_column=col('.')
+"   %s/\s\+$//e
+"   let @/=previous_search
+"   call cursor(previous_cursor_line, previous_cursor_column)
+" endfunction
 
 " strip trailing whitespace on Ruby buffer saves
 augroup whitespace

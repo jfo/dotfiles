@@ -1,7 +1,7 @@
 alias serve='python -m SimpleHTTPServer 4321'
 
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+/* alias vim='/Applications/MacVim.app/Contents/MacOS/Vim' */
+/* alias vi='/Applications/MacVim.app/Contents/MacOS/Vim' */
 
 alias killswap='rm /var/tmp/*.sw* | rm ./*.sw*'
 alias daynotes="vim ~/notes/$( date '+%d-%m_' )notes.md"
