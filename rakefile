@@ -5,7 +5,7 @@ task :link do
   system "ln -s ~/dotfiles/tmux.conf ~/.tmux.conf"
   system "ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles"
   system "ln -s ~/dotfiles/aliases ~/.aliases"
-  system "ln -s ~/dotfiles/zshrc ~/.zshrc"
-  system "ln -s ~/dotfiles/zsh ~/.zsh"
-  system "ln -s ~/dotfiles/bashrc ~/.bashrc"
+#  system "ln -s ~/dotfiles/zshrc ~/.zshrc"
+#  system "ln -s ~/dotfiles/zsh ~/.zsh"
+#  system "ln -s ~/dotfiles/bashrc ~/.bashrc"
 end
