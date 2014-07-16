@@ -1,19 +1,15 @@
-alias serve='python -m SimpleHTTPServer 4321'
+# general shortcuts
 
+alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* | rm ./*.sw*'
 alias daynotes="vim ~/notes/$( date '+%d-%m_' )notes.md"
-
 alias c='clear'
-alias batt='pmset -g batt'
 alias sand='cd ~/sandbox'
 
-# specific program shortcuts
+# git shortcuts!
+
 alias gl='git log --graph --pretty=oneline'
 
-# dumbah crap
-alias such=git
-alias very=git
-alias wow='git add -A'
-
 # meta:
+
 alias aliases='less ~/.aliases'
