@@ -11,4 +11,3 @@ fi
 source ~/.aliases;
 
 PATH=$PATH:$HOME/bin;
-export PATH;

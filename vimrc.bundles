@@ -39,6 +39,8 @@ Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/matchit.zip'
 
+" Bundle 'jlanzarotta/bufexplorer'
+
 Bundle "urthbound/vim-runners"
 Bundle "tpope/vim-fireplace"
 Bundle "tpope/vim-classpath"
