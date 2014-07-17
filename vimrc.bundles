@@ -20,5 +20,7 @@ Bundle "guns/vim-clojure-static"
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
-Bundle 'jeetsukumaran/vim-buffergator'
 Bundle "wesleyche/SrcExpl"
+
+" I think I can use cntrlp for this one...
+" Bundle 'jeetsukumaran/vim-buffergator'
