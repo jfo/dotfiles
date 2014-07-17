@@ -21,3 +21,4 @@ Bundle "kien/rainbow_parentheses.vim"
 Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
+Bundle "wesleyche/SrcExpl"
