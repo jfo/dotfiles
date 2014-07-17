@@ -160,7 +160,6 @@ nnoremap <LEADER>g :call Runners()<CR>:Run<CR>
 " more natural splits by default
 set splitbelow
 set splitright
-set autochdir
 let $MYVIMRC = '/users/jeff/.vimrc'
 
 let g:gist_clip_command = 'pbcopy'
