@@ -129,6 +129,8 @@ if (&t_Co == 256 || has('gui_running'))
   endif
 endif
 
+colorscheme solarized
+
 set foldmethod=indent
 set foldnestmax=2
 
