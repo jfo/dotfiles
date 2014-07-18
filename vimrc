@@ -178,5 +178,3 @@ call togglebg#map("<F5>")
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'php'],
                            \ 'passive_filetypes': ['php'] }
-
-map <leader>r :NERDTreeFind<cr>
