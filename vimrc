@@ -133,6 +133,7 @@ colorscheme solarized
 
 set foldmethod=indent
 set foldnestmax=2
+set foldlevelstart=20
 
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
