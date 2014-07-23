@@ -179,3 +179,24 @@ call togglebg#map("<F5>")
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'php'],
                            \ 'passive_filetypes': ['php'] }
+
+
+" delete buffers in cntrl-p buffer mode with 'cntrl-@'
+let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
+
+func! MyCtrlPMappings()
+    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+endfunc
+
+func! s:DeleteBuffer()
+    let line = getline('.')
+    let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
+        \ : fnamemodify(line[2:], ':p')
+    exec "bd" bufid
+    exec "norm \<F5>"
+endfunc
+
+" make 'gf' Etsyweb aware
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Web/templates
+set includeexpr=substitute(v:fname,'_','/','g').'.php'
+set suffixesadd=.tpl
