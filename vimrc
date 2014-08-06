@@ -197,6 +197,11 @@ func! s:DeleteBuffer()
 endfunc
 
 " make 'gf' Etsyweb aware
-set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Web/templates
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
 set suffixesadd=.tpl
+
+" don't search from top if you hit the bottom:
+set nowrapscan
+
+au BufNewFile,BufRead *.scala setlocal ft=scala
