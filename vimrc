@@ -205,3 +205,5 @@ set suffixesadd=.tpl
 set nowrapscan
 
 au BufNewFile,BufRead *.scala setlocal ft=scala
+
+autocmd FileType scala set commentstring=//\ %s
