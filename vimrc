@@ -207,3 +207,7 @@ set nowrapscan
 au BufNewFile,BufRead *.scala setlocal ft=scala
 
 autocmd FileType scala set commentstring=//\ %s
+autocmd FileType php set commentstring=//\ %s
+
+" Stupid uninvited key mapping
+let g:ftplugin_sql_omni_key = 'stfu'
