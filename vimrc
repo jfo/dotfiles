@@ -212,6 +212,12 @@ autocmd FileType php set commentstring=//\ %s
 " Stupid uninvited key mapping
 let g:ftplugin_sql_omni_key = 'stfu'
 
-func! s:LineNumberToggle()
-    if :set 
+function LineNumberToggle()
+    if &number
+        set nonumber
+    else
+        set number
+    endif
 endfunc
+
+nnoremap gn :call LineNumberToggle()<CR>
