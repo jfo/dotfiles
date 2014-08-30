@@ -38,7 +38,7 @@ set incsearch                                                " search as you typ
 set laststatus=2                                             " always show statusline
 set list                                                     " show trailing whitespace
 set listchars=tab:▸\ ,trail:▫
-set number                                                   " show line numbers
+set nonumber                                                 " don't show line numbers by default
 set ruler                                                    " show where you are
 set scrolloff=5                                              " show context above/below cursorline
 set shiftwidth=4                                             " normal mode indentation commands use 4 spaces
