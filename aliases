@@ -25,4 +25,8 @@ alias td="tmux detach"
 alias scalding="cd ~/development/BigData/lib/jobs/scalding/src/main/com/etsy/scalding/jobs/"
 alias ew="cd ~/development/Etsyweb"
 
-alias go="vim $(git diff HEAD^ --name-only)"
+
+function gitfind {
+    vim $(git diff HEAD^ --name-only)
+}
+alias go=gitfind
