@@ -16,6 +16,7 @@ Bundle "urthbound/vim-runners"
 Bundle "tpope/vim-fireplace"
 Bundle "tpope/vim-classpath"
 Bundle "guns/vim-clojure-static"
+" Bundle "vim-scripts/VimClojure"
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'

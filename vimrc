@@ -35,7 +35,7 @@ set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
-set laststatus=2                                             " always show statusline
+set laststatus=1                                             " always show statusline
 set list                                                     " show trailing whitespace
 set listchars=tab:▸\ ,trail:▫
 set nonumber                                                 " don't show line numbers by default
