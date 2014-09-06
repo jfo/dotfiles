@@ -131,6 +131,8 @@ endif
 
 colorscheme solarized
 
+set colorcolumn=81
+
 set foldmethod=indent
 set foldnestmax=2
 set foldlevelstart=20
