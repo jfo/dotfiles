@@ -223,3 +223,11 @@ function LineNumberToggle()
 endfunc
 
 nnoremap gn :call LineNumberToggle()<CR>
+
+" lets do some paredit!
+let g:paredit_electric_return = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
