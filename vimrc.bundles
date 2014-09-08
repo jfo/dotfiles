@@ -20,7 +20,7 @@ Bundle "kien/rainbow_parentheses.vim"
 Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
 Bundle "wesleyche/SrcExpl"
-Bundle "vim-scripts/paredit.vim"
+" Bundle "vim-scripts/paredit.vim"
 " Bundle "xolox/vim-session"
 " Bundle "vim-scripts/VimClojure"
 

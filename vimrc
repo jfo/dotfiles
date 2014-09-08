@@ -76,7 +76,16 @@ nmap <leader>q :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" nmap <leader><space> :call whitespace#strip_trailing()<CR>
+function! StripTrailing()
+    let previous_search=@/
+    let previous_cursor_line=line('.')
+    let previous_cursor_column=col('.')
+    %s/\s\+$//e
+    let @/=previous_search
+    call cursor(previous_cursor_line, previous_cursor_column)
+endfunction
+
+nmap <leader><space> :call StripTrailing()<CR>
 
 " in case you forgot to sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -156,7 +165,7 @@ nnoremap <LEADER>w :w<CR>
 
 " experimental runners section!
 
-if @% == '*_spec.rb' 
+if @% == '*_spec.rb'
   autocmd FileType ruby command! Run w % | !rspec %
 endif
 
@@ -224,9 +233,8 @@ endfunc
 
 nnoremap gn :call LineNumberToggle()<CR>
 
-" lets do some paredit!
-let g:paredit_electric_return = 0
-
+" lets do some paredit! Or not. Fuck that thing.
+" let g:paredit_electric_return = 0
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
