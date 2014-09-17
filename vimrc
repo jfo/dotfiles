@@ -25,7 +25,7 @@ call vundle#end()
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 
-set autoindent
+" set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
