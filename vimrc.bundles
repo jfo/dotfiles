@@ -21,6 +21,8 @@ Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
 Bundle "wesleyche/SrcExpl"
 Bundle 'mattn/webapi-vim'
+
+Bundle 'vim-scripts/smarty-syntax'
 " Bundle 'xolox/vim-session'
 " Bundle "vim-scripts/paredit.vim"
 " Bundle "xolox/vim-session"

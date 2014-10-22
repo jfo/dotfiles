@@ -30,3 +30,5 @@ function gitfind {
     vim $(git diff HEAD^ --name-only)
 }
 alias go=gitfind
+
+alias vimo="vim -S ~/.vim/sessions/last.vim"
