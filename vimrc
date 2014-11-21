@@ -64,10 +64,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map h gh
-map j gj
-map k gk
-map l gl
+" map h gh
+" map j gj
+" map k gk
+" map l gl
 
 map <leader>l :Align
 nmap <leader>a :Ack<space>
