@@ -245,4 +245,5 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 

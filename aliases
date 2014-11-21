@@ -26,7 +26,9 @@ alias scalding="cd ~/development/BigData/lib/jobs/scalding/src/main/com/etsy/sca
 alias ew="cd ~/development/Etsyweb"
 
 
-function gitfind {
+function gitopen {
     vim $(git diff HEAD^ --name-only)
 }
-alias go=gitfind
+alias gopen=gitopen
+
+alias vimo="vim -S ~/.vim/sessions/last.vim"
