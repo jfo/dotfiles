@@ -64,14 +64,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <leader>l :Align
-nmap <leader>a :Ack<space>
+nnoremap <leader>a :Hound<space>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nmap <leader>] :TagbarToggle<CR>
 nmap <leader>q :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -223,7 +221,7 @@ autocmd FileType php set commentstring=//\ %s
 " Stupid uninvited key mapping
 let g:ftplugin_sql_omni_key = 'stfu'
 
-function LineNumberToggle()
+function! LineNumberToggle()
     if &number
         set nonumber
     else

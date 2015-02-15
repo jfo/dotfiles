@@ -12,7 +12,6 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle "urthbound/vim-runners"
 Bundle "tpope/vim-fireplace"
 Bundle "tpope/vim-classpath"
 Bundle "guns/vim-clojure-static"
@@ -21,6 +20,9 @@ Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
 Bundle "wesleyche/SrcExpl"
 Bundle 'mattn/webapi-vim'
+
+Bundle "urthbound/vim-runners"
+Bundle "urthbound/hound.vim"
 
 Bundle 'vim-scripts/smarty-syntax'
 " Bundle 'xolox/vim-session'
