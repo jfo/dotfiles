@@ -207,6 +207,7 @@ endfunc
 
 " make 'gf' Etsyweb aware
 set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates
+set path=~/development/Etsyweb
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
 set suffixesadd=.tpl
 
@@ -240,3 +241,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
+let g:hound_base_url = "hound.etsycorp.com"
+let g:hound_repos = "etsyweb"
+let g:hound_verbose = 1
