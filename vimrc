@@ -206,7 +206,8 @@ func! s:DeleteBuffer()
 endfunc
 
 " make 'gf' Etsyweb aware
-set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs
+set includeexpr=substitute(v:fname,'_','/','g').'.php'
 " set includeexpr=substitute(v:fname,'_','/','g').'.php'
 set suffixesadd=.tpl
 
