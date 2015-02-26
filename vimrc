@@ -69,14 +69,12 @@ map <C-l> <C-w>l
 " map k gk
 " map l gl
 
-map <leader>l :Align
-nmap <leader>a :Ack<space>
+nnoremap <leader>a :Hound<space>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nmap <leader>] :TagbarToggle<CR>
 nmap <leader>q :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -213,8 +211,9 @@ func! s:DeleteBuffer()
 endfunc
 
 " make 'gf' Etsyweb aware
-set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
+" set includeexpr=substitute(v:fname,'_','/','g').'.php'
 set suffixesadd=.tpl
 
 " don't search from top if you hit the bottom:
@@ -228,7 +227,7 @@ autocmd FileType php set commentstring=//\ %s
 " Stupid uninvited key mapping
 let g:ftplugin_sql_omni_key = 'stfu'
 
-function LineNumberToggle()
+function! LineNumberToggle()
     if &number
         set nonumber
     else
@@ -247,3 +246,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
+let g:hound_base_url = "hound.etsycorp.com"
+let g:hound_repos = "etsyweb"
+let g:hound_verbose = 1
+let g:hound_results_style = "tab"
