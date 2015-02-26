@@ -244,9 +244,13 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+au BufRead,BufNewFile *.ino        set filetype=arduino
+autocmd FileType arduino set commentstring=//\ %s
+
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
 let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_repos = "etsyweb"
 let g:hound_verbose = 1
 let g:hound_results_style = "tab"
+
