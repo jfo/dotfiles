@@ -249,6 +249,11 @@ autocmd FileType arduino set commentstring=//\ %s
 
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["ruby", "php"],
+    \ "passive_filetypes": ["puppet"] }
+
 let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_repos = "etsyweb"
 let g:hound_verbose = 1
