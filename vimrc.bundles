@@ -20,6 +20,7 @@ Bundle "mattn/gist-vim"
 Bundle 'juvenn/mustache.vim'
 Bundle "wesleyche/SrcExpl"
 Bundle 'mattn/webapi-vim'
+Bundle 'mustache/vim-mustache-handlebars'
 
 Bundle "urthbound/vim-runners"
 Bundle "urthbound/hound.vim"
