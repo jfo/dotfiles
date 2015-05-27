@@ -211,10 +211,9 @@ func! s:DeleteBuffer()
 endfunc
 
 " make 'gf' Etsyweb aware
-set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
-" set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set suffixesadd=.tpl
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource
+set suffixesadd=.tpl,.php,.js,.scss
 
 " don't search from top if you hit the bottom:
 set nowrapscan
@@ -251,7 +250,7 @@ autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
 let g:syntastic_mode_map = {
     \ "mode": "passive",
-    \ "active_filetypes": ["ruby", "php"],
+    \ "active_filetypes": ["ruby"],
     \ "passive_filetypes": ["puppet"] }
 
 let g:hound_base_url = "hound.etsycorp.com"
