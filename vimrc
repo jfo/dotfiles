@@ -212,7 +212,7 @@ endfunc
 
 " make 'gf' Etsyweb aware
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource
+set path=~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource,~/development/Etsyweb/htdocs/assets/js,~/development/Etsyweb/htdocs/assets/css
 set suffixesadd=.tpl,.php,.js,.scss
 
 " don't search from top if you hit the bottom:

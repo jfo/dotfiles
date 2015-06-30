@@ -24,7 +24,7 @@ alias td="tmux detach"
 
 alias scalding="cd ~/development/BigData/lib/jobs/scalding/src/main/com/etsy/scalding/jobs/"
 alias ew="cd ~/development/Etsyweb"
-
+alias apic="~/development/Etsyweb/bin/api/compile"
 
 function gitopen {
     vim $(git diff HEAD^ --name-only)
