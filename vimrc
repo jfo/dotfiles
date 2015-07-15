@@ -69,7 +69,9 @@ map <C-l> <C-w>l
 " map k gk
 " map l gl
 
-nnoremap <leader>a :Hound<space>
+nnoremap <leader>a :Hound<space><C-R>"<CR>
+vnoremap <leader>a y:Hound<space><C-R>"<CR>
+
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
@@ -255,4 +257,3 @@ let g:syntastic_mode_map = {
 
 let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_repos = "etsyweb"
-let g:hound_vertical_split = 1
