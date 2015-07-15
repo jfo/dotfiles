@@ -257,3 +257,4 @@ let g:syntastic_mode_map = {
 
 let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_repos = "etsyweb"
+autocmd FileType houndresults nnoremap <CR> <C-w>gF
