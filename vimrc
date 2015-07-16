@@ -69,7 +69,8 @@ map <C-l> <C-w>l
 " map k gk
 " map l gl
 
-nnoremap <leader>a :Hound<space><C-R>"<CR>
+" nnoremap <leader>a :Hound<space><C-R>"<CR>
+nnoremap <leader>a :Hound<space>
 vnoremap <leader>a y:Hound<space><C-R>"<CR>
 
 nmap <leader>b :CtrlPBuffer<CR>
@@ -214,7 +215,7 @@ endfunc
 
 " make 'gf' Etsyweb aware
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set path=~/development/Etsyweb/,~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource,~/development/Etsyweb/htdocs/assets/js,~/development/Etsyweb/htdocs/assets/css
+set path=./*,~/development/Etsyweb/,~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource,~/development/Etsyweb/htdocs/assets/js,~/development/Etsyweb/htdocs/assets/css
 set suffixesadd=.tpl,.php,.js,.scss
 
 " don't search from top if you hit the bottom:
