@@ -163,9 +163,13 @@ set autoindent
 highlight LineNr ctermfg=blue
 
 autocmd FileType clojure set commentstring=;\ %s
-autocmd FileType scheme set commentstring=;\ %s
 autocmd FileType asm set commentstring=//\ %s
 autocmd FileType vm set commentstring=//\ %s
+
+autocmd FileType scheme set commentstring=;\ %s
+autocmd FileType scheme setlocal shiftwidth=2
+autocmd FileType scheme setlocal tabstop=2
+autocmd FileType scheme setlocal softtabstop=2
 
 nnoremap <LEADER>w :w<CR>
 
