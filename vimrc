@@ -9,16 +9,20 @@ syntax enable
 "
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
+
+" if new install don't forget to install vundle manually with probably:
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'
 
-" install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+    " install Vundle bundles
+    if filereadable(expand("~/.vimrc.bundles"))
+      source ~/.vimrc.bundles
+    endif
 
 call vundle#end()
 
@@ -260,6 +264,6 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["ruby"],
     \ "passive_filetypes": ["puppet"] }
 
-let g:hound_base_url = "hound.etsycorp.com"
-let g:hound_repos = "etsyweb"
+" let g:hound_base_url = "hound.etsycorp.com"
+" let g:hound_repos = "etsyweb"
 autocmd FileType houndresults nnoremap <CR> <C-w>gF
