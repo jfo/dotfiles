@@ -198,8 +198,8 @@ set shell=/bin/sh
 map <SPACE> :Eval<CR>
 
 " set background=light
-set background=dark
-call togglebg#map("<F5>")
+" set background=dark
+" call togglebg#map("<F5>")
 
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'php'],
@@ -267,3 +267,27 @@ let g:syntastic_mode_map = {
 " let g:hound_base_url = "hound.etsycorp.com"
 " let g:hound_repos = "etsyweb"
 autocmd FileType houndresults nnoremap <CR> <C-w>gF
+
+if (g:colors_name =~ "solarized")
+    "let g:solarized_termcolors=256
+    autocmd ColorScheme * hi Normal ctermbg=015
+    autocmd ColorScheme * hi LineNr ctermfg=253 ctermbg=none cterm=none
+    autocmd ColorScheme * hi CursorLine ctermbg=255 cterm=none
+    autocmd ColorScheme * hi CursorColumn ctermbg=255 cterm=none
+    autocmd ColorScheme * hi StatusLine ctermfg=254 ctermbg=237
+    autocmd ColorScheme * hi StatusLineNC ctermfg=254 ctermbg=248
+    autocmd ColorScheme * hi VertSplit ctermfg=254 ctermbg=254 cterm=none
+    autocmd ColorScheme * hi Search ctermbg=230 cterm=none
+    autocmd ColorScheme * hi Comment ctermfg=248 ctermbg=231 cterm=none
+    if has("gui")
+        autocmd ColorScheme * hi Normal guibg=#ffffff
+        autocmd ColorScheme * hi LineNr guifg=#E0E0E0 guibg=none gui=none
+        autocmd ColorScheme * hi CursorLine guibg=#F1F1F1 gui=none
+        autocmd ColorScheme * hi CursorColumn guibg=#F1F1F1 gui=none
+        autocmd ColorScheme * hi StatusLine guifg=#E9E9E9 guibg=#4A4A4A
+        autocmd ColorScheme * hi StatusLineNC guifg=#E9E9E9 guibg=#B6B6B6
+        autocmd ColorScheme * hi VertSplit guifg=#E9E9E9 guibg=#E9E9E9 gui=none
+        autocmd ColorScheme * hi Search guibg=#FEFDDE gui=none
+        autocmd ColorScheme * hi Comment guifg=#B6B6B6 guibg=231 gui=none
+    endif
+endif
