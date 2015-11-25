@@ -32,3 +32,9 @@ function gitopen {
 alias gopen=gitopen
 
 alias vimo="vim -S ~/.vim/sessions/last.vim"
+
+slateplus() {
+    curl $1 | sed  "s/roadblocked\": true/roadblocked\": false/g" > /tmp/slate.html && open /tmp/slate.html
+}
+
+alias slateplus=slateplus
