@@ -140,17 +140,16 @@ set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 
 " gui settings
-if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
-  else
-    colorscheme desert
-  endif
-endif
+" if (&t_Co == 256 || has('gui_running'))
+"   if ($TERM_PROGRAM == 'iTerm.app')
+"     colorscheme solarized
+"   else
+"     colorscheme desert
+"   endif
+" endif
 
-colorscheme solarized
 
-set colorcolumn=81
+" set colorcolumn=81
 
 set foldmethod=indent
 set foldnestmax=2
@@ -264,12 +263,13 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["ruby"],
     \ "passive_filetypes": ["puppet"] }
 
-" let g:hound_base_url = "hound.etsycorp.com"
-" let g:hound_repos = "etsyweb"
+let g:hound_base_url = "hound.etsycorp.com"
+let g:hound_repos = "etsyweb,bigdata"
 autocmd FileType houndresults nnoremap <CR> <C-w>gF
 
+colorscheme solarized
 if (g:colors_name =~ "solarized")
-    "let g:solarized_termcolors=256
+    " let g:solarized_termcolors=256
     autocmd ColorScheme * hi Normal ctermbg=015
     autocmd ColorScheme * hi LineNr ctermfg=253 ctermbg=none cterm=none
     autocmd ColorScheme * hi CursorLine ctermbg=255 cterm=none
@@ -291,3 +291,4 @@ if (g:colors_name =~ "solarized")
         autocmd ColorScheme * hi Comment guifg=#B6B6B6 guibg=231 gui=none
     endif
 endif
+" colorscheme solarized
