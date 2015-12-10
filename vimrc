@@ -293,7 +293,7 @@ autocmd FileType houndresults nnoremap <CR> <C-w>gF
 
 
 " set background=light
-set background=dark
+set background=light
 call togglebg#map("<F5>")
 
 " gui settings

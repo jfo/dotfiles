@@ -1,7 +1,7 @@
 # general shortcuts
 
 alias serve='python -m SimpleHTTPServer 4321'
-alias killswap='rm /var/tmp/*.sw* | rm ./*.sw*'
+alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
 alias daynotes="vim ~/notes/$( date '+%d-%m_' )notes.md"
 alias c='clear'
 alias sand='cd ~/sandbox'
@@ -16,6 +16,7 @@ alias aliases='less ~/.aliases'
 
 alias d="echo -e '\033]50;SetProfile=Dark\a'"
 alias l="echo -e '\033]50;SetProfile=Light\a'"
+alias j="echo -e '\033]50;SetProfile=Jung\a'"
 
 alias t="tmux"
 alias tl="tmux list-sessions"
