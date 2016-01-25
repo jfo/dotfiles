@@ -50,9 +50,14 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=4                                            " insert mode tab and backspace use 4 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+
+set wildignore=
+
+let g:ctrlp_custom_ignore = {
+            \ 'dir': 'bin\/*',
+            \ }
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -196,7 +201,6 @@ set shell=/bin/sh
 
 map <SPACE> :Eval<CR>
 
-" set background=light
 " set background=dark
 " call togglebg#map("<F5>")
 
@@ -292,8 +296,6 @@ autocmd FileType houndresults nnoremap <CR> <C-w>gF
 " endif
 
 
-" set background=light
-set background=light
 call togglebg#map("<F5>")
 
 " gui settings
@@ -306,3 +308,4 @@ if (&t_Co == 256 || has('gui_running'))
 endif
 
 colorscheme solarized
+set background=light
