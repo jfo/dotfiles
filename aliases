@@ -39,3 +39,5 @@ slateplus() {
 }
 
 alias slateplus=slateplus
+
+alias nyancat='pygmentize -g'

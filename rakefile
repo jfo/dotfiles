@@ -6,4 +6,5 @@ task :link do
   system "ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles"
   system "ln -s ~/dotfiles/aliases ~/.aliases"
   system "ln -s ~/dotfiles/bashrc ~/.bashrc"
+  system "ln -s ~/dotfiles/bash_profile ~/.bash_profile"
 end
