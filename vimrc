@@ -269,6 +269,8 @@ let g:syntastic_mode_map = {
 
 let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_repos = "etsyweb,bigdata"
+let g:hound_repo_paths = { "etsyweb": "~/development/Etsyweb", }
+
 autocmd FileType houndresults nnoremap <CR> <C-w>gF
 
 " if (g:colors_name =~ "solarized")
@@ -309,3 +311,12 @@ endif
 
 colorscheme solarized
 set background=light
+
+" splits from quickfix
+let g:qfenter_vopen_map = ['<Bar>']
+let g:qfenter_topen_map = ['_']
+
+" open/close quickfix easily
+nnoremap <LEADER>c :ccl<cr>
+nnoremap <LEADER>o :copen<cr>
+

@@ -24,6 +24,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'https://github.etsycorp.com/tschneiter/vim-github.git'
 Bundle 'wilsaj/chuck.vim'
 Bundle 'keith/swift.vim'
+Bundle 'yssl/QFEnter'
 
 Bundle "urthbound/vim-runners"
 Bundle "urthbound/hound.vim"
