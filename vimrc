@@ -124,6 +124,9 @@ endif
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+" sld is sild
+autocmd BufRead,BufNewFile *.sld set filetype=sild
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -187,7 +190,7 @@ if @% == '*_spec.rb'
   autocmd FileType ruby command! Run w % | !rspec %
 endif
 
-nnoremap <LEADER>g :call Runners()<CR>:Run<CR>
+nnoremap <LEADER>g :Run<CR>
 
 " more natural splits by default
 set splitbelow
@@ -317,6 +320,6 @@ let g:qfenter_vopen_map = ['<Bar>']
 let g:qfenter_topen_map = ['_']
 
 " open/close quickfix easily
-nnoremap <LEADER>c :ccl<cr>
+nnoremap <LEADER>c :cclose<cr>
 nnoremap <LEADER>o :copen<cr>
 
