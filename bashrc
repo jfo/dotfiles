@@ -13,4 +13,4 @@ source ~/.aliases
 
 alias vi='vim'
 
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:$HOME/development/bin/DevTools
