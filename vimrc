@@ -79,8 +79,8 @@ map <C-l> <C-w>l
 " map l gl
 
 " nnoremap <leader>a :Hound<space><C-R>"<CR>
-nnoremap <leader>a :Hound<space>
-vnoremap <leader>a y:Hound<space><C-R>"<CR>
+nnoremap <leader>a :HoundQF<space>
+vnoremap <leader>a y:HoundQF<space><C-R>"<CR>
 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
