@@ -173,6 +173,7 @@ set autoindent
 
 highlight LineNr ctermfg=blue
 
+autocmd FileType sild set commentstring=;\ %s
 autocmd FileType clojure set commentstring=;\ %s
 autocmd FileType asm set commentstring=//\ %s
 autocmd FileType vm set commentstring=//\ %s
@@ -322,4 +323,5 @@ let g:qfenter_topen_map = ['_']
 " open/close quickfix easily
 nnoremap <LEADER>c :cclose<cr>
 nnoremap <LEADER>o :copen<cr>
-
+" hey look λ
+imap <C-l> <C-k>*l
