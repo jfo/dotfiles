@@ -1,10 +1,18 @@
 desc "Linkup symlinks to dotfiles"
 task :link do
-  puts "Symlinked to ~/dotfiles/naninani.conf"
   system "ln -s ~/dotfiles/vimrc ~/.vimrc"
   system "ln -s ~/dotfiles/tmux.conf ~/.tmux.conf"
   system "ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles"
   system "ln -s ~/dotfiles/aliases ~/.aliases"
   system "ln -s ~/dotfiles/bashrc ~/.bashrc"
   system "ln -s ~/dotfiles/bash_profile ~/.bash_profile"
+end
+
+task :unlink do
+  system "unlink ~/.vimrc"
+  system "unlink ~/.tmux.conf"
+  system "unlink ~/.vimrc.bundles"
+  system "unlink ~/.aliases"
+  system "unlink ~/.bashrc"
+  system "unlink ~/.bash_profile"
 end
