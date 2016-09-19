@@ -2,16 +2,13 @@
 
 alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
-alias daynotes="vim ~/notes/$( date '+%d-%m_' )notes.md"
 alias c='clear'
 alias sand='cd ~/sandbox'
 
 # git shortcuts!
-
 alias gl='git log --oneline'
 
 # meta:
-
 alias aliases='less ~/.aliases'
 
 alias d="echo -e '\033]50;SetProfile=Dark\a'"

@@ -1,40 +1,43 @@
-Bundle 'airblade/vim-gitgutter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'austintaylor/vim-indentobject'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'gmarik/vundle'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle "tpope/vim-fireplace"
-Bundle "tpope/vim-classpath"
-Bundle "guns/vim-clojure-static"
 Bundle "kien/rainbow_parentheses.vim"
-Bundle "mattn/gist-vim"
-Bundle 'juvenn/mustache.vim'
-Bundle "wesleyche/SrcExpl"
-Bundle 'mattn/webapi-vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'https://github.etsycorp.com/tschneiter/vim-github.git'
-Bundle 'wilsaj/chuck.vim'
-Bundle 'keith/swift.vim'
-Bundle 'yssl/QFEnter'
-Plugin 'derekwyatt/vim-scala'
+Bundle 'altercation/vim-colors-solarized'
 
+Bundle 'https://github.etsycorp.com/tschneiter/vim-github.git'
+
+Bundle 'mattn/webapi-vim'
 Bundle "urthbound/vim-runners"
 Bundle "urthbound/hound.vim"
 
-Bundle 'vim-scripts/smarty-syntax'
+Bundle 'christoomey/vim-tmux-navigator'
+
+" Bundle 'airblade/vim-gitgutter'
+" Bundle 'austintaylor/vim-indentobject'
+" Bundle 'ctrlpvim/ctrlp.vim'
+" Bundle 'mileszs/ack.vim'
+" Bundle 'nathanaelkane/vim-indent-guides'
+
+" Bundle 'tpope/vim-bundler'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'tpope/vim-fireplace'
+" Bundle 'tpope/vim-classpath'
+" Bundle 'guns/vim-clojure-static'
+" Bundle 'juvenn/mustache.vim'
+" Bundle 'wesleyche/SrcExpl'
+" Bundle 'mustache/vim-mustache-handlebars'
+" Bundle 'wilsaj/chuck.vim'
+" Bundle 'keith/swift.vim'
+" Bundle 'yssl/QFEnter'
+" Plugin 'derekwyatt/vim-scala'
+
+
+" Bundle 'vim-scripts/smarty-syntax'
 " Bundle 'xolox/vim-session'
-" Bundle "vim-scripts/paredit.vim"
-" Bundle "xolox/vim-session"
-" Bundle "vim-scripts/VimClojure"
+" Bundle 'vim-scripts/paredit.vim'
+" Bundle 'xolox/vim-session'
+" Bundle 'vim-scripts/VimClojure'
 " Bundle 'vim-scripts/VimClojure'
 
 " I think I can use cntrlp for this one...
