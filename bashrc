@@ -14,3 +14,5 @@ source ~/.aliases
 alias vi='vim'
 
 PATH=$PATH:$HOME/bin:$HOME/development/bin/DevTools
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -101,6 +101,10 @@ autocmd VimResized * :wincmd =
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 
+" Holy shit FZF
+nmap <C-P> :Files<CR>
+nmap <leader>b :Buffers<CR>
+
 set smartindent
 set autoindent
 

@@ -12,6 +12,8 @@ Bundle "urthbound/vim-runners"
 Bundle "urthbound/hound.vim"
 
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'junegunn/fzf.vim'
+Bundle 'junegunn/fzf'
 
 " Bundle 'airblade/vim-gitgutter'
 " Bundle 'austintaylor/vim-indentobject'
