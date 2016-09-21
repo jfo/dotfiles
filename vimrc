@@ -141,7 +141,17 @@ set splitright
 
 " make 'gf' Etsyweb aware
 set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set path=./*,~/development/Etsyweb/,~/development/Etsyweb/phplib/EtsyModel,~/development/Etsyweb/phplib,~/development/Etsyweb/templates,~/development/Etsyweb/htdocs,~/development/Etsyweb/phplib/Api,~/development/Etsyweb/phplib/Api/Resource,~/development/Etsyweb/htdocs/assets/js,~/development/Etsyweb/htdocs/assets/css
+set path =
+            \~/development/Etsyweb/,
+            \~/development/Etsyweb/phplib/EtsyModel,
+            \~/development/Etsyweb/phplib,
+            \~/development/Etsyweb/templates,
+            \~/development/Etsyweb/htdocs,
+            \~/development/Etsyweb/phplib/Api,
+            \~/development/Etsyweb/phplib/Api/Resource,
+            \~/development/Etsyweb/htdocs/assets/js,
+            \~/development/Etsyweb/htdocs/assets/css,
+            \~/development/Etsyweb/htdocs_arizona/phplib
 set suffixesadd=.tpl,.php,.js,.scss
 
 
@@ -171,8 +181,10 @@ let g:syntastic_mode_map = {
     \ "passive_filetypes": ["puppet"] }
 
 let g:hound_base_url = "hound.etsycorp.com"
-let g:hound_repos = "etsyweb,bigdata"
-let g:hound_repo_paths = { "etsyweb": "~/development/Etsyweb", }
+let g:hound_repos = "etsyweb, bigdata"
+let g:hound_repo_paths = {
+            \"etsyweb": "~/development/Etsyweb",
+            \"bigdata": "~/development/BigData", }
 
 autocmd FileType houndresults nnoremap <CR> <C-w>gF
 

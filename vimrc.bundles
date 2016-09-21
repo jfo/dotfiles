@@ -32,7 +32,7 @@ Bundle 'junegunn/fzf'
 " Bundle 'wilsaj/chuck.vim'
 " Bundle 'keith/swift.vim'
 " Bundle 'yssl/QFEnter'
-" Plugin 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 
 " Bundle 'vim-scripts/smarty-syntax'
