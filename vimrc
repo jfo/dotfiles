@@ -1,10 +1,6 @@
 " don't bother with vi compatibility
 
 set nocompatible
-
-" enable syntax highlighting
-syntax enable
-
 " configure Vundle
 " if new install don't forget to install vundle manually with probably:
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -21,6 +17,9 @@ call vundle#begin()
     endif
 
 call vundle#end()
+
+" enable syntax highlighting
+syntax enable
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -199,3 +198,6 @@ nnoremap <LEADER>o :copen<cr>
 
 " hey look λ lol
 imap <C-l> <C-k>*l
+
+nnoremap <silent> go :!Git next<CR>
+nnoremap <silent> gi :!Git prev<CR>
