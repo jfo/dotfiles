@@ -15,5 +15,7 @@ alias vi='vim'
 
 PATH=$PATH:$HOME/bin:$HOME/development/bin/DevTools
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
