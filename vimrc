@@ -168,6 +168,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'sheerun/vim-polyglot'
     " should be separate
     Plug 'https://github.etsycorp.com/tschneiter/vim-github.git'
 call plug#end()
