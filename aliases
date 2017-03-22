@@ -15,12 +15,14 @@ alias td="tmux detach"
 # vim
 alias vimo="vim -S ~/.vim/sessions/last.vim"
 
-# meta:
-alias aliases='less ~/.aliases'
-
 # other
+alias aliases='less ~/.aliases'
 alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
 alias c='clear'
 alias sand='cd ~/sandbox'
+alias udate='date +%s'
+
+alias ew="cd ~/development/Etsyweb"
+alias apic="~/development/Etsyweb/bin/api/compile"
 
