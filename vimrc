@@ -166,7 +166,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'jfo/vim-runners'
     Plug 'jfo/hound.vim'
     Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': './install --bin' }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
     " should be separate
