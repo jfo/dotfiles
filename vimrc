@@ -53,13 +53,13 @@ endif
 
 """ Plugin Specific Commands
 " Hound
-nnoremap <leader>a :HoundQF<space>
-vnoremap <leader>a y:HoundQF<space><C-R>"<CR>
-let g:hound_base_url = "hound.etsycorp.com"
-let g:hound_repos = "etsyweb, bigdata"
-let g:hound_repo_paths = {
-            \"etsyweb": "~/development/Etsyweb",
-            \"bigdata": "~/development/BigData", }
+" nnoremap <leader>a :HoundQF<space>
+" vnoremap <leader>a y:HoundQF<space><C-R>"<CR>
+" let g:hound_base_url = "hound.jfo.click"
+" let g:hound_repos = "repo1, rep2"
+" let g:hound_repo_paths = {
+"             \"repo1": "~/repo1/path",
+"             \"repo2": "~/repo2/path", }
 
 " vim-runners!
 nnoremap <LEADER>g :Run<CR>
@@ -107,19 +107,12 @@ let &t_EI .= "\e[1 q"
 let &t_SI .= "\e[5 q"
 
 " make 'gf' more aware
-set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set path =
-            \~/development/Etsyweb/,
-            \~/development/Etsyweb/phplib/EtsyModel,
-            \~/development/Etsyweb/phplib,
-            \~/development/Etsyweb/templates,
-            \~/development/Etsyweb/htdocs,
-            \~/development/Etsyweb/phplib/Api,
-            \~/development/Etsyweb/phplib/Api/Resource,
-            \~/development/Etsyweb/htdocs/assets/js,
-            \~/development/Etsyweb/htdocs/assets/css,
-            \~/development/Etsyweb/htdocs_arizona/phplib
-set suffixesadd=.tpl,.php,.js,.scss
+" set includeexpr=substitute(v:fname,'_','/','g').'.php'
+" set path =
+            " \~/path1
+            " \~/path2
+
+" set suffixesadd=.tpl,.php,.js,.scss
 
 function! LineNumberToggle()
     if &number
@@ -163,6 +156,4 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': './install --bin' }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
-    " should be separate
-    Plug 'https://github.etsycorp.com/tschneiter/vim-github.git'
 call plug#end()
