@@ -1,11 +1,6 @@
 # git
 alias gl='git log --oneline'
 
-# iterm2
-alias d="echo -e '\033]50;SetProfile=Dark\a'"
-alias l="echo -e '\033]50;SetProfile=Light\a'"
-alias j="echo -e '\033]50;SetProfile=Jung\a'"
-
 # tmux
 alias tm="tmux"
 alias tl="tmux list-sessions"
@@ -22,7 +17,3 @@ alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
 alias c='clear'
 alias sand='cd ~/sandbox'
 alias udate='date +%s'
-
-alias ew="cd ~/development/Etsyweb"
-alias apic="~/development/Etsyweb/bin/api/compile"
-
