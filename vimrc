@@ -86,6 +86,7 @@ autocmd FileType arduino set commentstring=//\ %s
 """ Some lang specific things
 autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
 autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
+    autocmd FileType sild set syntax=scheme
 autocmd BufRead,BufNewFile *.ino setlocal filetype=arduino
 autocmd BufRead,BufNewFile *.scala setlocal filetype=scala
 
@@ -157,3 +158,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+" Stupid uninvited key mapping
+let g:ftplugin_sql_omni_key = 'stfu'
