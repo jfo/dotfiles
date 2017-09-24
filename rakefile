@@ -19,4 +19,5 @@ task :unlink do
   system "unlink ~/.aliases"
   system "unlink ~/.bashrc"
   system "unlink ~/.bash_profile"
+  system "rm -rf ~/.config/nvim/"
 end

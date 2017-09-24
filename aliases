@@ -5,16 +5,18 @@ alias gl='git log --oneline'
 alias tm="tmux"
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
-alias td="tmux detach"
 
 # vim
 alias vimo="vim -S ~/.vim/sessions/last.vim"
-alias vi='vim'
+
+alias rnvim='reattach-to-user-namespace nvim'
+alias rnvimo="rnv -S ~/.vim/sessions/last.vim"
+
+alias pbcopy='reattach-to-user-namespace pbcopy'
+alias pbpaste='reattach-to-user-namespace pbpaste'
 
 # other
 alias aliases='less ~/.aliases'
 alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
-alias c='clear'
-alias sand='cd ~/sandbox'
 alias udate='date +%s'
