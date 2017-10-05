@@ -52,6 +52,10 @@ endif
 
 
 """ Plugin Specific Commands
+" Ack!
+nnoremap <leader>a :Ack<space>
+vnoremap <leader>a y:Ack<space><C-R>"<CR>
+"
 " Hound
 " nnoremap <leader>a :HoundQF<space>
 " vnoremap <leader>a y:HoundQF<space><C-R>"<CR>
@@ -145,14 +149,16 @@ autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 call plug#begin('~/.vim/plugged')
+    Plug 'jfo/vim-runners'
+    " Plug 'jfo/hound.vim'
+    "
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'scrooloose/nerdtree'
     Plug 'altercation/vim-colors-solarized'
     Plug 'mattn/webapi-vim'
-    Plug 'jfo/vim-runners'
-    Plug 'jfo/hound.vim'
+    Plug 'mileszs/ack.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'do': './install --bin' }
     Plug 'christoomey/vim-tmux-navigator'
