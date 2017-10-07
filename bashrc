@@ -1,6 +1,7 @@
 source ~/.aliases
 
 export PATH="$PATH:$HOME/dogfood/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 #rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

@@ -52,6 +52,9 @@ endif
 
 
 """ Plugin Specific Commands
+" Tern
+" autocmd FileType javascript.jsx nnoremap <C-]> :TernDef<CR>
+
 " Ack!
 nnoremap <leader>a :Ack<space>
 vnoremap <leader>a y:Ack<space><C-R>"<CR>
@@ -163,6 +166,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': './install --bin' }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
+    " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+    " wtf bug: when using with nvim AND tmux, breaks window nav?
 call plug#end()
 
 " Stupid uninvited key mapping
