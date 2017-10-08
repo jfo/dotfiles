@@ -156,6 +156,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'jfo/hound.vim'
     "
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'scrooloose/nerdtree'
