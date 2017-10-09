@@ -71,6 +71,10 @@ vnoremap <leader>a y:Ack<space><C-R>"<CR>
 " vim-runners!
 nnoremap <LEADER>g :Run<CR>
 
+" rhubarb
+map <LEADER>x :Gbrowse!<CR>
+map <LEADER>X :Gbrowse<CR>
+
 " Nerdtree
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
