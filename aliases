@@ -7,10 +7,8 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach"
 
 # vim
+alias vim='reattach-to-user-namespace nvim'
 alias vimo="vim -S ~/.vim/sessions/last.vim"
-
-alias rnvim='reattach-to-user-namespace nvim'
-alias rnvimo="rnv -S ~/.vim/sessions/last.vim"
 
 alias pbcopy='reattach-to-user-namespace pbcopy'
 alias pbpaste='reattach-to-user-namespace pbpaste'

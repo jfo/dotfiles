@@ -171,6 +171,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': './install --bin' }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
+    Plug 'andrewrk/zig.vim'
+
     " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
     " wtf bug: when using with nvim AND tmux, breaks window nav?
 call plug#end()
