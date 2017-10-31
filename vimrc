@@ -56,8 +56,8 @@ endif
 " autocmd FileType javascript.jsx nnoremap <C-]> :TernDef<CR>
 
 " Ack!
-nnoremap <leader>a :Ack<space>
-vnoremap <leader>a y:Ack<space><C-R>"<CR>
+nnoremap <leader>a :Ack!<space>
+vnoremap <leader>a y:Ack!<space><C-R>"<CR>
 "
 " Hound
 " nnoremap <leader>a :HoundQF<space>
