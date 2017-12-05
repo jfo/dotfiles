@@ -54,6 +54,7 @@ endif
 """ Plugin Specific Commands
 " Tern
 " autocmd FileType javascript.jsx nnoremap <C-]> :TernDef<CR>
+" nnoremap <leader>t :TernType<CR>
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
@@ -179,3 +180,12 @@ call plug#end()
 
 " Stupid uninvited key mapping
 let g:ftplugin_sql_omni_key = 'stfu'
+
+" make 'gf' more aware
+" set includeexpr=substitute(v:fname,'_','/','g').'.php'
+set path =
+            \node_modules/,
+            \./,
+
+set suffixesadd=.js,"/index.js"
+" set includeexpr=substitute(v:fname,'_','/','g').'.php'
