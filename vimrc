@@ -189,3 +189,6 @@ set path =
 
 set suffixesadd=.js,"/index.js"
 " set includeexpr=substitute(v:fname,'_','/','g').'.php'
+"
+nnoremap <F5> :set background=light<CR>
+nnoremap <F6> :set background=dark<CR>
