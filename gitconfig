@@ -1,0 +1,6 @@
+[user]
+    name = Jeff Fowler
+    email = jeffowler@gmail.com
+
+[includeIf "gitdir:~/development/*"]
+    path = ~/.gitconfig-work

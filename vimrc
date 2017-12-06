@@ -1,6 +1,7 @@
 set nocompatible
 syntax enable
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 let mapleader = '\'
 
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -19,8 +20,8 @@ set listchars=tab:▸\ ,trail:▫
 set nonumber                                                 " don't show line numbers by default
 set ruler                                                    " show where you are
 set scrolloff=5                                              " show context above/below cursorline
-set shiftwidth=4                                             " normal mode indentation commands use 4 spaces
-set softtabstop=4                                            " insert mode tab and backspace use 4 spaces
+set shiftwidth=2                                             " normal mode indentation commands use 4 spaces
+set softtabstop=2                                            " insert mode tab and backspace use 4 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
 set showcmd
 set wildmenu                                                 " show a navigable menu for tab completion
@@ -174,6 +175,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'andrewrk/zig.vim'
 
+    " Plug 'Valloric/YouCompleteMe',
+    Plug 'Shougo/deoplete.nvim',
     " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
     " wtf bug: when using with nvim AND tmux, breaks window nav?
 call plug#end()

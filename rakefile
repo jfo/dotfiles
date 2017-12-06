@@ -11,6 +11,9 @@ task :link do
 
   system "mkdir -p ~/.config/nvim/"
   system "ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim"
+
+  system "ln -s ~/dotfiles/gitconfig-work ~/.gitconfig-work"
+  system "ln -s ~/dotfiles/gitconfig ~/.gitconfig"
 end
 
 task :unlink do
