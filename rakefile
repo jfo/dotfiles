@@ -1,27 +1,18 @@
 desc "Linkup symlinks to dotfiles"
 task :link do
-  system "ln -s ~/dotfiles/vimrc ~/.vimrc"
-  system "ln -s ~/dotfiles/tmux.conf ~/.tmux.conf"
-  system "ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles"
-  system "ln -s ~/dotfiles/aliases ~/.aliases"
-  system "ln -s ~/dotfiles/bashrc ~/.bashrc"
-  system "ln -s ~/dotfiles/bash_profile ~/.bash_profile"
-  system "ln -s ~/dotfiles/bash_secrets ~/.bash_secrets"
+  system "ln -sf ~/dotfiles/src/vimrc ~/.vimrc"
+  system "ln -sf ~/dotfiles/src/tmux.conf ~/.tmux.conf"
+  system "ln -sf ~/dotfiles/src/vimrc.bundles ~/.vimrc.bundles"
+  system "ln -sf ~/dotfiles/src/aliases ~/.aliases"
+  system "ln -sf ~/dotfiles/src/bashrc ~/.bashrc"
+  system "ln -sf ~/dotfiles/src/bash_profile ~/.bash_profile"
+  system "ln -sf ~/dotfiles/src/bash_secrets ~/.bash_secrets"
 
 
   system "mkdir -p ~/.config/nvim/"
-  system "ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim"
+  system "ln -sf ~/dotfiles/src/init.vim ~/.config/nvim/init.vim"
 
-  system "ln -s ~/dotfiles/gitconfig-work ~/.gitconfig-work"
-  system "ln -s ~/dotfiles/gitconfig ~/.gitconfig"
+  system "ln -sf ~/dotfiles/src/gitconfig-work ~/.gitconfig-work"
+  system "ln -sf ~/dotfiles/src/gitconfig ~/.gitconfig"
 end
 
-task :unlink do
-  system "unlink ~/.vimrc"
-  system "unlink ~/.tmux.conf"
-  system "unlink ~/.vimrc.bundles"
-  system "unlink ~/.aliases"
-  system "unlink ~/.bashrc"
-  system "unlink ~/.bash_profile"
-  system "rm -rf ~/.config/nvim/"
-end
