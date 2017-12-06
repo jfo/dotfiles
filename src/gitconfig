@@ -2,5 +2,8 @@
     name = Jeff Fowler
     email = jeffowler@gmail.com
 
+[core]
+    excludesfile = ~/.gitignore
+
 [includeIf "gitdir:~/development/*"]
     path = ~/.gitconfig-work
