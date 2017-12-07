@@ -199,7 +199,7 @@ nnoremap <F6> :set background=dark<CR>
 
 function ToggleTodo()
   if expand('%:t') == 'todo'
-    :bd
+    :wq
   else
     :tab drop todo
   endif
