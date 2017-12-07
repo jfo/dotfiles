@@ -195,3 +195,13 @@ set suffixesadd=.js,"/index.js"
 "
 nnoremap <F5> :set background=light<CR>
 nnoremap <F6> :set background=dark<CR>
+
+
+function ToggleTodo()
+  if expand('%:t') == 'todo'
+    :bd
+  else
+    :tab drop todo
+  endif
+endfunction
+nnoremap <LEADER>t :call ToggleTodo()<CR>
