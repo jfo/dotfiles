@@ -15,5 +15,6 @@ task :link do
   system "ln -sf ~/dotfiles/src/gitconfig-work ~/.gitconfig-work"
   system "ln -sf ~/dotfiles/src/gitconfig ~/.gitconfig"
   system "ln -sf ~/dotfiles/src/gitignore ~/.gitignore"
+  system "ln -sf ~/dotfiles/src/gitignore ~/.ignore"
 end
 

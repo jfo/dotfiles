@@ -7,3 +7,7 @@
 
 [includeIf "gitdir:~/development/*"]
     path = ~/.gitconfig-work
+
+[alias]
+    co = checkout
+    rpull = pull --rebase
