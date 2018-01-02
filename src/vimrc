@@ -95,7 +95,6 @@ autocmd FileType scheme set commentstring=;\ %s
 autocmd FileType scala set commentstring=//\ %s
 autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
-autocmd FileType json set commentstring=//\ %s
 
 """ Some lang specific things
 autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
