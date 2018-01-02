@@ -95,6 +95,7 @@ autocmd FileType scheme set commentstring=;\ %s
 autocmd FileType scala set commentstring=//\ %s
 autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
+autocmd FileType json set commentstring=//\ %s
 
 """ Some lang specific things
 autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
@@ -119,14 +120,6 @@ nmap <leader><space> :call StripTrailing()<CR>
 
 let &t_EI .= "\e[1 q"
 let &t_SI .= "\e[5 q"
-
-" make 'gf' more aware
-" set includeexpr=substitute(v:fname,'_','/','g').'.php'
-" set path =
-            " \~/path1
-            " \~/path2
-
-" set suffixesadd=.tpl,.php,.js,.scss
 
 function! LineNumberToggle()
     if &number
@@ -153,14 +146,10 @@ imap <C-l> <C-k>*l
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
-
 " plugins; for new install don't forget to install plug.vim first:
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 call plug#begin('~/.vim/plugged')
     Plug 'jfo/vim-runners'
-    " Plug 'jfo/hound.vim'
-    "
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
@@ -174,29 +163,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'sheerun/vim-polyglot'
     Plug 'andrewrk/zig.vim'
-    Plug 'vim-syntastic/syntastic'
-
-    " Plug 'Valloric/YouCompleteMe',
-    Plug 'Shougo/deoplete.nvim',
-    " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-    " wtf bug: when using with nvim AND tmux, breaks window nav?
+    Plug 'moll/vim-node'
 call plug#end()
 
 " Stupid uninvited key mapping
 let g:ftplugin_sql_omni_key = 'stfu'
 
-" make 'gf' more aware
-" set includeexpr=substitute(v:fname,'_','/','g').'.php'
-set path =
-            \node_modules/,
-            \./,
-
-set suffixesadd=.js,"/index.js"
-" set includeexpr=substitute(v:fname,'_','/','g').'.php'
-"
 nnoremap <F5> :set background=light<CR>
 nnoremap <F6> :set background=dark<CR>
-
 
 function! ToggleTodo()
   if expand('%:t') == 'todo'
@@ -206,11 +180,3 @@ function! ToggleTodo()
   endif
 endfunction
 nnoremap <LEADER>t :call ToggleTodo()<CR>
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npm run lint % --'
