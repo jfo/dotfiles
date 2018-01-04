@@ -179,6 +179,10 @@ autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
 
 " neomake
+let g:neomake_logfile='/tmp/error.log'
+
+" TODO: make neomake run local eslint if it exists, pls
+" TODO: what are regular linters?
 let g:neomake_javascript_enabled_makers = ['eslint']
 nnoremap <LEADER>m :Neomake<CR>
 autocmd! BufWritePost * Neomake
