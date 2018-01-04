@@ -1,3 +1,5 @@
+" VIMRC
+" ------------------------------------------------------------------------------
 set nocompatible
 syntax enable
 filetype plugin indent on
@@ -20,8 +22,8 @@ set listchars=tab:▸\ ,trail:▫
 set nonumber                                                 " don't show line numbers by default
 set ruler                                                    " show where you are
 set scrolloff=5                                              " show context above/below cursorline
-set shiftwidth=2                                             " normal mode indentation commands use 4 spaces
-set softtabstop=2                                            " insert mode tab and backspace use 4 spaces
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
 set showcmd
 set wildmenu                                                 " show a navigable menu for tab completion
@@ -33,8 +35,6 @@ set hlsearch
 set foldmethod=indent
 set foldnestmax=2
 set foldlevelstart=20
-set splitbelow
-set splitright
 
 autocmd VimResized * :wincmd =
 
@@ -44,6 +44,16 @@ nmap <leader>hl :let @/ = ""<CR>
 
 " leader w forever
 nnoremap <LEADER>w :w<CR>
+" open/close quickfix easily
+nnoremap <LEADER>o :copen<cr>
+nnoremap <LEADER>c :cclose<cr>
+nnoremap <LEADER>lo :lopen<cr>
+nnoremap <LEADER>lc :lclose<cr>
+" hey look λ lol
+imap <C-l> <C-k>*l
+" TODO: write these scripts again
+" nnoremap <silent> go :!Git next<CR>
+" nnoremap <silent> gi :!Git prev<CR>
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -51,11 +61,83 @@ if exists('$TMUX') && !has('nvim')
     set ttymouse=xterm2
 endif
 
+""" Some lang specific things
+autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
+autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
+    autocmd FileType sild set syntax=scheme
+autocmd BufRead,BufNewFile *.ino setlocal filetype=arduino
+autocmd BufRead,BufNewFile *.scala setlocal filetype=scala
+
+autocmd FileType scheme setlocal shiftwidth=2
+autocmd FileType scheme setlocal tabstop=2
+autocmd FileType scheme setlocal softtabstop=2
+
+let &t_EI .= "\e[1 q"
+let &t_SI .= "\e[5 q"
+
+colorscheme solarized
+set background=dark
+
+" TODO: make this a toggle function
+nnoremap <F5> :set background=light<CR>
+nnoremap <F6> :set background=dark<CR>
+
+" MISC FUNCTIONS AND MAPPINGS
+" ------------------------------------------------------------------------------
+function! StripTrailing()
+    let previous_search=@/
+    let previous_cursor_line=line('.')
+    let previous_cursor_column=col('.')
+    %s/\s\+$//e
+    let @/=previous_search
+    call cursor(previous_cursor_line, previous_cursor_column)
+endfunction
+nmap <leader><space> :call StripTrailing()<CR>
+
+function! LineNumberToggle()
+    if &number
+        set nonumber
+    else
+        set number
+    endif
+endfunc
+nnoremap gn :call LineNumberToggle()<CR>
+
+function! ToggleTodo()
+  if expand('%:t') == 'todo'
+    :w|bd
+  else
+    :tab drop todo
+  endif
+endfunction
+nnoremap <LEADER>t :call ToggleTodo()<CR>
+
+" PLUGINS
+" ------------------------------------------------------------------------------
+" for new install don't forget to install plug.vim first:
+" `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+call plug#begin('~/.vim/plugged')
+    Plug 'jfo/vim-runners'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'scrooloose/nerdtree'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'mattn/webapi-vim'
+    Plug 'mileszs/ack.vim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'do': './install --bin' }
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'andrewrk/zig.vim'
+    Plug 'moll/vim-node'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'neomake/neomake'
+call plug#end()
 
 """ Plugin Specific Commands
-" Tern
-" autocmd FileType javascript.jsx nnoremap <C-]> :TernDef<CR>
-" nnoremap <leader>t :TernType<CR>
+let g:ftplugin_sql_omni_key = 'stfu'
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
@@ -96,86 +178,10 @@ autocmd FileType scala set commentstring=//\ %s
 autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
 
-""" Some lang specific things
-autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
-autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
-    autocmd FileType sild set syntax=scheme
-autocmd BufRead,BufNewFile *.ino setlocal filetype=arduino
-autocmd BufRead,BufNewFile *.scala setlocal filetype=scala
-
-autocmd FileType scheme setlocal shiftwidth=2
-autocmd FileType scheme setlocal tabstop=2
-autocmd FileType scheme setlocal softtabstop=2
-
-function! StripTrailing()
-    let previous_search=@/
-    let previous_cursor_line=line('.')
-    let previous_cursor_column=col('.')
-    %s/\s\+$//e
-    let @/=previous_search
-    call cursor(previous_cursor_line, previous_cursor_column)
-endfunction
-nmap <leader><space> :call StripTrailing()<CR>
-
-let &t_EI .= "\e[1 q"
-let &t_SI .= "\e[5 q"
-
-function! LineNumberToggle()
-    if &number
-        set nonumber
-    else
-        set number
-    endif
-endfunc
-nnoremap gn :call LineNumberToggle()<CR>
-
-colorscheme solarized
-set background=dark
-
-" open/close quickfix easily
-nnoremap <LEADER>c :cclose<cr>
-nnoremap <LEADER>o :copen<cr>
-
-" hey look λ lol
-imap <C-l> <C-k>*l
-
-" nnoremap <silent> go :!Git next<CR>
-" nnoremap <silent> gi :!Git prev<CR>
+" neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+nnoremap <LEADER>m :Neomake<CR>
+autocmd! BufWritePost * Neomake
 
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
-
-" plugins; for new install don't forget to install plug.vim first:
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-call plug#begin('~/.vim/plugged')
-    Plug 'jfo/vim-runners'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
-    Plug 'scrooloose/nerdtree'
-    Plug 'altercation/vim-colors-solarized'
-    Plug 'mattn/webapi-vim'
-    Plug 'mileszs/ack.vim'
-    Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf', { 'do': './install --bin' }
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'andrewrk/zig.vim'
-    Plug 'moll/vim-node'
-call plug#end()
-
-" Stupid uninvited key mapping
-let g:ftplugin_sql_omni_key = 'stfu'
-
-nnoremap <F5> :set background=light<CR>
-nnoremap <F6> :set background=dark<CR>
-
-function! ToggleTodo()
-  if expand('%:t') == 'todo'
-    :w|bd
-  else
-    :tab drop todo
-  endif
-endfunction
-nnoremap <LEADER>t :call ToggleTodo()<CR>
