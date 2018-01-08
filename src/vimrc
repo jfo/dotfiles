@@ -117,23 +117,24 @@ nnoremap <LEADER>t :call ToggleTodo()<CR>
 " for new install don't forget to install plug.vim first:
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'andrewrk/zig.vim'
+    Plug 'christoomey/vim-tmux-navigator'
     Plug 'jfo/vim-runners'
+    Plug 'junegunn/fzf', { 'do': './install --bin' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'mattn/webapi-vim'
+    Plug 'mileszs/ack.vim'
+    Plug 'moll/vim-node'
+    Plug 'neomake/neomake'
+    Plug 'scrooloose/nerdtree'
+    Plug 'sheerun/vim-polyglot'
+    " Plug 'ternjs/tern_for_vim'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
-    Plug 'scrooloose/nerdtree'
-    Plug 'altercation/vim-colors-solarized'
-    Plug 'mattn/webapi-vim'
-    Plug 'mileszs/ack.vim'
-    Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf', { 'do': './install --bin' }
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'andrewrk/zig.vim'
-    Plug 'moll/vim-node'
-    Plug 'vim-syntastic/syntastic'
-    Plug 'neomake/neomake'
+    " Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 """ Plugin Specific Commands
@@ -184,7 +185,7 @@ let g:neomake_logfile='/tmp/neomake_error.log'
 " TODO: make neomake run local eslint if it exists, pls
 let g:neomake_javascript_enabled_makers = ['eslint']
 nnoremap <LEADER>m :Neomake<CR>
-autocmd BufWritePost *.js,*.rb Neomake
+autocmd BufWritePost *.js Neomake
 
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
