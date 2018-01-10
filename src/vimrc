@@ -36,6 +36,14 @@ set foldmethod=indent
 set foldnestmax=5
 set foldlevelstart=99
 
+set foldtext=MyFoldText()
+function! MyFoldText()
+    let foldval = foldlevel(v:foldstart)
+    let foldindent = foldval * 2 - 2
+    return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
+endfunction
+:hi! Folded none ctermfg=24
+
 autocmd VimResized * :wincmd =
 
 highlight LineNr ctermfg=blue
@@ -190,8 +198,3 @@ autocmd BufWritePost *.js Neomake
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
-set foldtext=MyFoldText()
-function! MyFoldText()
-    return repeat("―",winwidth(0))
-endfunction
-:hi! Folded none ctermfg=24
