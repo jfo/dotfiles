@@ -33,17 +33,9 @@ set smartindent
 set autoindent
 set hlsearch
 set foldmethod=indent
-set foldnestmax=5
+set foldnestmax=10
 set foldlevelstart=99
-
 set foldtext=MyFoldText()
-function! MyFoldText()
-    let foldval = foldlevel(v:foldstart)
-    let foldindent = foldval * 2 - 2
-    return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
-endfunction
-:hi! Folded none ctermfg=24
-
 autocmd VimResized * :wincmd =
 
 highlight LineNr ctermfg=blue
@@ -194,6 +186,13 @@ let g:neomake_logfile='/tmp/neomake_error.log'
 let g:neomake_javascript_enabled_makers = ['eslint']
 nnoremap <LEADER>m :Neomake<CR>
 autocmd BufWritePost *.js Neomake
+
+function! MyFoldText()
+    let foldval = foldlevel(v:foldstart)
+    let foldindent = foldval * 2 - 2
+    return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
+endfunction
+:hi! Folded none ctermfg=24
 
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
