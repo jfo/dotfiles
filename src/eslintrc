@@ -15,7 +15,6 @@
     "no-extra-semi": "error",
     "no-restricted-globals": ["error", "context"],
     "no-unused-expressions": "off",
-    "no-console": "error"
   },
   "env": {
     "amd": true,

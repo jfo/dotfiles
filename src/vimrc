@@ -190,7 +190,8 @@ autocmd BufWritePost *.js Neomake
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
     let foldindent = foldval * 2 - 2
-    return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
+    " return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
+    return repeat(" ", foldindent) . "|" . repeat("―", winwidth(0))
 endfunction
 :hi! Folded none ctermfg=24
 
