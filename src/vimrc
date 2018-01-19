@@ -198,3 +198,5 @@ endfunction
 " see you next time!
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
+nmap <leader>n :put=strftime('%H:%M')<CR>A: 
+nmap <leader>N :put=strftime('%b %d, %Y')<CR>o------------<ESC>o<ESC>
