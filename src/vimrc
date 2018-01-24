@@ -67,6 +67,8 @@ autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
     autocmd FileType sild set syntax=scheme
 autocmd BufRead,BufNewFile *.ino setlocal filetype=arduino
 autocmd BufRead,BufNewFile *.scala setlocal filetype=scala
+autocmd BufRead,BufNewFile *.sublime-syntax setlocal filetype=yaml
+autocmd BufRead,BufNewFile *.YAML* setlocal filetype=yaml
 
 autocmd FileType scheme setlocal shiftwidth=2
 autocmd FileType scheme setlocal tabstop=2
