@@ -11,3 +11,4 @@
 [alias]
     co = checkout
     rpull = pull --rebase
+    touched = diff-tree --no-commit-id --name-only -r
