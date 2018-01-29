@@ -1,3 +1,5 @@
+# NPM_TOKEN
+# CIRCLECI_TOKEN
 source ~/.bash_secrets
 
 export CLICOLOR=1
