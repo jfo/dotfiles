@@ -11,5 +11,5 @@
 [alias]
     co = checkout
     rpull = pull --rebase
-    ; touched = diff-tree --no-commit-id --name-only -r 
+    ; touched = diff-tree --no-commit-id --name-only -r
     touched = "!f() { git diff --name-only $(git merge-base HEAD master); }; f"
