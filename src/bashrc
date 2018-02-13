@@ -3,6 +3,7 @@
 source ~/.bash_secrets
 
 export CLICOLOR=1
+export PROMPT_COMMAND='history -a'
 
 # git
 alias gl='git log --oneline'
