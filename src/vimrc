@@ -121,7 +121,6 @@ nnoremap <LEADER>t :call ToggleTodo()<CR>
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
-    Plug 'zig-lang/zig.vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'jfo/vim-runners'
     Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -130,33 +129,29 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
     Plug 'neomake/neomake'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
-    " Plug 'ternjs/tern_for_vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
-    " Plug 'vim-syntastic/syntastic'
+    Plug 'zig-lang/zig.vim'
 call plug#end()
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = 'stfu'
 
+" prettier
+let g:prettier#exec_cmd_async = 1
+nunmap <leader>p
+nmap gp <Plug>(Prettier)
+
 " Ack!
 nnoremap <leader>a :Ack!<space>
 vnoremap <leader>a y:Ack!<space><C-R>"<CR>
-"
-" Hound
-" nnoremap <leader>a :HoundQF<space>
-" vnoremap <leader>a y:HoundQF<space><C-R>"<CR>
-" let g:hound_base_url = "hound.jfo.click"
-" let g:hound_repos = "repo1, rep2"
-" let g:hound_repo_paths = {
-"             \"repo1": "~/repo1/path",
-"             \"repo2": "~/repo2/path", }
 
-" vim-runners!
+" vim-runners
 nnoremap <LEADER>g :Run<CR>
 
 " rhubarb
@@ -193,7 +188,6 @@ autocmd BufWritePost *.js Neomake
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
     let foldindent = foldval * 2 - 2
-    " return repeat(" ", foldindent) . "|" . repeat("―", 79 - foldindent) .  repeat(" ", winwidth(0))
     return repeat(" ", foldindent) . "|" . repeat("―", winwidth(0))
 endfunction
 :hi! Folded none ctermfg=24
