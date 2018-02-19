@@ -144,7 +144,6 @@ let g:ftplugin_sql_omni_key = 'stfu'
 
 " prettier
 let g:prettier#exec_cmd_async = 1
-nunmap <leader>p
 nmap gp <Plug>(Prettier)
 
 " Ack!
