@@ -1,3 +1,9 @@
+# Dotfiles for days
+
+TODO: write about dotfiles
+
+## a little bit about mac setup:
+
 reset the caps lock key to control.
 remove everything from dock and autohide it
 autohide the menu bar
