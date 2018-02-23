@@ -8,6 +8,7 @@ task :link do
   system "ln -sf ~/dotfiles/src/bash_profile ~/.bash_profile"
   system "ln -sf ~/dotfiles/src/bash_secrets ~/.bash_secrets"
   system "ln -sf ~/dotfiles/src/eslintrc ~/.eslintrc"
+  system "ln -sf ~/dotfiles/src/ctags ~/.ctags"
 
   system "mkdir -p ~/.config/nvim/"
   system "ln -sf ~/dotfiles/src/init.vim ~/.config/nvim/init.vim"
