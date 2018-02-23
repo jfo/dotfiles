@@ -44,11 +44,13 @@ nmap <leader>hl :let @/ = ""<CR>
 
 " leader w forever
 nnoremap <LEADER>w :w<CR>
-" open/close quickfix easily
+" open/close quickfix list easily
 nnoremap <LEADER>o :copen<cr>
 nnoremap <LEADER>c :cclose<cr>
+" open/close location list easily
 nnoremap <LEADER>lo :lopen<cr>
 nnoremap <LEADER>lc :lclose<cr>
+
 " hey look λ lol
 imap <C-l> <C-k>*l
 " TODO: write these scripts again
@@ -75,6 +77,7 @@ autocmd FileType scheme setlocal shiftwidth=2
 autocmd FileType scheme setlocal tabstop=2
 autocmd FileType scheme setlocal softtabstop=2
 
+" cursor styles
 let &t_EI .= "\e[1 q"
 let &t_SI .= "\e[5 q"
 
@@ -179,9 +182,7 @@ autocmd FileType arduino set commentstring=//\ %s
 " neomake
 let g:neomake_logfile='/tmp/neomake_error.log'
 
-" TODO: make neomake run local eslint if it exists, pls
 let g:neomake_javascript_enabled_makers = ['eslint']
-nnoremap <LEADER>m :Neomake<CR>
 autocmd BufWritePost *.js Neomake
 
 function! MyFoldText()
@@ -191,8 +192,7 @@ function! MyFoldText()
 endfunction
 :hi! Folded none ctermfg=24
 
-" see you next time!
+" ================== "
+" see you next time! "
+" ================== "
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
-
-nmap <leader>n :put=strftime('%H:%M')<CR>A: 
-nmap <leader>N :put=strftime('%b %d, %Y')<CR>o------------<ESC>o<ESC>
