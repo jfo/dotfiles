@@ -18,7 +18,7 @@ set smartcase                                                " case-sensitive se
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
 set list                                                     " show trailing whitespace
-set listchars=tab:▸\ ,trail:▫
+set listchars=tab:\|\ ,trail:▫
 set nonumber                                                 " don't show line numbers by default
 set ruler                                                    " show where you are
 set scrolloff=5                                              " show context above/below cursorline
@@ -42,6 +42,8 @@ highlight LineNr ctermfg=blue
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nmap <leader>hl :let @/ = ""<CR>
 
+" shift tab is real tab
+inoremap <S-Tab> <C-V><Tab>
 " leader w forever
 nnoremap <LEADER>w :w<CR>
 " open/close quickfix list easily
