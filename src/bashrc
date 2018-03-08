@@ -24,7 +24,8 @@ alias vimo="vim -S ~/.vim/sessions/last.vim"
 alias pbcopy='reattach-to-user-namespace pbcopy'
 alias pbpaste='reattach-to-user-namespace pbpaste'
 alias serve='python -m SimpleHTTPServer 4321'
-alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw'
+alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*.sw* && rm ~/.local/share/nvim/swap/*.sw*'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias udate='date +%s'
 
 # ------------------- #
