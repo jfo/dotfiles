@@ -1,9 +1,6 @@
-" VIMRC
-" ------------------------------------------------------------------------------
 set nocompatible
 syntax enable
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 let mapleader = '\'
 
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -142,14 +139,41 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
+
+    " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
+
+" Automatically start language servers.
+" let g:LanguageClient_autoStart = 1
+
+" if executable('javascript-typescript-stdio')
+"   let g:LanguageClient_serverCommands = {
+"       \ 'javascript': ['javascript-typescript-stdio'],
+"       \ 'javascript.jsx': ['javascript-typescript-stdio'],
+"       \ }
+"   autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+" else
+"   echo "javascript-typescript-stdio not installed!\n"
+"   :cq
+" endif
+
+" " <leader>ld to go to definition
+" autocmd FileType javascript nnoremap <buffer>
+"   \ <leader>ld :call LanguageClient_textDocument_definition()<cr>
+" " <leader>lh for type info under cursor
+" autocmd FileType javascript nnoremap <buffer>
+"   \ <leader>lh :call LanguageClient_textDocument_hover()<cr>
+" " <leader>lr to rename variable under cursor
+" autocmd FileType javascript nnoremap <buffer>
+"   \ <leader>lr :call LanguageClient_textDocument_rename()<cr>
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = 'stfu'
 
 " prettier
 let g:prettier#exec_cmd_async = 1
-nmap gp <Plug>(Prettier)
+autocmd FileType javascript nnoremap gp <Plug>(Prettier)
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
