@@ -35,11 +35,11 @@ export PATH="$PATH:$HOME/code/zig/build/bin"
 export PATH="$PATH:$HOME/code/zig/build-llvm6/bin"
 # export PATH="$PATH:$HOME/dogfood/bin"
 # export PATH="$PATH:$HOME/go/bin"
-# export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH=/usr/local/php5/bin:$PATH
 export PATH=$HOME/development/devtools/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="node_modules/.bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # ------ #
 # prompt #
