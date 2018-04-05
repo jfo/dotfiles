@@ -170,6 +170,7 @@ call plug#end()
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = 'stfu'
+let g:NERDTreeWinSize = 50
 
 " prettier
 let g:prettier#exec_cmd_async = 1
