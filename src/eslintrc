@@ -19,7 +19,6 @@
   },
   "env": {
     "amd": true,
-    "mocha": true
   },
   "globals": {
     "expect": true

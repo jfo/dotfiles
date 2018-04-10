@@ -174,7 +174,7 @@ let g:NERDTreeWinSize = 50
 
 " prettier
 let g:prettier#exec_cmd_async = 1
-autocmd FileType javascript nnoremap gp <Plug>(Prettier)
+nmap gp <Plug>(Prettier)
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
