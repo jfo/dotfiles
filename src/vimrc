@@ -14,8 +14,6 @@ set expandtab                                                " expand tabs to sp
 set foldlevelstart=99
 set foldmethod=indent
 set foldnestmax=10
-set foldtext=MyFoldText()
-set foldopen-=search
 set hlsearch
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
