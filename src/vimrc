@@ -127,7 +127,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'jfo/vim-runners'
-    Plug 'junegunn/fzf', { 'do': './install --bin' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'mattn/webapi-vim'
     Plug 'mileszs/ack.vim'
@@ -195,6 +195,7 @@ nmap <leader>f :NERDTreeFind<CR>
 let g:NERDSpaceDelims=1
 
 " Holy shit FZF
+nmap <C-L> :Lines<CR>
 nmap <C-P> :Files<CR>
 nmap <leader>b :Buffers<CR>
 
@@ -225,3 +226,6 @@ endfunction
 " see you next time! "
 " ================== "
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
+
+" tmp fix for dumb bug
+let g:polyglot_disabled = ['graphql']

@@ -7,39 +7,19 @@ export PROMPT_COMMAND='history -a'
 export EDITOR='vim'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
-# what even the fuck is going on with nvm and why does it slow everything down
-export NODE_PATH="node_modules/.bin"
-export NODE_PATH=$NODE_PATH:/Users/jfo/.nvm/versions/node/v8.9.0/lib/node_modules
-export NVM_DIR="$HOME/.nvm"
-source ~/.bash_secrets
-
+[ -f ~/.bash_secrets ] && source ~/.bash_secrets
 
 # ------- #
 # aliases #
 # ------- #
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
-alias vim='reattach-to-user-namespace nvim'
+alias vim='nvim'
 alias vimo="vim -S ~/.vim/sessions/last.vim"
-alias pbcopy='reattach-to-user-namespace pbcopy'
-alias pbpaste='reattach-to-user-namespace pbpaste'
 alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*.sw* && rm ~/.local/share/nvim/swap/*.sw*'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias udate='date +%s'
-
-# ------------------- #
-# My path it's a mess #
-# ------------------- #
-export PATH="$PATH:$HOME/code/zig/build/bin"
-export PATH="$PATH:$HOME/code/zig/build-llvm6/bin"
-# export PATH="$PATH:$HOME/dogfood/bin"
-# export PATH="$PATH:$HOME/go/bin"
-# export PATH=/usr/local/php5/bin:$PATH
-export PATH=$HOME/development/devtools/bin:$PATH
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="node_modules/.bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # ------ #
 # prompt #
@@ -49,8 +29,23 @@ parse_git_branch() {
 }
 export PS1="\[\033[34m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+# ------------------- #
+# My path it's a mess #
+# ------------------- #
+export PATH="$PATH:$HOME/code/zig/build/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:node_modules/.bin"
+
 # where I allow programs to do arbitrary bullshit
 # -----------------------------------------------
+
+# what even the fuck is going on with nvm and why does it slow everything down
+export NODE_PATH="node_modules/.bin"
+export NODE_PATH=$NODE_PATH:/Users/jfo/.nvm/versions/node/v8.9.0/lib/node_modules
+export NVM_DIR="$HOME/.nvm"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
