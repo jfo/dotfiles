@@ -127,11 +127,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'jfo/vim-runners'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'mattn/webapi-vim'
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
     Plug 'neomake/neomake'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
     Plug 'tpope/vim-commentary'
@@ -139,42 +137,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
-
-    " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
-
-" Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
-
-" if executable('javascript-typescript-stdio')
-"   let g:LanguageClient_serverCommands = {
-"       \ 'javascript': ['javascript-typescript-stdio'],
-"       \ 'javascript.jsx': ['javascript-typescript-stdio'],
-"       \ }
-"   autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
-" else
-"   echo "javascript-typescript-stdio not installed!\n"
-"   :cq
-" endif
-
-" " <leader>ld to go to definition
-" autocmd FileType javascript nnoremap <buffer>
-"   \ <leader>ld :call LanguageClient_textDocument_definition()<cr>
-" " <leader>lh for type info under cursor
-" autocmd FileType javascript nnoremap <buffer>
-"   \ <leader>lh :call LanguageClient_textDocument_hover()<cr>
-" " <leader>lr to rename variable under cursor
-" autocmd FileType javascript nnoremap <buffer>
-"   \ <leader>lr :call LanguageClient_textDocument_rename()<cr>
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
 let g:NERDTreeWinSize = 50
-
-" prettier
-let g:prettier#exec_cmd_async = 1
-nmap gp <Plug>(Prettier)
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
@@ -193,9 +160,9 @@ nmap <leader>f :NERDTreeFind<CR>
 let g:NERDSpaceDelims=1
 
 " Holy shit FZF
-nmap <C-L> :Lines<CR>
 nmap <C-P> :Files<CR>
 nmap <leader>b :Buffers<CR>
+nmap gl :Lines<CR>
 
 " commentary.vim comment strings
 autocmd FileType sild set commentstring=;\ %s
@@ -209,9 +176,10 @@ autocmd FileType arduino set commentstring=//\ %s
 
 " neomake
 let g:neomake_logfile='/tmp/neomake_error.log'
-
 let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost *.js Neomake
+
+autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
 
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
