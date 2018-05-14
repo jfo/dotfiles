@@ -1,5 +1,0 @@
-reset caps lock to control with
-
-setxkbmap -option ctrl:nocaps
-
-rm all the icons in the shortcut menu, move to the bottom of the screen and install 
