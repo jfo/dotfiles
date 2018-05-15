@@ -17,7 +17,7 @@ alias ta="tmux attach"
 alias vim='nvim'
 alias vimo="vim -S ~/.vim/sessions/last.vim"
 alias serve='python -m SimpleHTTPServer 4321'
-alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*.sw* && rm ~/.local/share/nvim/swap/*.sw*'
+alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias udate='date +%s'
 
