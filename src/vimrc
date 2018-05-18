@@ -35,6 +35,9 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 autocmd VimResized * :wincmd =
 
+" do not jump to next match immediately
+nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
+
 highlight LineNr ctermfg=blue
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nmap <leader>hl :let @/ = ""<CR>
@@ -130,6 +133,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
     Plug 'neomake/neomake'
+    Plug 'prettier/vim-prettier'
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
     Plug 'tpope/vim-commentary'
@@ -179,7 +183,8 @@ let g:neomake_logfile='/tmp/neomake_error.log'
 let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost *.js Neomake
 
-autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+autocmd FileType javascript.jsx nmap gp :Prettier<CR>
+autocmd FileType javascript nmap gp :Prettier<CR>
 
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
