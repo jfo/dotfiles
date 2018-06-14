@@ -141,7 +141,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
-    Plug 'ryanoasis/vim-devicons'
+    if $TERM_PROGRAM == 'iterm.app'
+      Plug 'ryanoasis/vim-devicons'
+    endif
 call plug#end()
 
 """ Plugin Specific Commands
