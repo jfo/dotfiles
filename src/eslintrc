@@ -1,0 +1,31 @@
+{
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "script"
+  },
+  "plugins": [
+    "no-async-without-await",
+    "mocha"
+  ],
+  "rules": {
+    "generator-star-spacing": "off",
+    "semi": ["error", "always"],
+    "space-before-function-paren": ["error", {"anonymous": "always", "named": "never"}],
+    "arrow-parens": ["error", "as-needed"],
+    "no-extra-semi": "error",
+    "no-restricted-globals": ["error", "context"],
+    "no-unused-expressions": "off",
+    "no-async-without-await/no-async-without-await": "error",
+    "no-console": "error",
+    "mocha/no-exclusive-tests": "error",
+    "strict": "error"
+  },
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true
+  }
+}
