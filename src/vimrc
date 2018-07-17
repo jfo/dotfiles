@@ -185,6 +185,8 @@ autocmd FileType arduino set commentstring=//\ %s
 " neomake
 let g:neomake_logfile='/tmp/neomake_error.log'
 let g:neomake_javascript_enabled_makers = ['eslint']
+call neomake#configure#automake('w', 1000)
+
 autocmd BufWritePost *.js Neomake
 
 autocmd FileType javascript.jsx nmap gp :Prettier<CR>
