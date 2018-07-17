@@ -133,6 +133,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
     Plug 'neomake/neomake'
+    Plug 'benjie/local-npm-bin.vim'
     Plug 'prettier/vim-prettier'
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
