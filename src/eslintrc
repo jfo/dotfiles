@@ -6,7 +6,6 @@
   },
   "plugins": [
     "no-async-without-await",
-    "mocha"
   ],
   "rules": {
     "generator-star-spacing": "off",
