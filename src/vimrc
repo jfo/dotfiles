@@ -154,6 +154,9 @@ let g:NERDTreeWinSize = 50
 " Ack!
 nnoremap <leader>a :Ack!<space>
 vnoremap <leader>a y:Ack!<space><C-R>"<CR>
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " vim-runners
 nnoremap <LEADER>g :Run<CR>

@@ -34,7 +34,6 @@ export PS1="\[\033[34m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\] $ "
 # ------------------- #
 export PATH="$PATH:$HOME/code/zig/build/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="node_modules/.bin:$PATH"
 export PATH="$PATH:~/code/wabt/bin"
 
 # where I allow programs to do arbitrary bullshit
@@ -49,3 +48,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export PATH="./node_modules/.bin:$PATH"
