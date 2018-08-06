@@ -145,6 +145,7 @@ call plug#begin('~/.vim/plugged')
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif
+    Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 """ Plugin Specific Commands
