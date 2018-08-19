@@ -14,11 +14,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # ------- #
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
-alias vim='nvim'
+alias vim='nvim .'
 alias vimo="vim -S ~/.vim/sessions/last.vim"
 alias serve='python -m SimpleHTTPServer 4321'
 alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*'
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias udate='date +%s'
 
 # ------ #
