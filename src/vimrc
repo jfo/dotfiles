@@ -84,7 +84,7 @@ let &t_EI .= "\e[1 q"
 let &t_SI .= "\e[5 q"
 
 colorscheme solarized
-set background=light
+set background=dark
 
 " TODO: make this a toggle function
 nnoremap <F5> :set background=light<CR>
