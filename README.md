@@ -13,3 +13,5 @@ https://github.com/franglais125/no-title-bar
 https://github.com/deadalnix/pixel-saver
 
 https://github.com/mlutfy/hidetopbar
+
+xset r rate 250 60
