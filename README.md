@@ -6,4 +6,8 @@ better support for contexts, more than just gitconf
 
 needed to link dotfiles,
 
-needed to fix solarized colors
+https://github.com/Anthony25/gnome-terminal-colors-solarized
+
+https://github.com/franglais125/no-title-bar
+
+https://github.com/deadalnix/pixel-saver
