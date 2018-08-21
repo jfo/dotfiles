@@ -16,7 +16,7 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
-    wget vim tmux firefox git zig python ruby php nodejs clang neovim xclip fzf gnumake
+    wget vim tmux firefox git zig python ruby php nodejs clang neovim xclip fzf gnumake ag
   ];
 
   sound.enable = true;
