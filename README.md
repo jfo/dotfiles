@@ -4,7 +4,7 @@ nix:
 ----------------
 
 - needed to link dotfiles,
-- [https://github.com/Anthony25/gnome-terminal-colors-solarized](gnome colors solarized)
+- [gnome colors solarized](https://github.com/Anthony25/gnome-terminal-colors-solarized)
 - [hide application top bar](https://github.com/franglais125/no-title-bar)
 - [hide application menu bar](https://github.com/deadalnix/pixel-saver)
 - [hide system top bar](https://github.com/mlutfy/hidetopbar)
