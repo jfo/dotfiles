@@ -83,8 +83,8 @@ autocmd FileType scheme setlocal softtabstop=2
 let &t_EI .= "\e[1 q"
 let &t_SI .= "\e[5 q"
 
-colorscheme solarized
-set background=dark
+" colorscheme solarized
+" set background=dark
 
 " TODO: make this a toggle function
 nnoremap <F5> :set background=light<CR>
