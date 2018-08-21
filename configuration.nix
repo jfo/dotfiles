@@ -20,6 +20,7 @@
     clang
     firefox
     fzf
+    gettext
     git
     gnumake
     neovim

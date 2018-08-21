@@ -15,3 +15,9 @@ link:
 nix:
 	sudo cp ./configuration.nix /etc/nixos/
 	sudo nixos-rebuild switch
+
+plug:
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +'PlugInstall --sync' +qa
+	mkdir -p ~/.vim/colors
+	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
