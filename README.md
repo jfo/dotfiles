@@ -15,3 +15,5 @@ TODO
 
 - better support for contexts, more than just gitconf
 - make makefile smarter
+- make bash prompt better
+- choose a new shell?
