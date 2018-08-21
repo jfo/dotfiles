@@ -23,6 +23,7 @@
     gettext
     git
     gnumake
+    hugo
     neovim
     nodejs
     php
