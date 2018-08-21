@@ -11,3 +11,5 @@ https://github.com/Anthony25/gnome-terminal-colors-solarized
 https://github.com/franglais125/no-title-bar
 
 https://github.com/deadalnix/pixel-saver
+
+https://github.com/mlutfy/hidetopbar
