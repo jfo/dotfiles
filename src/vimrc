@@ -122,8 +122,6 @@ nnoremap <LEADER>t :call ToggleTodo()<CR>
 
 " PLUGINS
 " ------------------------------------------------------------------------------
-" for new install don't forget to install plug.vim first:
-" `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
     Plug 'christoomey/vim-tmux-navigator'
@@ -145,7 +143,6 @@ call plug#begin('~/.vim/plugged')
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif
-    Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 """ Plugin Specific Commands
