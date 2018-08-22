@@ -1,16 +1,14 @@
 WD=$(shell pwd)
 
-default: plug
-
 link:
-	ln -sf $(WD)/src/vimrc ~/.vimrc
-	ln -sf $(WD)/src/tmux.conf ~/.tmux.conf
-	ln -sf $(WD)/src/bashrc ~/.bashrc
-	ln -sf $(WD)/src/bash_profile ~/.bash_profile
-	ln -sf $(WD)/src/bash_secrets ~/.bash_secrets
-	ln -sf $(WD)/src/gitconfig-work ~/.gitconfig-work
-	ln -sf $(WD)/src/gitconfig ~/.gitconfig
-	ln -sf $(WD)/src/gitignore ~/.gitignore
+	ln -sf $(WD)/dots/vimrc ~/.vimrc
+	ln -sf $(WD)/dots/tmux.conf ~/.tmux.conf
+	ln -sf $(WD)/dots/bashrc ~/.bashrc
+	ln -sf $(WD)/dots/bash_profile ~/.bash_profile
+	ln -sf $(WD)/dots/bash_secrets ~/.bash_secrets
+	ln -sf $(WD)/dots/gitconfig-work ~/.gitconfig-work
+	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
+	ln -sf $(WD)/dots/gitignore ~/.gitignore
 
 plug: link
 	mkdir -p ~/.config/nvim/
