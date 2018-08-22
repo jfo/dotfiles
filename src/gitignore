@@ -7,3 +7,4 @@ todo
 jfo*
 .cache
 dist
+default.nix
