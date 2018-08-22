@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     ag
     clang
+    cmake
     firefox
     fzf
     gettext
@@ -31,6 +32,7 @@
     ruby
     tmux
     vim
+    weechat
     wget
     xclip
     zig
