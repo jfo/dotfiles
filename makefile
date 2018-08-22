@@ -21,3 +21,6 @@ plug:
 	vim +'PlugInstall --sync' +qa
 	mkdir -p ~/.vim/colors
 	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
+
+zig:
+	ln -sf $(WD)/zig-dev.nix ~/code/zig/default.nix
