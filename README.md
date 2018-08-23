@@ -20,3 +20,4 @@ TODO
 - make makefile smarter
 - make bash prompt better
 - choose a new shell?
+- I think there is something wrong with `make clean`
