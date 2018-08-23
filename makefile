@@ -21,7 +21,12 @@ plug:
 	mkdir -p ~/.vim/colors
 	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
 
-all: link plug
+last:
+	mkdir -p ~/.vim/sessions/
+	touch ~/.vim/sessions/last.vim
+
+all: link plug last
+
 
 clean:
 	rm -rf ~/.vimrc ~/.tmux.conf ~/.bashrc ~/.bash_profile ~/.bash_secrets ~/.gitconfig-work ~/.gitconfig ~/.gitignore ~/.vim ~/.config ~/code/zig/default.nix
