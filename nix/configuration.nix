@@ -38,6 +38,8 @@
     zig
   ];
 
+  fonts.fonts = with pkgs; [ inconsolata ];
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
