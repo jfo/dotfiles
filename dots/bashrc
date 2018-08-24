@@ -16,7 +16,7 @@ alias ta="tmux attach"
 alias vim='nvim'
 alias vimo="vim -S ~/.vim/sessions/last.vim"
 alias serve='python -m SimpleHTTPServer 4321'
-alias killswap='rm /var/tmp/*.sw* && rm ./*.sw* && rm ~/tmp/*.sw* && rm ~/.local/share/nvim/swap/*'
+alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
 alias clip='xclip -sel clip'
 
