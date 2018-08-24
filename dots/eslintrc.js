@@ -4,7 +4,13 @@
 
 module.exports = {
   rules: {
-    "no-console": "warn",
-    "semi": "error",
+    'no-console': 'warn',
+    semi: 'error',
   },
-}
+  parserOptions: {
+    ecmaVersion: 6,
+  },
+  env: {
+    node: true,
+  },
+};
