@@ -217,3 +217,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>sw :call WindowSwap#EasyWindowSwap()<CR>
+
+" TODO: make 'gf' more aware
+" set path=~/development/web/apps/src
+" set suffixesadd=.js,\/index.js
