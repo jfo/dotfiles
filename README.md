@@ -21,3 +21,5 @@ TODO
 - make bash prompt better
 - choose a new shell?
 - I think there is something wrong with `make clean`
+- right now relying on installed binaries, should source control:
+  - eslint_d, prettier
