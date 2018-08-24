@@ -42,7 +42,7 @@ highlight LineNr ctermfg=blue
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nmap <leader>hl :let @/ = ""<CR>
 
-" shift tab is real tab
+" shift tab is real tabstop
 inoremap <S-Tab> <C-V><Tab>
 " leader w forever
 nnoremap <LEADER>w :w<CR>
@@ -184,10 +184,8 @@ autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
 
 " neomake
-" let g:neomake_logfile='/tmp/neomake_error.log'
-let g:neomake_javascript_enabled_makers = []
-" call neomake#configure#automake('w', 1000)
-
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_logfile='/tmp/neomake_error.log'
 autocmd BufWritePost *.js Neomake
 
 autocmd FileType javascript.jsx nmap gp :Prettier<CR>
