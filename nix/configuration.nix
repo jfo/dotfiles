@@ -26,7 +26,7 @@
     gnumake
     hugo
     neovim
-    nodejs
+    nodejs-9_x
     php
     python
     ruby
