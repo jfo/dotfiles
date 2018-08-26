@@ -40,3 +40,5 @@ nix:
 zig:
 	ln -sf $(WD)/nix/zig-dev.nix ~/code/zig/default.nix
 
+.PHONY: nix zig clean all
+
