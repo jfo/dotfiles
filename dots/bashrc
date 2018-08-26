@@ -49,3 +49,6 @@ export PS1="\[\033[34m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\] $ "
 # export NODE_PATH=$NODE_PATH:/Users/jfo/.nvm/versions/node/v8.9.0/lib/node_modules
 [ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+
+# hell yeah rippin' and roarin'
+xset r rate 250 60
