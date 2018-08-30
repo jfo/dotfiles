@@ -53,6 +53,8 @@ nnoremap <LEADER>c :cclose<cr>
 nnoremap <LEADER>lo :lopen<cr>
 nnoremap <LEADER>lc :lclose<cr>
 
+nmap <LEADER>p :let @*=expand("%")<CR>
+
 " hey look λ lol
 imap <C-l> <C-k>*l
 " TODO: write these scripts again
