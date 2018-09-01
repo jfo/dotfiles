@@ -15,6 +15,7 @@
 
   time.timeZone = "Europe/Amsterdam";
 
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     ag
     clang
@@ -30,6 +31,7 @@
     php
     python
     ruby
+    steam
     tmux
     vim
     weechat
@@ -42,7 +44,8 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-
+  hardware.pulseaudio.support32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
   services.xserver.enable = true;
   services.xserver.layout = "us";
   services.xserver.libinput.enable = true;
