@@ -62,6 +62,7 @@
   system.stateVersion = "18.03";
 
   networking.hosts."127.0.0.1" = [
+    "dev.jfo.click"
     "twitter.com"
     "www.twitter.com"
     "facebook.com"
