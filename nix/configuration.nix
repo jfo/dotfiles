@@ -28,6 +28,7 @@
     hugo
     neovim
     nodejs-9_x
+    pass
     php
     python
     ruby
