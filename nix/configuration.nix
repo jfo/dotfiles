@@ -60,4 +60,13 @@
   };
 
   system.stateVersion = "18.03";
+
+  networking.hosts."127.0.0.1" = [
+    "twitter.com"
+    "www.twitter.com"
+    "facebook.com"
+    "www.facebook.com"
+    "reddit.com"
+    "www.reddit.com"
+  ];
 }
