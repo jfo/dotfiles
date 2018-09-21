@@ -213,9 +213,8 @@ autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
 
-nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
+imap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>sw :call WindowSwap#EasyWindowSwap()<CR>
