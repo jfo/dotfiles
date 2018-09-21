@@ -26,6 +26,8 @@
     git
     gnumake
     hugo
+    usbutils
+    mutt
     neovim
     nodejs-9_x
     pass
