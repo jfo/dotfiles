@@ -182,6 +182,7 @@ nmap gl :Lines<CR>
 
 " commentary.vim comment strings
 autocmd FileType sild set commentstring=;\ %s
+autocmd FileType hex set commentstring=#\ %s
 autocmd FileType clojure set commentstring=;\ %s
 autocmd FileType asm set commentstring=//\ %s
 autocmd FileType vm set commentstring=//\ %s

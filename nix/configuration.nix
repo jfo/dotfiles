@@ -18,8 +18,10 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     ag
+    binaryen
     clang
     cmake
+    dropbox-cli
     firefox
     fzf
     gettext
@@ -35,6 +37,7 @@
     python
     ruby
     steam
+    spotify
     tmux
     vim
     weechat
