@@ -18,28 +18,32 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     ag
+    arduino
     binaryen
     clang
     cmake
     dropbox-cli
     firefox
     fzf
+    geteltorito
     gettext
     git
     gnumake
     hugo
-    usbutils
     mutt
     neovim
-    nodejs-9_x
+    nodejs-10_x
     pass
     php
     python
     ruby
-    steam
     spotify
+    steam
+    teensy-loader-cli
     tmux
+    usbutils
     vim
+    wabt
     weechat
     wget
     xclip
