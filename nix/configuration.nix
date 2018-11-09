@@ -18,6 +18,9 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     ag
+    avrbinutils
+    avrgcc
+    avrlibc
     arduino
     binaryen
     clang
@@ -42,6 +45,7 @@
     teensy-loader-cli
     tmux
     usbutils
+    libusb1
     vim
     wabt
     weechat

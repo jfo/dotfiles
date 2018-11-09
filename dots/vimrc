@@ -87,11 +87,11 @@ let &t_SI .= "\e[5 q"
 
 colorscheme solarized
 
-if getcwd() =~ "web"
-  set background=light
-else
+" if getcwd() =~ "web"
+"   set background=light
+" else
   set background=dark
-endif
+" endif
 
 " TODO: make this a toggle function
 nnoremap <F5> :set background=light<CR>
@@ -147,6 +147,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
+    Plug 'natebosch/vim-lsc'
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif
@@ -192,12 +193,12 @@ autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
 
 " neomake
-let g:neomake_javascript_enabled_makers = ['eslint_d']
-let g:neomake_logfile='/tmp/neomake_error.log'
-autocmd BufWritePost *.js Neomake
+" let g:neomake_javascript_enabled_makers = ['eslint_d']
+" let g:neomake_logfile='/tmp/neomake_error.log'
+" autocmd BufWritePost *.js Neomake
 
-autocmd FileType javascript.jsx nmap gp :Prettier<CR>
-autocmd FileType javascript nmap gp :Prettier<CR>
+" autocmd FileType javascript.jsx nmap gp :Prettier<CR>
+" autocmd FileType javascript nmap gp :Prettier<CR>
 
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
@@ -206,20 +207,38 @@ function! MyFoldText()
 endfunction
 :hi! Folded none ctermfg=24
 
-" ================== "
-" see you next time! "
-" ================== "
-autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
-
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
 
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <leader>sw :call WindowSwap#EasyWindowSwap()<CR>
-
 " TODO: make 'gf' more aware
 " set path=~/development/web/apps/src
 " set suffixesadd=.js,\/index.js
+
+let g:lsc_server_commands = {
+  \ 'javascript.jsx': 'node /home/jfo/code/javascript-typescript-langserver/lib/language-server-stdio',
+  \ 'cpp': 'cquery --log-file=/tmp/cq.log',
+  \ 'c': 'cquery --log-file=/tmp/cq.log',
+  \}
+
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': '<C-]>',
+    \ 'FindReferences': 'gr',
+    \ 'ShowHover': 'K',
+    \ 'Completion': 'completefunc',
+    \}
+" \ 'NextReference': '<C-n>',
+" \ 'PreviousReference': '<C-p>',
+" \ 'FindImplementations': 'gI',
+" \ 'FindCodeActions': 'ga',
+" \ 'DocumentSymbol': 'go',
+" \ 'WorkspaceSymbol': 'gS',
+
+
+" ================== "
+" see you next time! "
+" ================== "
+autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
+
