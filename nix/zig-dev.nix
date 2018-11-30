@@ -5,13 +5,11 @@ with import <nixpkgs> {}; {
     hardeningDisable = [ "all" ];
     buildInputs = [
       cmake
-      llvmPackages_6.clang-unwrapped
-      llvm_6
-      lld_6
+      llvmPackages_7.clang-unwrapped
+      llvm_7
+      lld_7
       zlib
       libxml2
-      kcov
     ];
   };
 }
-
