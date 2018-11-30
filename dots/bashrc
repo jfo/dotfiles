@@ -24,6 +24,14 @@ clone() {
   git clone git@github.com:$1
 }
 
+biner() {
+  ln -s $(readlink -f $1) ~/.bin/
+}
+
+unbiner() {
+  rm ~/.bin/$1
+}
+
 # ------ #
 # prompt #
 # ------ #
@@ -39,7 +47,7 @@ export PS1="\[\033[34m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\] λ "
 # export PATH="$PATH:$HOME/code/zig/build/bin"
 # export PATH="$PATH:$HOME/.rvm/bin"
 # export PATH="$PATH:~/code/wabt/bin"
-export PATH="$PATH:~/.bin"
+export PATH="~/.bin:$PATH"
 
 
 # --------------------------------------------------- #
