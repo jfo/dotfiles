@@ -18,10 +18,10 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     ag
+    arduino
     avrbinutils
     avrgcc
     avrlibc
-    arduino
     binaryen
     clang
     cmake
@@ -33,6 +33,8 @@
     git
     gnumake
     hugo
+    liblo
+    libusb1
     mutt
     neovim
     nodejs-10_x
@@ -45,7 +47,6 @@
     teensy-loader-cli
     tmux
     usbutils
-    libusb1
     vim
     wabt
     weechat
@@ -65,6 +66,8 @@
   services.xserver.libinput.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.desktopManager.default = "gnome3";
+
+  services.printing.enable = true;
 
   users.extraUsers.jfo = {
     isNormalUser = true;
