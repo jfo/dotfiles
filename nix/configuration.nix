@@ -58,9 +58,13 @@
   fonts.fonts = with pkgs; [ inconsolata ];
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.bluetooth.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    support32Bit = true;
+  };
   services.xserver.enable = true;
   services.xserver.layout = "us";
   services.xserver.libinput.enable = true;
@@ -77,13 +81,5 @@
 
   system.stateVersion = "18.03";
 
-  networking.hosts."127.0.0.1" = [
-    "dev.jfo.click"
-    "twitter.com"
-    "www.twitter.com"
-    "facebook.com"
-    "www.facebook.com"
-    "reddit.com"
-    "www.reddit.com"
-  ];
+  networking.hosts."127.0.0.1" = [ "dev.jfo.click" ];
 }
