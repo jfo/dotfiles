@@ -32,6 +32,11 @@ unbiner() {
   rm ~/.bin/$1
 }
 
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
+
 # ------ #
 # prompt #
 # ------ #
