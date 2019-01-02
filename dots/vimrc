@@ -87,11 +87,11 @@ let &t_SI .= "\e[5 q"
 
 colorscheme solarized
 
-" if getcwd() =~ "web"
-"   set background=light
-" else
+if getcwd() =~ "web"
+  set background=light
+else
   set background=dark
-" endif
+endif
 
 " TODO: make this a toggle function
 nnoremap <F5> :set background=light<CR>
