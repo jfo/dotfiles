@@ -3,6 +3,10 @@ syntax enable
 filetype plugin indent on
 let mapleader = '\'
 
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
@@ -82,20 +86,9 @@ autocmd FileType scheme setlocal tabstop=2
 autocmd FileType scheme setlocal softtabstop=2
 
 " cursor styles
-let &t_EI .= "\e[1 q"
-let &t_SI .= "\e[5 q"
+" let &t_EI .= "\e[1 q"
+" let &t_SI .= "\e[5 q"
 
-colorscheme solarized
-
-if getcwd() =~ "web"
-  set background=light
-else
-  set background=dark
-endif
-
-" TODO: make this a toggle function
-nnoremap <F5> :set background=light<CR>
-nnoremap <F6> :set background=dark<CR>
 
 " MISC FUNCTIONS AND MAPPINGS
 " ------------------------------------------------------------------------------
@@ -130,10 +123,8 @@ nnoremap <LEADER>t :call ToggleTodo()<CR>
 " PLUGINS
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-    Plug 'altercation/vim-colors-solarized'
     Plug 'benjie/local-npm-bin.vim'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'dunstontc/vim-vscode-theme'
     Plug 'jfo/vim-runners'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
@@ -152,7 +143,26 @@ call plug#begin('~/.vim/plugged')
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif
+
+    " color schemes
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'dunstontc/vim-vscode-theme'
+    Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
+
+if getcwd() =~ "web"
+  set background=light
+else
+  set background=dark
+endif
+
+" TODO: make this a toggle function
+nnoremap <F5> :set background=light<CR>
+nnoremap <F6> :set background=dark<CR>
+
+colorscheme acme
+
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
