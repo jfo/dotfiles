@@ -131,14 +131,16 @@ nnoremap <LEADER>t :call ToggleTodo()<CR>
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
+    Plug 'benjie/local-npm-bin.vim'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'dunstontc/vim-vscode-theme'
     Plug 'jfo/vim-runners'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
+    Plug 'natebosch/vim-lsc'
     Plug 'neomake/neomake'
-    Plug 'benjie/local-npm-bin.vim'
     Plug 'prettier/vim-prettier'
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
@@ -147,7 +149,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
-    Plug 'natebosch/vim-lsc'
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif
@@ -193,12 +194,12 @@ autocmd FileType php set commentstring=//\ %s
 autocmd FileType arduino set commentstring=//\ %s
 
 " neomake
-" let g:neomake_javascript_enabled_makers = ['eslint_d']
-" let g:neomake_logfile='/tmp/neomake_error.log'
-" autocmd BufWritePost *.js Neomake
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_logfile='/tmp/neomake_error.log'
+autocmd BufWritePost *.js Neomake
 
-" autocmd FileType javascript.jsx nmap gp :Prettier<CR>
-" autocmd FileType javascript nmap gp :Prettier<CR>
+:command! Lintpls :execute "!eslint_d --fix %" | Neomake
+autocmd FileType javascript.jsx nmap gp :Lintpls<CR>
 
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
@@ -217,8 +218,9 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<
 " set path=~/development/web/apps/src
 " set suffixesadd=.js,\/index.js
 
+" \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js --enable-jaeger',
 let g:lsc_server_commands = {
-  \ 'javascript.jsx': 'node /home/jfo/code/javascript-typescript-langserver/lib/language-server-stdio',
+  \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js',
   \ 'cpp': 'cquery --log-file=/tmp/cq.log',
   \ 'c': 'cquery --log-file=/tmp/cq.log',
   \}
@@ -236,7 +238,7 @@ let g:lsc_auto_map = {
 " \ 'DocumentSymbol': 'go',
 " \ 'WorkspaceSymbol': 'gS',
 
-set conceallevel=1
+" set conceallevel=1
 " let g:javascript_conceal_function = "λ"
 " let g:javascript_conceal_function             = "ƒ"
 " let g:javascript_conceal_null                 = "ø"
