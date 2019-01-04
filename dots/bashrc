@@ -20,10 +20,21 @@ alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
 alias clip='xclip -sel clip'
 
-clone() { git clone git@github.com:$1 }
-biner() { ln -s $(greadlink -f $1) ~/.bin }
-unbiner() { rm ~/.bin/$1 }
-mkcd () { mkdir "$1" cd "$1" }
+clone() {
+  git clone git@github.com:$1
+}
+
+biner() {
+  ln -s $(greadlink -f $1) ~/.bin
+}
+
+unbiner() {
+  rm ~/.bin/$1
+}
+
+mkcd () {
+  mkdir "$1" cd "$1"
+}
 
 # ------ #
 # prompt #
