@@ -8,3 +8,4 @@ jfo*
 .cache
 dist
 default.nix
+.ignore
