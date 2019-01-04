@@ -162,7 +162,7 @@ endif
 nnoremap <F5> :set background=light<CR>
 nnoremap <F6> :set background=dark<CR>
 
-colorscheme acme
+colorscheme dark_plus
 
 
 """ Plugin Specific Commands
