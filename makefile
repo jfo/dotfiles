@@ -10,6 +10,7 @@ link: nvimrc
 	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
 	ln -sf $(WD)/dots/gitignore ~/.gitignore
 	ln -sf $(WD)/dots/eslintrc.js ~/.eslintrc.js
+	ln -sf $(WD)/dots/npmrc ~/.npmrc
 
 nvimrc:
 	mkdir -p ~/.config/nvim/

@@ -53,6 +53,7 @@ export PS1="\[\033[34m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\] λ "
 # export PATH="$PATH:$HOME/.rvm/bin"
 # export PATH="$PATH:~/code/wabt/bin"
 export PATH="~/.bin:$PATH"
+export PATH="~/.npm-packages/bin:$PATH"
 
 
 # --------------------------------------------------- #
