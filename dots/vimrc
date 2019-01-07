@@ -159,8 +159,10 @@ else
 endif
 
 " TODO: make this a toggle function
-nnoremap <F5> :set background=light<CR>
-nnoremap <F6> :set background=dark<CR>
+nnoremap <F5> :colorscheme solarized8_flat<CR>:set background=light<CR>
+nnoremap <F6> :colorscheme solarized8_flat<CR>:set background=dark<CR>
+nnoremap <F7> :colorscheme dark_plus<CR>
+nnoremap <F8> :colorscheme acme<CR>
 
 colorscheme dark_plus
 
@@ -221,9 +223,6 @@ endfunction
 
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
-
-nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
 " TODO: make 'gf' more aware
 " set path=~/development/web/apps/src
