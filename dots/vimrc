@@ -26,6 +26,7 @@ set laststatus=2                                             " always show statu
 set list                                                     " show trailing whitespace
 set listchars=tab:\|\ ,trail:▫
 set nonumber                                                 " don't show line numbers by default
+set nowrap
 set nowrapscan                                               " don't search from top if you hit the bottom
 set ruler                                                    " show where you are
 set scrolloff=5                                              " show context above/below cursorline
