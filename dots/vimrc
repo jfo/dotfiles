@@ -164,8 +164,7 @@ nnoremap <F5> :colorscheme solarized8_flat<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized8_flat<CR>:set background=dark<CR>
 nnoremap <F7> :colorscheme dark_plus<CR>
 nnoremap <F8> :colorscheme acme<CR>
-
-colorscheme dark_plus
+colorscheme solarized8_flat
 
 
 """ Plugin Specific Commands
