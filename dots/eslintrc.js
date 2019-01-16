@@ -3,7 +3,7 @@ module.exports = {
     semi: 'error',
   },
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2018,
   },
   env: {
     node: true,
