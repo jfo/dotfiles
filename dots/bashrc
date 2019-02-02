@@ -37,6 +37,10 @@ mkcd () {
   mkdir "$1" cd "$1"
 }
 
+gitclone () {
+  git clone git@github.com:$1
+}
+
 # ------ #
 # prompt #
 # ------ #
@@ -60,11 +64,17 @@ export PATH="~/.npm-packages/bin:$PATH"
 # wherein I allow programs to do arbitrary bullshit
 # --------------------------------------------------- #
 
-# export NODE_PATH=$NODE_PATH:/Users/jfo/.nvm/versions/node/v8.9.0/lib/node_modules
 [ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
 
 # hell yeah rippin' and roarin'
-# xset r rate 250 60
+xset r rate 250 60
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# NPM packages in homedir
+NPM_PACKAGES="$HOME/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your configuration
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"

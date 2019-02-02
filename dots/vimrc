@@ -214,6 +214,9 @@ autocmd BufWritePost *.js Neomake
 :command! Lintpls :execute "!eslint_d --fix %" | Neomake
 autocmd FileType javascript.jsx nmap gp :Lintpls<CR>
 
+" :command! Lintpls :execute "!zig fmt % | e!" | :e!<CR>
+" autocmd FileType zig nmap gp :Zigfmtpls %<CR>
+
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
     let foldindent = foldval * 2 - 2
