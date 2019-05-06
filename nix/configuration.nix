@@ -19,9 +19,7 @@
   environment.systemPackages = with pkgs; [
     ag
     arduino
-    avrbinutils
-    avrgcc
-    avrlibc
+    # avrlibc
     binaryen
     clang
     cmake
