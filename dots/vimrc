@@ -159,7 +159,6 @@ else
   set background=dark
 endif
 
-" TODO: make this a toggle function
 nnoremap <F5> :colorscheme solarized8_flat<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized8_flat<CR>:set background=dark<CR>
 nnoremap <F7> :colorscheme dark_plus<CR>
