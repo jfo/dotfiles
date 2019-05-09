@@ -5,11 +5,9 @@ with import <nixpkgs> {}; {
     hardeningDisable = [ "all" ];
     buildInputs = [
       cmake
-      llvmPackages_7.clang-unwrapped
-      llvm_7
-      lld_7
-      zlib
-      libxml2
+      llvmPackages_8.clang-unwrapped
+      llvm_8
+      lld_8
     ];
   };
 }
