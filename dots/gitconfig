@@ -13,5 +13,6 @@
     l = log --oneline
     rpull = pull --rebase
     touched = "!f() { git diff --name-only $(git merge-base HEAD master); }; f"
+    cp = cherry-pick
 [hub]
     protocol = https
