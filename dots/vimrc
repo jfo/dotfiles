@@ -42,6 +42,9 @@ set wildmode=longest,list,full
 set synmaxcol=240
 autocmd VimResized * :wincmd =
 
+set backupdir=~/.vim/tmp,.
+set directory+=~/.vim/tmp,.
+
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
@@ -154,7 +157,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
-if getcwd() =~ "web"
+if getcwd() =~ "dashboard"
   set background=light
 else
   set background=dark
