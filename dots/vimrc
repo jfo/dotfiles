@@ -237,8 +237,8 @@ let g:polyglot_disabled = ['graphql']
 " \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js --enable-jaeger',
 let g:lsc_server_commands = {
   \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js',
-  \ 'cpp': 'cquery --log-file=/tmp/cq.log',
-  \ 'c': 'cquery --log-file=/tmp/cq.log',
+  \ 'cpp': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
+  \ 'c': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
   \}
 
 let g:lsc_auto_map = {
