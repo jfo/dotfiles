@@ -91,11 +91,6 @@ autocmd FileType scheme setlocal shiftwidth=2
 autocmd FileType scheme setlocal tabstop=2
 autocmd FileType scheme setlocal softtabstop=2
 
-" cursor styles
-" let &t_EI .= "\e[1 q"
-" let &t_SI .= "\e[5 q"
-
-
 " MISC FUNCTIONS AND MAPPINGS
 " ------------------------------------------------------------------------------
 function! StripTrailing()
@@ -217,9 +212,6 @@ autocmd BufWritePost *.js Neomake
 :command! Lintpls :execute "!eslint_d --fix %" | Neomake
 autocmd FileType javascript.jsx nmap gp :Lintpls<CR>
 
-" :command! Lintpls :execute "!zig fmt % | e!" | :e!<CR>
-" autocmd FileType zig nmap gp :Zigfmtpls %<CR>
-
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
     let foldindent = foldval * 2 - 2
@@ -230,10 +222,7 @@ endfunction
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
 
-" TODO: make 'gf' more aware
-" set path=~/development/web/apps/src
-" set suffixesadd=.js,\/index.js
-
+" TODO: make this  not hard coded
 " \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js --enable-jaeger',
 let g:lsc_server_commands = {
   \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js',
@@ -253,20 +242,6 @@ let g:lsc_auto_map = {
 " \ 'FindCodeActions': 'ga',
 " \ 'DocumentSymbol': 'go',
 " \ 'WorkspaceSymbol': 'gS',
-
-" set conceallevel=1
-" let g:javascript_conceal_function = "λ"
-" let g:javascript_conceal_function             = "ƒ"
-" let g:javascript_conceal_null                 = "ø"
-" let g:javascript_conceal_this                 = "@"
-" let g:javascript_conceal_return               = "⇚"
-" let g:javascript_conceal_undefined            = "¿"
-" let g:javascript_conceal_NaN                  = "ℕ"
-" let g:javascript_conceal_prototype            = "¶"
-" let g:javascript_conceal_static               = "•"
-" let g:javascript_conceal_super                = "Ω"
-" let g:javascript_conceal_arrow_function       = "⇒"
-" let g:javascript_conceal_const = "©"
 
 " ================== "
 " see you next time! "
