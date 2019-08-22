@@ -40,6 +40,7 @@ set tabstop=8                                                " actual tabs occup
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set synmaxcol=240
+set updatetime=100
 autocmd VimResized * :wincmd =
 
 set backupdir=~/.vim/tmp,.
@@ -64,6 +65,8 @@ nnoremap <LEADER>lo :lopen<cr>
 nnoremap <LEADER>lc :lclose<cr>
 
 nmap <LEADER>p :let @*=expand("%")<CR>
+
+vnoremap // y/<C-R>"<CR>
 
 " hey look λ lol
 imap <C-l> <C-k>*l
@@ -141,6 +144,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
+    Plug 'airblade/vim-gitgutter'
     if $TERM_PROGRAM == 'iterm.app'
       Plug 'ryanoasis/vim-devicons'
     endif

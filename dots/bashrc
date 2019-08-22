@@ -20,6 +20,7 @@ alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
 alias clip='xclip -sel clip'
 alias np='npm i --no-package-lock'
+alias port="lsof -i tcp:$1"
 
 clone() {
   git clone git@github.com:$1
@@ -39,6 +40,10 @@ mkcd () {
 
 gitclone () {
   git clone git@github.com:$1
+}
+
+listener () {
+  lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
 # ------ #
