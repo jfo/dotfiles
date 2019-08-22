@@ -287,6 +287,6 @@ try:
   buf[:] = buf[:start] + lines + buf[end + 1:]
   except Exception, e:
   print e
-  EOF
+EOF
 
 endfunction
