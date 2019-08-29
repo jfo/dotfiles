@@ -5,7 +5,7 @@ link: nvimrc
 	ln -sf $(WD)/dots/tmux.conf ~/.tmux.conf
 	ln -sf $(WD)/dots/bashrc ~/.bashrc
 	ln -sf $(WD)/dots/bash_profile ~/.bash_profile
-	ln -sf $(WD)/dots/bash_secrets ~/.bash_secrets
+	ln -sf $(WD)/dots/bash_secrets.sh ~/.bash_secrets.sh
 	ln -sf $(WD)/dots/gitconfig-work ~/.gitconfig-work
 	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
 	ln -sf $(WD)/dots/gitignore ~/.gitignore
@@ -31,7 +31,7 @@ all: link plug last
 
 
 clean:
-	rm -rf ~/.vimrc ~/.tmux.conf ~/.bashrc ~/.bash_profile ~/.bash_secrets ~/.gitconfig-work ~/.gitconfig ~/.gitignore ~/.vim ~/.config ~/code/zig/default.nix
+	rm -rf ~/.vimrc ~/.tmux.conf ~/.bashrc ~/.bash_profile ~/.bash_secrets.sh ~/.gitconfig-work ~/.gitconfig ~/.gitignore ~/.vim ~/.config ~/code/zig/default.nix
 
 # nix ish
 nix:
