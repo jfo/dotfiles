@@ -168,7 +168,6 @@ nnoremap <F7> :colorscheme dark_plus<CR>
 nnoremap <F8> :colorscheme acme<CR>
 colorscheme solarized8_flat
 
-
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
 let g:NERDTreeWinSize = 50
@@ -213,8 +212,12 @@ let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_logfile='/tmp/neomake_error.log'
 autocmd BufWritePost *.js Neomake
 
-:command! Lintpls :execute "!eslint_d --fix %" | Neomake
-autocmd FileType javascript.jsx nmap gp :Lintpls<CR>
+" tmux navigator was ruining my life with <C-\>
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 function! MyFoldText()
     let foldval = foldlevel(v:foldstart)
@@ -226,10 +229,9 @@ endfunction
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
 
-" TODO: make this  not hard coded
-" \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js --enable-jaeger',
 let g:lsc_server_commands = {
-  \ 'javascript.jsx': 'node /Users/jfo/code/javascript-typescript-langserver/lib/language-server-stdio.js',
+  \ 'javascript.jsx': $LSC_NODE_SERVER_CMD,
+  \ 'javascript': $LSC_NODE_SERVER_CMD,
   \ 'cpp': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
   \ 'c': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
   \}
@@ -251,42 +253,3 @@ let g:lsc_auto_map = {
 " see you next time! "
 " ================== "
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
-
-
-" TODO: make this a standalone executable or something and use `formatprg`
-if exists("sql_format")
-  finish
-endif
-let sql_format = 1
-
-if !has('python')
-  echo "Error: Required vim compiled with +python"
-  finish
-endif
-
-vmap <f6> :FormatSQL<cr>
-command -range FormatSQL :call FormatSQL(<line1>, <line2>)
-
-function! FormatSQL(start, end)
-
-  python << EOF
-
-  import vim
-  import sqlparse
-
-  start = int(vim.eval('a:start')) - 1
-end = int(vim.eval('a:end')) - 1
-buf = vim.current.buffer
-NL = '\n'
-
-try:
-  sql = NL.join(buf[start:end + 1])
-  sql_new = sqlparse.format(sql, reindent=True, keyword_case='upper')
-
-  lines = [line.encode('utf-8') for line in sql_new.split(NL)]
-  buf[:] = buf[:start] + lines + buf[end + 1:]
-  except Exception, e:
-  print e
-EOF
-
-endfunction

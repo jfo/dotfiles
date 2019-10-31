@@ -46,6 +46,10 @@ listener () {
   lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
+annoy () {
+   osascript -e 'display notification "your ish is done"'
+}
+
 # ------ #
 # prompt #
 # ------ #
