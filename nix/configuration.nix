@@ -42,6 +42,7 @@
     ruby
     spotify
     steam
+    steam-run
     teensy-loader-cli
     tmux
     usbutils
