@@ -17,41 +17,11 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    ag
-    arduino
-    awscli
-    binaryen
     clang
     cmake
-    dropbox-cli
-    firefox
-    fzf
-    geteltorito
-    gettext
     git
     gnumake
-    hugo
-    liblo
-    libusb1
-    mutt
-    neovim
-    nodejs-10_x
-    pass
-    php
-    python
-    ruby
-    spotify
-    steam
-    steam-run
-    teensy-loader-cli
-    tmux
-    usbutils
-    vim
-    wabt
-    weechat
-    wget
-    xclip
-    zig
+    firefox
   ];
 
   fonts.fonts = with pkgs; [ inconsolata ];
@@ -72,10 +42,42 @@
 
   services.printing.enable = true;
 
-  users.extraUsers.jfo = {
+  users.users.jfo = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     uid = 1000;
+    packages = with pkgs; [
+      ag
+      arduino
+      awscli
+      binaryen
+      dropbox-cli
+      fzf
+      geteltorito
+      gettext
+      hugo
+      liblo
+      libusb1
+      mutt
+      neovim
+      nodejs_latest
+      pass
+      php
+      python
+      ruby
+      spotify
+      steam
+      steam-run
+      teensy-loader-cli
+      tmux
+      usbutils
+      vim
+      wabt
+      weechat
+      wget
+      xclip
+      zig
+    ];
   };
 
   system.stateVersion = "18.03";
