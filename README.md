@@ -23,3 +23,13 @@ TODO
 - I think there is something wrong with `make clean`
 - right now relying on installed binaries, should source control:
   - eslint_d, prettier
+
+list of core technologies I use:
+  vim / nvim
+  tmux
+  git
+  lsc
+
+things to improve:
+  plugin usage 
+  snippets

@@ -3,9 +3,9 @@ syntax enable
 filetype plugin indent on
 let mapleader = '\'
 
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+" let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+" set termguicolors
 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -49,7 +49,7 @@ set directory+=~/.vim/tmp,.
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
-highlight LineNr ctermfg=blue
+" highlight LineNr ctermfg=blue
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nmap <leader>hl :let @/ = ""<CR>
 
@@ -134,7 +134,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'mileszs/ack.vim'
     Plug 'moll/vim-node'
+    " TODO: nvim 0.5 supports integrated lsc.
+    " replace:
     Plug 'natebosch/vim-lsc'
+    " with:
+    " Plug 'neovim/nvim-lspconfig'
     Plug 'neomake/neomake'
     Plug 'prettier/vim-prettier'
     Plug 'scrooloose/nerdtree'
@@ -145,15 +149,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
     Plug 'airblade/vim-gitgutter'
-    if $TERM_PROGRAM == 'iterm.app'
-      Plug 'ryanoasis/vim-devicons'
-    endif
 
     " color schemes
     Plug 'altercation/vim-colors-solarized'
     Plug 'lifepillar/vim-solarized8'
     Plug 'dunstontc/vim-vscode-theme'
     Plug 'plan9-for-vimspace/acme-colors'
+    Plug 'puremourning/vimspector'
 call plug#end()
 
 if getcwd() =~ "dashboard"
@@ -162,11 +164,12 @@ else
   set background=dark
 endif
 
-nnoremap <F5> :colorscheme solarized8_flat<CR>:set background=light<CR>
-nnoremap <F6> :colorscheme solarized8_flat<CR>:set background=dark<CR>
+nnoremap <F5> :colorscheme solarized8_low<CR>:set background=light<CR>
+nnoremap <F6> :colorscheme solarized8_low<CR>:set background=dark<CR>
 nnoremap <F7> :colorscheme dark_plus<CR>
 nnoremap <F8> :colorscheme acme<CR>
-colorscheme solarized8_flat
+colorscheme solarized8_low
+set background=light
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
@@ -229,9 +232,10 @@ endfunction
 " tmp fix for dumb bug
 let g:polyglot_disabled = ['graphql']
 
+echo $THING
 let g:lsc_server_commands = {
-  \ 'javascript.jsx': $LSC_NODE_SERVER_CMD,
-  \ 'javascript': $LSC_NODE_SERVER_CMD,
+  \ 'javascript.jsx': '/Users/jeff/code/javascript-typescript-langserver/lib/language-server-stdio.js',
+  \ 'javascript': '/Users/jeff/code/javascript-typescript-langserver/lib/language-server-stdio.js',
   \ 'cpp': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
   \ 'c': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
   \}
