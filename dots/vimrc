@@ -149,13 +149,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'zig-lang/zig.vim'
     Plug 'airblade/vim-gitgutter'
+    Plug 'puremourning/vimspector'
 
     " color schemes
     Plug 'altercation/vim-colors-solarized'
     Plug 'lifepillar/vim-solarized8'
     Plug 'dunstontc/vim-vscode-theme'
     Plug 'plan9-for-vimspace/acme-colors'
-    Plug 'puremourning/vimspector'
 call plug#end()
 
 if getcwd() =~ "dashboard"
@@ -168,8 +168,8 @@ nnoremap <F5> :colorscheme solarized8_low<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized8_low<CR>:set background=dark<CR>
 nnoremap <F7> :colorscheme dark_plus<CR>
 nnoremap <F8> :colorscheme acme<CR>
-colorscheme solarized8_low
-set background=light
+colorscheme solarized
+set background=dark
 
 """ Plugin Specific Commands
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
