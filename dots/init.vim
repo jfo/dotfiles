@@ -1,3 +1,6 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 let mapleader = '\'
 
 set clipboard^=unnamed                                       " yank and paste with the system clipboard

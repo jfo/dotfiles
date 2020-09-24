@@ -1,34 +1,32 @@
 WD=$(shell pwd)
 
-link: nvimrc
+all: link plug last
+
+link: directories
 	ln -sf $(WD)/dots/vimrc ~/.vimrc
 	ln -sf $(WD)/dots/tmux.conf ~/.tmux.conf
-	ln -sf $(WD)/dots/bashrc ~/.bashrc
-	ln -sf $(WD)/dots/bash_profile ~/.bash_profile
 	ln -sf $(WD)/dots/bash_secrets.sh ~/.bash_secrets.sh
 	ln -sf $(WD)/dots/gitconfig-work ~/.gitconfig-work
 	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
 	ln -sf $(WD)/dots/gitignore ~/.gitignore
 	ln -sf $(WD)/dots/eslintrc.js ~/.eslintrc.js
 	ln -sf $(WD)/dots/npmrc ~/.npmrc
+	ln -sf $(WD)/dots/init.vim ~/.config/nvim/init.vim
 
-nvimrc:
+directories:
 	mkdir -p ~/.config/nvim/
-	ln -sf $(WD)/src/init.vim ~/.config/nvim/init.vim
+	mkdir -p ~/.vim/tmp/
+	mkdir -p ~/.vim/sessions/
+	mkdir -p ~/.vim/colors/
 
 plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	vim +'PlugInstall --sync' +qa
-	vim +'UpdateRemotePlugins' +qa
-	mkdir -p ~/.vim/colors
+	nvim +'PlugInstall --sync' +qa
+	nvim +'UpdateRemotePlugins' +qa
 	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
 
 last:
-	mkdir -p ~/.vim/sessions/
 	touch ~/.vim/sessions/last.vim
-
-all: link plug last
-
 
 clean:
 	rm -rf ~/.vimrc ~/.tmux.conf ~/.bashrc ~/.bash_profile ~/.bash_secrets.sh ~/.gitconfig-work ~/.gitconfig ~/.gitignore ~/.vim ~/.config ~/code/zig/default.nix
@@ -42,4 +40,3 @@ zig:
 	ln -sf $(WD)/nix/zig-dev.nix ~/code/zig/default.nix
 
 .PHONY: nix zig clean all
-
