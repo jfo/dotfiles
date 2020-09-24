@@ -17,19 +17,26 @@ TODO
 ----
 
 - better support for contexts, more than just gitconf
-- make makefile smarter
-- make bash prompt better
-- choose a new shell?
-- I think there is something wrong with `make clean`
-- right now relying on installed binaries, should source control:
-  - eslint_d, prettier
+- make makefile smarter?
+- make fish prompt better
+- right now relying on installed binaries, should I source control:
+  - eslint_d, prettier, etc?
 
-list of core technologies I use:
-  vim / nvim
+core technologies
+--------------------------
+  nvim
   tmux
   git
   lsc
 
 things to improve:
-  plugin usage 
+  plugin usage
   snippets
+  linting / prettier /zig fmt, etc
+
+boot up expectation checking of installed binaries
+  js:
+    prettier
+    eslint_d
+  zig:
+    zig

@@ -1,2 +1,0 @@
-source ~/.bashrc
-if [ -e /home/jfo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jfo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
