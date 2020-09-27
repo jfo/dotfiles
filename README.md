@@ -40,3 +40,5 @@ boot up expectation checking of installed binaries
     eslint_d
   zig:
     zig
+
+move vim conf all to neovim

@@ -26,6 +26,7 @@
 
   fonts.fonts = with pkgs; [ inconsolata ];
 
+  programs.fish.enable = true;
   sound.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.bluetooth.enable = true;
@@ -46,6 +47,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     uid = 1000;
+    shell = pkgs.fish;
     packages = with pkgs; [
       ag
       arduino
