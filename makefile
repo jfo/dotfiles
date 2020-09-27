@@ -2,19 +2,22 @@ WD=$(shell pwd)
 
 all: link plug last
 
-link: directories
+link: directories config
 	ln -sf $(WD)/dots/vimrc ~/.vimrc
 	ln -sf $(WD)/dots/tmux.conf ~/.tmux.conf
-	ln -sf $(WD)/dots/bash_secrets.sh ~/.bash_secrets.sh
 	ln -sf $(WD)/dots/gitconfig-work ~/.gitconfig-work
 	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
 	ln -sf $(WD)/dots/gitignore ~/.gitignore
 	ln -sf $(WD)/dots/eslintrc.js ~/.eslintrc.js
 	ln -sf $(WD)/dots/npmrc ~/.npmrc
-	ln -sf $(WD)/dots/init.vim ~/.config/nvim/init.vim
+
+config:
+	ln -sf $(WD)/config/nvim/init.vim ~/.config/nvim/init.vim
+	ln -sf $(WD)/config/fish ~/.config/fish
 
 directories:
 	mkdir -p ~/.config/nvim/
+	mkdir -p ~/.config/fish/
 	mkdir -p ~/.vim/tmp/
 	mkdir -p ~/.vim/sessions/
 	mkdir -p ~/.vim/colors/
