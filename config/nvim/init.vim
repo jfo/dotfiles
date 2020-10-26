@@ -29,7 +29,7 @@ set updatetime=100
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 nmap <leader>hl :let @/ = ""<CR>
 
 " shift tab is real tabstop
@@ -115,7 +115,7 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
-set background=dark
+set background=light
 
 """ Plugin Specific Commands and mappings
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
