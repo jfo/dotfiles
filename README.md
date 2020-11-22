@@ -32,7 +32,8 @@ core technologies
 things to improve:
   plugin usage
   snippets
-  linting / prettier /zig fmt, etc
+  omnicomplete
+  linting / prettier / zig fmt, etc
 
 boot up expectation checking of installed binaries
   js:
