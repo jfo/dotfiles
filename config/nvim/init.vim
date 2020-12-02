@@ -171,8 +171,8 @@ endfunction
 
 " dragons
 let g:lsc_server_commands = {
-      \ 'javascript.jsx': '/Users/jeff/code/javascript-typescript-langserver/lib/language-server-stdio.js',
-      \ 'javascript': '/Users/jeff/code/javascript-typescript-langserver/lib/language-server-stdio.js',
+      \ 'javascript.jsx': '/Users/jeff/development/javascript-typescript-langserver/lib/language-server-stdio.js',
+      \ 'javascript': '/Users/jeff/development/javascript-typescript-langserver/lib/language-server-stdio.js',
       \ 'cpp': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
       \ 'c': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
       \}

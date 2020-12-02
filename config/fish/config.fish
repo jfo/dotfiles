@@ -43,6 +43,5 @@ end
 
 # fnm
 set PATH /Users/jeff/.fnm $PATH
-set PATH /Users/jeff/.npm-packages/bin $PATH
 fnm env --multi | source
 set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths

@@ -1,6 +1,6 @@
 [user]
 	name = Jeff Fowler
-	email = jeffowler@protonmail.com
+	email = jeff.fowler@peakon.com
 
 [core]
 	excludesfile = ~/.gitignore
