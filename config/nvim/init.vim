@@ -90,11 +90,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
-" TODO: nvim 0.5 supports integrated lsc.
-" replace:
-Plug 'natebosch/vim-lsc'
-" with:
-" Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 Plug 'neomake/neomake'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdtree'
@@ -169,27 +165,6 @@ function! MyFoldText()
 endfunction
 :hi! Folded none ctermfg=24
 
-" dragons
-let g:lsc_server_commands = {
-      \ 'javascript.jsx': '/Users/jeff/development/javascript-typescript-langserver/lib/language-server-stdio.js',
-      \ 'javascript': '/Users/jeff/development/javascript-typescript-langserver/lib/language-server-stdio.js',
-      \ 'cpp': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
-      \ 'c': 'cquery --init="{\"cacheDirectory\": \"/tmp/cquery_cache\"}" --log-file=/tmp/cq.log',
-      \}
-
-let g:lsc_auto_map = {
-      \ 'GoToDefinition': '<C-]>',
-      \ 'FindReferences': 'gr',
-      \ 'ShowHover': 'K',
-      \ 'Completion': 'completefunc',
-      \}
-" \ 'NextReference': '<C-n>',
-" \ 'PreviousReference': '<C-p>',
-" \ 'FindImplementations': 'gI',
-" \ 'FindCodeActions': 'ga',
-" \ 'DocumentSymbol': 'go',
-" \ 'WorkspaceSymbol': 'gS',
-
 """ Some lang specific things
 autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
 autocmd FileType sild set syntax=scheme
@@ -201,3 +176,17 @@ imap <C-l> <C-k>*l
 " see you next time! "
 " ================== "
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
+
+lua <<EOF
+require'lspconfig'.tsserver.setup{}
+EOF
+
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
