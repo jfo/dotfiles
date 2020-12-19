@@ -1,5 +1,5 @@
 set -gx EDITOR nvim
-set -gx FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
@@ -41,7 +41,4 @@ if test -f ~/.config/fish/fish_secrets
 end
 
 
-# fnm
-set PATH /Users/jeff/.fnm $PATH
-fnm env --multi | source
-set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
+set -Ua fish_user_paths ~/.npm-packages/bin
