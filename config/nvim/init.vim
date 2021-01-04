@@ -71,14 +71,21 @@ function! LineNumberToggle()
 endfunc
 nnoremap gn :call LineNumberToggle()<CR>
 
-function! ToggleTodo()
-  if expand('%:t') == 'todo'
+function! ToggleTodo(...)
+  if a:0 == 'main'
+    let filename = '~/.todo'
+  else
+    let filename = '.todo'
+  endif
+
+  if expand('%:t') == '.todo'
     :w|bd
   else
-    :tab drop todo
+    execute 'tab drop' filename
   endif
 endfunction
 nnoremap <LEADER>t :call ToggleTodo()<CR>
+nnoremap <LEADER>T :call ToggleTodo("main")<CR>
 
 " PLUGINS
 " ------------------------------------------------------------------------------
