@@ -72,7 +72,7 @@ endfunc
 nnoremap gn :call LineNumberToggle()<CR>
 
 function! ToggleTodo(...)
-  if a:0 == 'main'
+  if a:0
     let filename = '~/.todo'
   else
     let filename = '.todo'
@@ -85,7 +85,7 @@ function! ToggleTodo(...)
   endif
 endfunction
 nnoremap <LEADER>t :call ToggleTodo()<CR>
-nnoremap <LEADER>T :call ToggleTodo("main")<CR>
+nnoremap <LEADER>T :call ToggleTodo('wat')<CR>
 
 " PLUGINS
 " ------------------------------------------------------------------------------
