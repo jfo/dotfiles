@@ -185,7 +185,7 @@ imap <C-l> <C-k>*l
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
 lua <<EOF
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.denols.setup{}
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
