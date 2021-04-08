@@ -6,6 +6,7 @@ end
 set -gx EDITOR nvim
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
+alias pt="papertrail"
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
 alias vim='nvim'
