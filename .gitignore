@@ -1,2 +1,3 @@
 *_secrets*
 config/fish/fish_variables
+.git-blame-ignore-revs
