@@ -108,7 +108,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'zig-lang/zig.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 
 " color schemes
 Plug 'altercation/vim-colors-solarized'

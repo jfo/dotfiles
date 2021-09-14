@@ -5,7 +5,7 @@
 [core]
 	excludesfile = ~/.gitignore
 
-[includeIf "gitdir:~/development/*"]
+[includeIf "gitdir:~/development/"]
 	path = ~/.gitconfig-work
 
 [alias]
@@ -19,3 +19,15 @@
 
 [init]
 	defaultBranch = main
+
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+
+[commit]
+	gpgsign = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

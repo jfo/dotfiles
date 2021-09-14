@@ -48,11 +48,13 @@ set -e fish_user_paths
 set -U fish_user_paths ~/.npm-packages/bin
 set -Ua fish_user_paths /usr/local/opt/postgresql@11/bin
 
-set -gx PATH "/var/folders/3v/ym1h81wd45s3h94lfgvyqp9m0000gn/T/fnm_multishell_48166_1609755215663/bin" $PATH;
-set -gx FNM_MULTISHELL_PATH "/var/folders/3v/ym1h81wd45s3h94lfgvyqp9m0000gn/T/fnm_multishell_48166_1609755215663";
-set -gx FNM_DIR "/Users/jeff/.fnm";
+set -gx PATH "/var/folders/0m/w5lp5n515nqfkkl53913y6q00000gp/T/fnm_multishells/35925_1617801194335/bin" $PATH;
+set -gx FNM_MULTISHELL_PATH "/var/folders/0m/w5lp5n515nqfkkl53913y6q00000gp/T/fnm_multishells/35925_1617801194335";
+set -gx FNM_DIR "/Users/jeffrey.fowler/.fnm";
 set -gx FNM_LOGLEVEL "info";
 set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
+set -gx FNM_ARCH "x64";
+
 function _fnm_autoload_hook --on-variable PWD --description 'Change Node version on directory change'
     status --is-command-substitution; and return
     if test -f .node-version -o -f .nvmrc
