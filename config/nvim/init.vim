@@ -161,9 +161,9 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " neomake
-" let g:neomake_javascript_enabled_makers = ['eslint_d']
-" let g:neomake_logfile='/tmp/neomake_error.log'
-" autocmd BufWritePost *.js Neomake
+let g:neomake_javascript_enabled_makers = ['deno lint']
+let g:neomake_logfile='/tmp/neomake_error.log'
+autocmd BufWritePost *.js Neomake
 
 function! MyFoldText()
   let foldval = foldlevel(v:foldstart)
