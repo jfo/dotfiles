@@ -118,7 +118,7 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
-set background=light
+set bg=light
 
 """ Plugin Specific Commands and mappings
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
@@ -161,9 +161,9 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " neomake
-let g:neomake_javascript_enabled_makers = ['eslint_d']
-let g:neomake_logfile='/tmp/neomake_error.log'
-autocmd BufWritePost *.js Neomake
+" let g:neomake_javascript_enabled_makers = ['eslint_d']
+" let g:neomake_logfile='/tmp/neomake_error.log'
+" autocmd BufWritePost *.js Neomake
 
 function! MyFoldText()
   let foldval = foldlevel(v:foldstart)
