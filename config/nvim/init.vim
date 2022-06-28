@@ -161,9 +161,15 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " neomake
-let g:neomake_javascript_enabled_makers = ['deno lint']
+let g:neomake_denolint_maker = {
+    \ 'exe': 'deno',
+    \ 'args': ['fmt', '--check'],
+    \ 'errorformat': '%f:%l:%c: %m',
+    \ }
+
+let g:neomake_javascript_enabled_makers = ['denolint']
 let g:neomake_logfile='/tmp/neomake_error.log'
-autocmd BufWritePost *.js Neomake
+call neomake#configure#automake('w')
 
 function! MyFoldText()
   let foldval = foldlevel(v:foldstart)
@@ -185,7 +191,11 @@ imap <C-l> <C-k>*l
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
 lua <<EOF
-require'lspconfig'.tsserver.setup{}
+
+local lspconfig = require'lspconfig'
+lspconfig.denols.setup{}
+lspconfig.zls.setup{}
+
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
