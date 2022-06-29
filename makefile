@@ -3,7 +3,10 @@ WD=$(shell pwd)
 all: stow plug last
 
 stow:
-	stow --target=$HOME dots
+	stow --target=${HOME} dots
+
+clean:
+	stow -D --target=${HOME} dots
 
 config:
 	ln -sf $(WD)/config/nvim/init.vim ~/.config/nvim/init.vim
