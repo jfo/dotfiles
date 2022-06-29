@@ -1,5 +1,9 @@
 # Dotfiles for days
 
+switched to stow for package management. see:
+https://github.com/aspiers/stow/issues/33
+https://github.com/aspiers/stow/issues/75
+
 nix:
 ----------------
 
