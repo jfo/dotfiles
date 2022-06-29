@@ -7,12 +7,12 @@ set clipboard^=unnamed         " yank and paste with the system clipboard
 set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
 set expandtab                  " expand tabs to spaces
 set foldlevelstart=0           " start with all folds closed
-set foldmethod=indent
+set foldmethod=syntax
 set foldnestmax=10
 set ignorecase                 " case-insensitive search
 set list                       " show trailing whitespace
 set listchars=tab:\|\ ,trail:▫ " display whitespace with specified characters
-set nonumber                   " don't show line numbers by default
+set number                     " show line numbers by default
 set nowrap
 set nowrapscan                 " don't search from top if you hit the bottom
 set ruler                      " show where you are
