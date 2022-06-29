@@ -5,26 +5,16 @@
 [core]
 	excludesfile = ~/.gitignore
 
-[includeIf "gitdir:~/development/"]
-	path = ~/.gitconfig-work
+[init]
+	defaultBranch = main
 
 [alias]
 	co = checkout
-	l = log --oneline
 	rpull = pull --rebase
 	touched = "!f() { git diff --name-only $(git merge-base HEAD master); }; f"
 	diffm = "!f() { git diff $(git merge-base HEAD master); }; f"
 	cp = cherry-pick
 	wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:blue)%(refname:short)' refs/heads
 
-[init]
-	defaultBranch = main
-
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[includeIf "gitdir:~/development/"]
+	path = ~/.gitconfig-work

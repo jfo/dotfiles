@@ -1,6 +1,2 @@
-[user]
-	name = Jeff Fowler
-	email = jeff.fowler@peakon.com
-
-[commit]
-	gpgsign = true
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
