@@ -6,7 +6,7 @@ let mapleader = '\'
 set clipboard^=unnamed         " yank and paste with the system clipboard
 set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
 set expandtab                  " expand tabs to spaces
-set foldlevelstart=0           " start with all folds closed
+set foldlevelstart=99           " start with all folds open
 set foldmethod=syntax
 set foldnestmax=10
 set ignorecase                 " case-insensitive search
