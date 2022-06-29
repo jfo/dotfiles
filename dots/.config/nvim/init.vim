@@ -7,7 +7,7 @@ set clipboard^=unnamed         " yank and paste with the system clipboard
 set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
 set expandtab                  " expand tabs to spaces
 set foldlevelstart=99           " start with all folds open
-set foldmethod=syntax
+set foldmethod=indent
 set foldnestmax=10
 set ignorecase                 " case-insensitive search
 set list                       " show trailing whitespace
