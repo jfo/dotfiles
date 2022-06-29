@@ -1,23 +1,15 @@
 WD=$(shell pwd)
 
-all: link plug last
+all: stow plug last
 
-link: directories config
-	ln -sf $(WD)/dots/vimrc ~/.vimrc
-	ln -sf $(WD)/dots/tmux.conf ~/.tmux.conf
-	ln -sf $(WD)/dots/gitconfig-work ~/.gitconfig-work
-	ln -sf $(WD)/dots/gitconfig ~/.gitconfig
-	ln -sf $(WD)/dots/gitignore ~/.gitignore
-	ln -sf $(WD)/dots/eslintrc.js ~/.eslintrc.js
-	ln -sf $(WD)/dots/npmrc ~/.npmrc
+stow:
+	stow --target=$HOME dots
 
 config:
 	ln -sf $(WD)/config/nvim/init.vim ~/.config/nvim/init.vim
 	ln -sf $(WD)/config/fish ~/.config/fish
 
 directories:
-	mkdir -p ~/.config/nvim/
-	mkdir -p ~/.config/fish/
 	mkdir -p ~/.vim/tmp/
 	mkdir -p ~/.vim/sessions/
 	mkdir -p ~/.vim/colors/
@@ -30,9 +22,6 @@ plug:
 
 last:
 	touch ~/.vim/sessions/last.vim
-
-clean:
-	rm -rf ~/.vimrc ~/.tmux.conf ~/.bashrc ~/.bash_profile ~/.bash_secrets.sh ~/.gitconfig-work ~/.gitconfig ~/.gitignore ~/.vim ~/.config ~/code/zig/default.nix
 
 # nix ish
 nix:
