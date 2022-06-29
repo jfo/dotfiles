@@ -3,49 +3,53 @@ let &packpath = &runtimepath
 
 let mapleader = '\'
 
-set clipboard^=unnamed                                       " yank and paste with the system clipboard
-set cursorline
-set expandtab                                                " expand tabs to spaces
-set foldlevelstart=99
+set clipboard^=unnamed         " yank and paste with the system clipboard
+set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
+set expandtab                  " expand tabs to spaces
+set foldlevelstart=0           " start with all folds closed
 set foldmethod=indent
 set foldnestmax=10
-set ignorecase                                               " case-insensitive search
-set list                                                     " show trailing whitespace
-set listchars=tab:\|\ ,trail:▫
-set nonumber                                                 " don't show line numbers by default
+set ignorecase                 " case-insensitive search
+set list                       " show trailing whitespace
+set listchars=tab:\|\ ,trail:▫ " display whitespace with specified characters
+set nonumber                   " don't show line numbers by default
 set nowrap
-set nowrapscan                                               " don't search from top if you hit the bottom
-set ruler                                                    " show where you are
-set scrolloff=5                                              " show context above/below cursorline
-set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
-set smartcase                                                " case-sensitive search if any caps
+set nowrapscan                 " don't search from top if you hit the bottom
+set ruler                      " show where you are
+set scrolloff=5                " show context above/below cursorline
+set shiftwidth=2               " normal mode indentation commands use 2 spaces
+set smartcase                  " case-sensitive search if any caps
 set smartindent
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=8                                                " actual tabs occupy 8 characters
+set softtabstop=2              " insert mode tab and backspace use 2 spaces
+set tabstop=8                  " actual tabs occupy 8 characters
 set wildmode=longest,list,full
-set synmaxcol=240
-set updatetime=100
+set synmaxcol=240              " maximum column in which to search for syntax items, can otherwise choke on long lined files
+set updatetime=1000            " wait one second after any typing to write swap file
 
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
+" quickly realod config
 map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+
+" clear highlighted text
 nmap <leader>hl :let @/ = ""<CR>
 
-" shift tab is real tabstop
+" shift tab inputs real tabstop
 inoremap <S-Tab> <C-V><Tab>
-" leader w forever
+
+" leader w writes file
 nnoremap <LEADER>w :w<CR>
 
-" open/close quickfix list easily
+" open/close quickfix list
 nnoremap <LEADER>o :copen<cr>
 nnoremap <LEADER>c :cclose<cr>
-" open/close location list easily
+
+" open/close location list
 nnoremap <LEADER>lo :lopen<cr>
 nnoremap <LEADER>lc :lclose<cr>
 
-" quickly put the full path of the current file in the system
-" clipboard/unnamed register
+" quickly put the full path of the current file in the system clipboard/unnamed register
 nmap <LEADER>p :let @*=expand("%:p")<CR>
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -90,6 +94,7 @@ nnoremap <LEADER>T :call ToggleTodo('wat')<CR>
 " PLUGINS
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter'
 Plug 'benjie/local-npm-bin.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jfo/vim-runners'
@@ -97,8 +102,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
-Plug 'neovim/nvim-lspconfig'
 Plug 'neomake/neomake'
+Plug 'neovim/nvim-lspconfig'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -107,8 +112,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'zig-lang/zig.vim'
-Plug 'airblade/vim-gitgutter'
-" Plug 'puremourning/vimspector'
 
 " color schemes
 Plug 'altercation/vim-colors-solarized'
@@ -171,31 +174,22 @@ let g:neomake_javascript_enabled_makers = ['denolint']
 let g:neomake_logfile='/tmp/neomake_error.log'
 call neomake#configure#automake('w')
 
-function! MyFoldText()
-  let foldval = foldlevel(v:foldstart)
-  let foldindent = foldval * 2 - 2
-  return repeat(" ", foldindent) . "|" . repeat("―", winwidth(0))
+function! FoldFunction()
+  return getline(v:foldstart)
 endfunction
-:hi! Folded none ctermfg=24
+setlocal fillchars=fold:┈
+setlocal foldtext=FoldFunction()
+hi Folded none
 
-""" Some lang specific things
-autocmd BufRead,BufNewFile *.sld setlocal filetype=sild
-autocmd FileType sild set syntax=scheme
-
-" hey look λ lol
+" typing λ
 imap <C-l> <C-k>*l
 
-" ================== "
-" see you next time! "
-" ================== "
-autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
+" LSP client/server setup
 
 lua <<EOF
-
 local lspconfig = require'lspconfig'
 lspconfig.denols.setup{}
 lspconfig.zls.setup{}
-
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -207,3 +201,6 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+
+" save current session when exiting vim (useful for reloading state)
+autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
