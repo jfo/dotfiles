@@ -136,8 +136,8 @@ endif
 nnoremap <LEADER>g :Run<CR>
 
 " rhubarb
-map <LEADER>x :Gbrowse!<CR>
-map <LEADER>X :Gbrowse<CR>
+map <LEADER>x :GBrowse!<CR>
+map <LEADER>X :GBrowse<CR>
 
 " Nerdtree
 nmap <leader>d :NERDTreeToggle<CR>
