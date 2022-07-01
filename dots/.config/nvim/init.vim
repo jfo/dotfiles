@@ -3,6 +3,7 @@ let &packpath = &runtimepath
 
 let mapleader = '\'
 
+set signcolumn=yes
 set clipboard^=unnamed         " yank and paste with the system clipboard
 set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
 set expandtab                  " expand tabs to spaces
