@@ -8,10 +8,6 @@ stow:
 clean:
 	stow -D --target=${HOME} dots
 
-config:
-	ln -sf $(WD)/config/nvim/init.vim ~/.config/nvim/init.vim
-	ln -sf $(WD)/config/fish ~/.config/fish
-
 directories:
 	mkdir -p ~/.vim/tmp/
 	mkdir -p ~/.vim/sessions/
