@@ -40,8 +40,8 @@ function annoy
    osascript -e 'display notification "your ish is done"'
 end
 
-if test -f ~/.config/fish/fish_secrets
-  source ~/.config/fish/fish_secrets
+if test -f ~/.config/fish/secrets.fish
+  source ~/.config/fish/secrets.fish
 end
 
 set -e fish_user_paths
