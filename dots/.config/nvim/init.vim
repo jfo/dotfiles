@@ -3,7 +3,6 @@ let &packpath = &runtimepath
 
 let mapleader = '\'
 
-set signcolumn=yes
 set clipboard^=unnamed         " yank and paste with the system clipboard
 set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
 set expandtab                  " expand tabs to spaces
@@ -26,6 +25,8 @@ set tabstop=8                  " actual tabs occupy 8 characters
 set wildmode=longest,list,full
 set synmaxcol=240              " maximum column in which to search for syntax items, can otherwise choke on long lined files
 set updatetime=1000            " wait one second after any typing to write swap file
+set signcolumn=yes
+set signcolumn=number
 
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
