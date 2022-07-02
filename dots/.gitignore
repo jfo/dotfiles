@@ -10,3 +10,4 @@ dist
 default.nix
 .ignore
 .git-blame-ignore-revs
+.ccls-cache

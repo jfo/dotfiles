@@ -199,6 +199,7 @@ lua <<EOF
 local lspconfig = require'lspconfig'
 lspconfig.denols.setup{}
 lspconfig.zls.setup{}
+lspconfig.ccls.setup{}
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
