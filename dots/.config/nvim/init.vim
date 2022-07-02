@@ -117,13 +117,20 @@ Plug 'zig-lang/zig.vim'
 
 " color schemes
 Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
-Plug 'dunstontc/vim-vscode-theme'
+Plug 'Mofiqul/vscode.nvim'
 Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
 set bg=light
+
+nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
+nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
+nnoremap <F7> :colorscheme vscode<CR>:set background=light<CR>
+nnoremap <F8> :colorscheme vscode<CR>:set background=dark<CR>
+nnoremap <F9> :colorscheme acme<CR>
+
+nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
 """ Plugin Specific Commands and mappings
 let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
