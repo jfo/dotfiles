@@ -122,7 +122,7 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
-set bg=light
+set bg=dark
 
 nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
@@ -200,6 +200,11 @@ local lspconfig = require'lspconfig'
 lspconfig.denols.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
+vim.diagnostic.setqflist()
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
