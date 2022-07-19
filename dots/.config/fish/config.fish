@@ -31,3 +31,6 @@ end
 
 set -e fish_user_paths
 set -U fish_user_paths ~/.npm-packages/bin
+
+set -Ux BUN_INSTALL "~/.bun"
+fish_add_path "~/.bun/bin"

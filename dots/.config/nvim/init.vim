@@ -122,7 +122,7 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
-set bg=dark
+set bg=light
 
 nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
@@ -176,7 +176,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let g:neomake_denolint_maker = {
     \ 'exe': 'deno',
     \ 'args': ['fmt', '--check'],
-    \ 'errorformat': '%f:%l:%c: %m',
     \ }
 
 let g:neomake_javascript_enabled_makers = ['denolint']
@@ -204,7 +203,6 @@ lspconfig.ccls.setup{}
 vim.diagnostic.config({
   virtual_text = false,
 })
-vim.diagnostic.setqflist()
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
