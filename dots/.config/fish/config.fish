@@ -1,5 +1,6 @@
 set -gx EDITOR nvim
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
+set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
 
 alias pt="papertrail"
 alias tl="tmux list-sessions"

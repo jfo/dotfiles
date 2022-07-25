@@ -12,3 +12,4 @@ default.nix
 .git-blame-ignore-revs
 .ccls-cache
 zig-out
+a.out
