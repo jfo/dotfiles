@@ -36,3 +36,6 @@ set -U fish_user_paths ~/.npm-packages/bin
 set -Ux BUN_INSTALL "~/.bun"
 fish_add_path "~/.bun/bin"
 fish_add_path /usr/local/opt/ruby/bin
+
+# opam configuration
+source /Volumes/InternalNVME/jeff/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

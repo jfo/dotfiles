@@ -165,6 +165,7 @@ nmap gl :Lines<CR>
 " commentary.vim comment strings
 autocmd FileType sild set commentstring=;\ %s
 autocmd FileType hex set commentstring=#\ %s
+autocmd FileType c setlocal commentstring=\/\/\ %s
 
 " https://github.com/christoomey/vim-tmux-navigator#configuration
 let g:tmux_navigator_no_mappings = 1
