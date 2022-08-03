@@ -13,3 +13,4 @@ default.nix
 .ccls-cache
 zig-out
 a.out
+_build
