@@ -1,2 +1,9 @@
+[user]
+	name = Jeff Fowler
+	email = jeffrey.fowler@workday.com
+
+[commit]
+	gpgsign = true
+
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
