@@ -10,6 +10,7 @@
 
 [alias]
 	co = "!f() { echo 'Use switch and restore!'; }; f"
+	checkout = "!f() { echo 'Use switch and restore!'; }; f"
 	rpull = pull --rebase
 	touched = "!f() { git diff --name-only $(git merge-base HEAD master); }; f"
 	diffm = "!f() { git diff $(git merge-base HEAD master); }; f"
