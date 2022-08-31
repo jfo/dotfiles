@@ -198,13 +198,12 @@ imap <C-l> <C-k>*l
 
 lua <<EOF
 local lspconfig = require'lspconfig'
-lspconfig.denols.setup{}
+-- lspconfig.denols.setup{}
+lspconfig.tsserver.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 
-vim.diagnostic.config({
-  virtual_text = false,
-})
+vim.diagnostic.config({virtual_text = false})
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
