@@ -44,3 +44,6 @@ fish_add_path /Users/jfo/.fzf/bin
 
 # opam configuration
 source /Volumes/InternalNVME/jeff/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# rbenv configuation
+status --is-interactive; and rbenv init - fish | source

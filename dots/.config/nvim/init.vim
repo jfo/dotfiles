@@ -201,6 +201,7 @@ local lspconfig = require'lspconfig'
 lspconfig.tsserver.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
+lspconfig.solargraph.setup{}
 
 vim.diagnostic.config({virtual_text = false})
 EOF
