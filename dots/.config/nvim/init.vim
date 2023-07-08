@@ -123,7 +123,6 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
-set bg=light
 
 nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
