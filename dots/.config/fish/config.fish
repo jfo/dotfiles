@@ -6,7 +6,7 @@ alias pt="papertrail"
 alias tl="tmux list-sessions"
 alias ta="tmux attach"
 alias nvimo="nvim -S ~/.vim/sessions/last.vim"
-alias serve='python -m SimpleHTTPServer 80'
+alias serve='python3 -m http.server 80'
 alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
 
