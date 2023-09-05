@@ -123,6 +123,7 @@ Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 colorscheme solarized
+set bg=dark
 
 nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
@@ -166,6 +167,8 @@ autocmd FileType sild set commentstring=;\ %s
 autocmd FileType hex set commentstring=#\ %s
 autocmd FileType c setlocal commentstring=\/\/\ %s
 
+au BufRead,BufNewFile *.sld set filetype=scheme
+
 " https://github.com/christoomey/vim-tmux-navigator#configuration
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -203,7 +206,17 @@ lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.solargraph.setup{}
 
-vim.diagnostic.config({virtual_text = false})
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+});
+
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
