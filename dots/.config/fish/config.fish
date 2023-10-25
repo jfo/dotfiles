@@ -9,6 +9,8 @@ alias nvimo="nvim -S ~/.vim/sessions/last.vim"
 alias serve='python3 -m http.server 80'
 alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
+alias python='python3'
+alias pip='pip3'
 
 function clone
   git clone git@github.com:$argv[1]
@@ -41,9 +43,12 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 fish_add_path /usr/local/bin
 fish_add_path /Users/jfo/.fzf/bin
+fish_add_path /Users/jfo/code/zig/build/stage3/bin
+fish_add_path /Users/jfo/code/zls/zig-out/bin
+fish_add_path /Users/jfo/code/depot_tools
 
 # opam configuration
 source /Volumes/InternalNVME/jeff/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # rbenv configuation
-status --is-interactive; and rbenv init - fish | source
+# status --is-interactive; and rbenv init - fish | source
