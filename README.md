@@ -32,3 +32,7 @@ boot up expectation checking of installed binaries
     eslint_d
   zig:
     zig
+
+
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
