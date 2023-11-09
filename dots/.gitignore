@@ -14,3 +14,4 @@ default.nix
 zig-out
 a.out
 _build
+.vscode
