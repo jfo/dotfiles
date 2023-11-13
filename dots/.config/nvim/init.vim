@@ -141,8 +141,8 @@ let g:NERDTreeWinSize = 50
 nnoremap <leader>a :Ack!<space>
 vnoremap <leader>a y:Ack! '<C-R>"'<CR>
 " silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
 endif
 
 " vim-runners
