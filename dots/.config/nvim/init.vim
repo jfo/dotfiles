@@ -173,3 +173,5 @@ imap <C-l> <C-k>*l
 
 " save current session when exiting vim (useful for reloading state)
 autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
+
+luafile ~/.config/nvim/init-post.lua
