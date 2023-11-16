@@ -1,31 +1,5 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-let mapleader = '\'
-
-set clipboard^=unnamed         " yank and paste with the system clipboard
-set cursorline                 " highlight the text line of the cursor with CursorLine |hl-CursorLine|.
-set expandtab                  " expand tabs to spaces
-set foldlevelstart=99           " start with all folds open
-set foldmethod=indent
-set foldnestmax=10
-set ignorecase                 " case-insensitive search
-set list                       " show trailing whitespace
-set listchars=tab:\|\ ,trail:▫ " display whitespace with specified characters
-set number                     " show line numbers by default
-set nowrap
-set nowrapscan                 " don't search from top if you hit the bottom
-set ruler                      " show where you are
-set scrolloff=5                " show context above/below cursorline
-set shiftwidth=2               " normal mode indentation commands use 2 spaces
-set smartcase                  " case-sensitive search if any caps
-set smartindent
-set softtabstop=2              " insert mode tab and backspace use 2 spaces
-set tabstop=8                  " actual tabs occupy 8 characters
-set wildmode=longest,list,full
-set synmaxcol=240              " maximum column in which to search for syntax items, can otherwise choke on long lined files
-set updatetime=1000            " wait one second after any typing to write swap file
-set signcolumn=yes
-set signcolumn=number
 
 " do not jump to next match immediately
 nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
