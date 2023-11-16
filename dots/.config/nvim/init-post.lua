@@ -1,3 +1,31 @@
+vim.g.mapleader = '\\'
+
+-- Set various options
+vim.o.clipboard = 'unnamed'
+vim.o.cursorline = true
+vim.o.expandtab = true
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = 'indent'
+vim.o.foldnestmax = 10
+vim.o.ignorecase = true
+vim.o.list = true
+vim.o.listchars = 'tab:| ,trail:▫'
+vim.o.number = true
+-- vim.o.nowrap = true
+-- vim.o.nowrapscan = true
+vim.o.ruler = true
+vim.o.scrolloff = 5
+vim.o.shiftwidth = 2
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.softtabstop = 2
+vim.o.tabstop = 8
+vim.o.wildmode = 'longest,list,full'
+vim.o.synmaxcol = 240
+vim.o.updatetime = 1000
+vim.o.signcolumn = 'yes'
+vim.o.mouse = 'a'
+
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
 -- lspconfig.denols.setup{}
