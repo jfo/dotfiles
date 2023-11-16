@@ -115,6 +115,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'zig-lang/zig.vim'
+Plug 'github/copilot.vim'
 
 " color schemes
 Plug 'altercation/vim-colors-solarized'
@@ -177,12 +178,12 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " neomake
-let g:neomake_denolint_maker = {
-    \ 'exe': 'deno',
-    \ 'args': ['fmt', '--check'],
-    \ }
+" let g:neomake_denolint_maker = {
+"     \ 'exe': 'deno',
+"     \ 'args': ['fmt', '--check'],
+"     \ }
 
-let g:neomake_javascript_enabled_makers = ['denolint']
+" let g:neomake_javascript_enabled_makers = ['denolint']
 let g:neomake_logfile='/tmp/neomake_error.log'
 call neomake#configure#automake('w')
 
