@@ -16,3 +16,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     client.server_capabilities.semanticTokensProvider = nil
   end,
 });
+
+-- LSP keybindings
+local mappings = {
+  ['<c-]>'] = vim.lsp.buf.definition,
+  ['K'] = vim.lsp.buf.hover,
+  ['gD'] = vim.lsp.buf.implementation,
+  -- ['<c-k>'] = vim.lsp.buf.signature_help,
+  ['1gD'] = vim.lsp.buf.type_definition,
+  ['gr'] = vim.lsp.buf.references,
+  ['g0'] = vim.lsp.buf.document_symbol,
+  ['gW'] = vim.lsp.buf.workspace_symbol,
+  ['gd'] = vim.lsp.buf.declaration,
+}
+
+for key, action in pairs(mappings) do
+  vim.keymap.set('n', key, action, { silent = true })
+end
