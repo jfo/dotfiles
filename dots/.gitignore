@@ -8,6 +8,7 @@ jfo*
 dist
 default.nix
 .ignore
+.git-blame-ignore-revs
 .ccls-cache
 zig-out
 a.out
