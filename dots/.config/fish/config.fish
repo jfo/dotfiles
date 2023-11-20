@@ -16,6 +16,10 @@ function clone
   git clone git@github.com:$argv[1]
 end
 
+function gits
+  git submodule foreach $argv
+end
+
 function mkcd
   mkdir "$argv[1]" && cd "$argv[1]"
 end
