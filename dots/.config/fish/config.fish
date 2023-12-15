@@ -17,7 +17,7 @@ function clone
 end
 
 function gits
-  git submodule foreach $argv
+    git submodule foreach --quiet 'echo $path' | parallel --will-cite "cd {} && $argv"
 end
 
 function mkcd
