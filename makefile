@@ -20,7 +20,7 @@ plug:
 	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
 
 last:
-	touch ~/.vim/sessions/last.vim
+	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
 
 # nix ish
 nix:
