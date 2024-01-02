@@ -1,2 +1,10 @@
 *secrets*
 .git-blame-ignore-revs
+
+dots/.config/configstore/
+dots/.config/fish/fish_variables
+dots/.config/fish/functions/fish_user_key_bindings.fish
+dots/.config/fish/functions/fzf_key_bindings.fish
+dots/.config/gh/
+dots/.config/github-copilot/
+dots/.config/iterm2/
