@@ -15,11 +15,6 @@ TODO
 
 core technologies
 --------------------------
-  nvim
-  tmux
-  git
-  lsc
-
 things to improve:
   plugin usage
   snippets
@@ -34,5 +29,43 @@ boot up expectation checking of installed binaries
     zig
 
 
+```
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+```
+
+Programs to get
+- Table plus
+- Rectangle
+- Iterm2
+- One password
+- Slack
+- Browsers
+    - Firefox
+    - Arc
+    - Chrome
+    - 1password plugin on everything
+- Brew
+    - Git
+    - Fnm
+        - Node (derr)
+    - Nvim
+    - Fish
+    - Tmux
+    - Stow
+    - Ripgrep (rg)
+    - Silver searcher (ag)
+    - Gh
+- Docker desktop
+
+Setup to doooooo
+- Rm all stuff from toolbar
+- Autohide toolbar
+- Remap caps to ctrl
+- Set up external keyboard
+- Setup bluetooth mouse
+- Key repeat speed pls
+- Invert scroll on touchpad
+- Hot corners
+- All updates
+- Switch to fish
