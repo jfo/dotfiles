@@ -23,6 +23,8 @@ nnoremap <LEADER>c :cclose<cr>
 " open/close location list
 nnoremap <LEADER>lo :lopen<cr>
 nnoremap <LEADER>lc :lclose<cr>
+inoremap jj <esc>
+inoremap <c-c> <esc>
 
 " quickly put the full path of the current file in the system clipboard/unnamed register
 nmap <LEADER>p :let @*=expand("%:p")<CR>
