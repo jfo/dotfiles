@@ -56,6 +56,7 @@ Programs to get
     - Ripgrep (rg)
     - Silver searcher (ag)
     - Gh
+    - parallel
 - Docker desktop
 
 Setup to doooooo

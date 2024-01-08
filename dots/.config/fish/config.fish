@@ -16,6 +16,10 @@ function clone
   git clone git@github.com:$argv[1]
 end
 
+function ps
+  $VIM_RUNNERS_SQL_COMMAND $argv[1]
+end
+
 function gits
     git submodule foreach --quiet 'echo $path' | parallel --will-cite "cd {} && $argv"
 end
