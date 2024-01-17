@@ -16,7 +16,7 @@ function clone
   git clone git@github.com:$argv[1]
 end
 
-function ps
+function psq
   $VIM_RUNNERS_SQL_COMMAND $argv[1]
 end
 

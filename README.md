@@ -57,6 +57,8 @@ Programs to get
     - Silver searcher (ag)
     - Gh
     - parallel
+    - awscli
+    - jq
 - Docker desktop
 
 Setup to doooooo
