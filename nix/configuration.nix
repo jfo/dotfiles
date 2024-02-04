@@ -8,8 +8,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+   console.keyMap = "us";
+
    i18n = {
-     consoleKeyMap = "us";
      defaultLocale = "en_US.UTF-8";
    };
 
@@ -21,10 +22,11 @@
     cmake
     git
     gnumake
-    firefox
   ];
 
-  fonts.fonts = with pkgs; [ inconsolata ];
+  programs.firefox.enable = true;
+
+  fonts.packages = with pkgs; [ inconsolata ];
 
   programs.fish.enable = true;
   sound.enable = true;
@@ -36,10 +38,10 @@
     support32Bit = true;
   };
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   services.xserver.libinput.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
-  services.xserver.desktopManager.default = "gnome3";
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.defaultSession = "gnome";
 
   services.printing.enable = true;
 
@@ -49,7 +51,7 @@
     uid = 1000;
     shell = pkgs.fish;
     packages = with pkgs; [
-      ag
+      silver-searcher
       arduino
       awscli
       binaryen
@@ -65,7 +67,6 @@
       nodejs_latest
       pass
       php
-      python
       ruby
       spotify
       steam
@@ -85,4 +86,8 @@
   system.stateVersion = "18.03";
 
   networking.hosts."127.0.0.1" = [ "dev.jfo.click" ];
+
+  services.openvpn.servers = {
+    ExpressVPN.config = "~/my_expressvpn_denmark_upd.ovpn";
+  };
 }

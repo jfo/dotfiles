@@ -25,6 +25,7 @@ vim.o.synmaxcol = 240
 vim.o.updatetime = 1000
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
+vim.o.termguicolors = true
 
 -- LSP client/server setup
 local lspconfig = require'lspconfig'

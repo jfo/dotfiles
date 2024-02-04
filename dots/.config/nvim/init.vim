@@ -94,16 +94,18 @@ Plug 'zig-lang/zig.vim'
 Plug 'github/copilot.vim'
 
 " color schemes
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'plan9-for-vimspace/acme-colors'
+Plug 'overcache/NeoSolarized'
 call plug#end()
 
-colorscheme solarized
+" syntax reset
+colorscheme NeoSolarized
 set bg=dark
 
-nnoremap <F5> :colorscheme solarized<CR>:set background=light<CR>
-nnoremap <F6> :colorscheme solarized<CR>:set background=dark<CR>
+nnoremap <F5> :colorscheme NeoSolarized<CR>:set background=light<CR>
+nnoremap <F6> :colorscheme NeoSolarized<CR>:set background=dark<CR>
 nnoremap <F7> :colorscheme vscode<CR>:set background=light<CR>
 nnoremap <F8> :colorscheme vscode<CR>:set background=dark<CR>
 nnoremap <F9> :colorscheme acme<CR>

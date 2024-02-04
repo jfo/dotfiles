@@ -11,9 +11,9 @@ in with nixpkgs; {
     hardeningDisable = [ "all" ];
     buildInputs = [
       cmake
-      llvmPackages_9.clang-unwrapped
-      llvm_9
-      lld_9
+      llvmPackages_17.clang-unwrapped
+      llvm_17
+      lld_17
     ];
   };
 }
