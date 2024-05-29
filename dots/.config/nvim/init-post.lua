@@ -36,13 +36,19 @@ lspconfig.ccls.setup{}
 lspconfig.solargraph.setup{}
 lspconfig.svelte.setup{}
 
+lspconfig.terraformls.setup{}
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"*.tf", "*.tfvars"},
+--   callback = vim.lsp.buf.formatting_sync(),
+-- })
+
 vim.diagnostic.config({
   virtual_text = false
 })
 
 -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- vim.o.updatetime = 250
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)

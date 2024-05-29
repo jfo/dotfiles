@@ -100,9 +100,8 @@ Plug 'plan9-for-vimspace/acme-colors'
 Plug 'overcache/NeoSolarized'
 call plug#end()
 
-" syntax reset
 colorscheme NeoSolarized
-set bg=dark
+set bg=light
 
 nnoremap <F5> :colorscheme NeoSolarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme NeoSolarized<CR>:set background=dark<CR>

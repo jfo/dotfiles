@@ -55,12 +55,22 @@ fish_add_path /Users/jfo/code/zig/build/stage3/bin
 fish_add_path /Users/jfo/code/zls/zig-out/bin
 fish_add_path /Users/jfo/code/depot_tools
 
-set -gx PATH "/Users/jfo/Library/Caches/fnm_multishells/11624_1699281808366/bin" $PATH;
-set -gx FNM_ARCH "arm64";
-set -gx FNM_LOGLEVEL "info";
-set -gx FNM_VERSION_FILE_STRATEGY "local";
+set -gx PATH "/Users/jfo/Library/Caches/fnm_multishells/44868_1716990048105/bin" $PATH;
 set -gx FNM_RESOLVE_ENGINES "false";
-set -gx FNM_MULTISHELL_PATH "/Users/jfo/Library/Caches/fnm_multishells/11624_1699281808366";
-set -gx FNM_DIR "/Users/jfo/Library/Application Support/fnm";
+set -gx FNM_ARCH "arm64";
 set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
 set -gx FNM_COREPACK_ENABLED "false";
+set -gx FNM_DIR "/Users/jfo/Library/Application Support/fnm";
+set -gx FNM_VERSION_FILE_STRATEGY "local";
+set -gx FNM_MULTISHELL_PATH "/Users/jfo/Library/Caches/fnm_multishells/44868_1716990048105";
+set -gx FNM_LOGLEVEL "info";
+function _fnm_autoload_hook --on-variable PWD --description 'Change Node version on directory change'
+    status --is-command-substitution; and return
+    if test -f .node-version -o -f .nvmrc
+    fnm use --silent-if-unchanged
+end
+
+end
+
+_fnm_autoload_hook
+

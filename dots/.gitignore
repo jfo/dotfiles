@@ -1,7 +1,7 @@
 zig-cache
 node_modules
 .DS_Store
-tags
+./tags
 .todo*
 jfo*
 .cache
