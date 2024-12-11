@@ -71,9 +71,7 @@ nnoremap <LEADER>T :call ToggleTodo('wat')<CR>
 " PLUGINS
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'NicholasDunham/chuck.nvim'
 Plug 'airblade/vim-gitgutter'
-Plug 'benjie/local-npm-bin.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jfo/vim-runners'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -85,7 +83,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdtree'
-" Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -94,10 +91,14 @@ Plug 'zig-lang/zig.vim'
 Plug 'github/copilot.vim'
 
 " color schemes
-" Plug 'altercation/vim-colors-solarized'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'plan9-for-vimspace/acme-colors'
 Plug 'overcache/NeoSolarized'
+
+" Plug 'benjie/local-npm-bin.vim'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'NicholasDunham/chuck.nvim'
 call plug#end()
 
 colorscheme NeoSolarized

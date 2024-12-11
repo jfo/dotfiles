@@ -8,16 +8,10 @@ stow:
 clean:
 	stow -D --dotfiles --target=${HOME} dots
 
-directories:
-	mkdir -p ~/.vim/tmp/
-	mkdir -p ~/.vim/sessions/
-	mkdir -p ~/.vim/colors/
-
 plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim +'PlugInstall --sync' +qa
 	nvim +'UpdateRemotePlugins' +qa
-	cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
 
 last:
 	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
