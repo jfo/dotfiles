@@ -3,7 +3,7 @@ WD=$(shell pwd)
 all: stow plug last
 
 stow:
-	stow --no-folding --target=${HOME} dots
+	stow --dotfiles --no-folding --target=${HOME} dots
 
 clean:
 	stow -D --target=${HOME} dots
