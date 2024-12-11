@@ -60,3 +60,8 @@ Setup to doooooo
 - Hot corners
 - All updates
 - Switch to fish
+
+
+originally based on [maximum
+awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
+changes since then.
