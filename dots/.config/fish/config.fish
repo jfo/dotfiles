@@ -74,9 +74,3 @@ end
 
 _fnm_autoload_hook
 
-if type -q fzf
-    fzf --fish | source
-    fzf_key_bindings
-else
-    echo "fzf not found. Please install fzf to enable fuzzy key bindings."
-end
