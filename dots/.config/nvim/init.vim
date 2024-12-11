@@ -102,7 +102,6 @@ Plug 'overcache/NeoSolarized'
 call plug#end()
 
 colorscheme NeoSolarized
-set bg=light
 
 nnoremap <F5> :colorscheme NeoSolarized<CR>:set background=light<CR>
 nnoremap <F6> :colorscheme NeoSolarized<CR>:set background=dark<CR>

@@ -84,3 +84,35 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- MacOS system mode aware color switch
+local function is_macos()
+  local handle = io.popen('uname')
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    return result:match("Darwin") ~= nil
+  end
+  return false
+end
+
+local function get_macos_appearance()
+  if not is_macos() then
+    return "light"
+  end
+
+  local handle = io.popen('defaults read -g AppleInterfaceStyle 2>/dev/null')
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    return result:match("Dark") and "dark" or "light"
+  end
+  return "light"
+end
+
+local appearance = get_macos_appearance()
+if appearance == "dark" then
+  vim.cmd('set background=dark')
+else
+  vim.cmd('set background=light')
+end
