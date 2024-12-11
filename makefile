@@ -6,7 +6,7 @@ stow:
 	stow --dotfiles --no-folding --target=${HOME} dots
 
 clean:
-	stow -D --target=${HOME} dots
+	stow -D --dotfiles --target=${HOME} dots
 
 directories:
 	mkdir -p ~/.vim/tmp/
