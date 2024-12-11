@@ -1,48 +1,37 @@
 # Dotfiles for days
 
-switched to stow for package management. see:
-https://github.com/aspiers/stow/issues/33
-https://github.com/aspiers/stow/issues/75
+mostly for mac setup atm
+
+* stow
+* ghostty
+* neovim
+* tmux
+* fish
+* git
 
 TODO
 ----
-
 - better support for contexts, more than just gitconf
-- make makefile smarter?
 - make fish prompt better
-- right now relying on installed binaries, should I source control:
-  - eslint_d, prettier, etc?
-
-core technologies
---------------------------
-things to improve:
-  plugin usage
-  snippets
-  omnicomplete
-  linting / prettier / zig fmt, etc
-
-boot up expectation checking of installed binaries
-  js:
-    prettier
-    eslint_d
-  zig:
-    zig
-
+- modernize vim config and packages being used
+  - snippets
+  - omnicomplete
+  - linting / prettier / zig fmt, etc
 
 ```
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 ```
 
-Programs to get
+Programs
+---------
 - Table plus
 - Rectangle
-- Iterm2
+- ghostty
 - One password
 - Slack
 - Browsers
     - Firefox
-    - Arc
     - Chrome
     - 1password plugin on everything
 - Brew
@@ -54,7 +43,6 @@ Programs to get
     - Tmux
     - Stow
     - Ripgrep (rg)
-    - Silver searcher (ag)
     - Gh
     - parallel
     - awscli
