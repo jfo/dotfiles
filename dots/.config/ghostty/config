@@ -15,3 +15,5 @@ background-blur-radius = 100
 window-decoration = false
 macos-non-native-fullscreen = true
 auto-update = download
+
+shell-integration-features = no-cursor
