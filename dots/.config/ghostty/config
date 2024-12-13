@@ -2,13 +2,13 @@
 command = /opt/homebrew/bin/fish
 
 # TODO: find a new font
-# font-family = Menlo
+font-family = Menlo
 # font-thicken = true
 
 mouse-hide-while-typing = true
 
 # TODO: opacity in tmux / nvim?
-background-opacity = 0.9
+# background-opacity = 0.8
 background-blur-radius = 100
 
 # macos-titlebar-style = hidden
@@ -17,3 +17,4 @@ macos-non-native-fullscreen = true
 auto-update = download
 
 shell-integration-features = no-cursor
+theme = nord
