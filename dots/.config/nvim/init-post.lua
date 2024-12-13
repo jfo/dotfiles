@@ -27,6 +27,8 @@ vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.termguicolors = true
 
+vim.g.claude_api_key = os.getenv('CLAUDE_API_KEY') or ''
+
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
 -- lspconfig.denols.setup{}

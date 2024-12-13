@@ -88,7 +88,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'zig-lang/zig.vim'
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
+
+Plug 'pasky/claude.vim'
 
 " color schemes
 Plug 'Mofiqul/vscode.nvim'
