@@ -1,5 +1,3 @@
-WD=$(shell pwd)
-
 all: stow plug last
 
 stow:
@@ -15,13 +13,5 @@ plug:
 
 last:
 	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
-
-# nix ish
-nix:
-	sudo cp ./nix/configuration.nix /etc/nixos/
-	sudo nixos-rebuild switch
-
-zig:
-	ln -sf $(WD)/nix/zig-dev.nix ~/code/zig/default.nix
 
 .PHONY: nix zig clean all
