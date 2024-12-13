@@ -1,6 +1,3 @@
 [user]
 	name = Jeff Fowler
 	email = jf@onomondo.com
-
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
