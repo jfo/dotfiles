@@ -74,5 +74,5 @@ end
 
 _fnm_autoload_hook
 
-set fish_color_cwd blue
+set fish_color_cwd grey
 set fish_greeting

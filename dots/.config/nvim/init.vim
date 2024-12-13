@@ -105,18 +105,18 @@ Plug 'morhetz/gruvbox'
 " Plug 'NicholasDunham/chuck.nvim'
 call plug#end()
 
-nnoremap <F5> :colorscheme NeoSolarized<CR>:call SaveThemeSettings()<CR>
-nnoremap <F6> :colorscheme nord<CR>:call SaveThemeSettings()<CR>
-nnoremap <F7> :colorscheme gruvbox<CR>:call SaveThemeSettings()<CR>
-nnoremap <F8> :colorscheme vscode<CR>:call SaveThemeSettings()<CR>
+nnoremap <F5> :colorscheme NeoSolarized<CR>
+nnoremap <F6> :colorscheme nord<CR>
+nnoremap <F7> :colorscheme gruvbox<CR>
+nnoremap <F8> :colorscheme vscode<CR>
 nnoremap <F9> :let &background = &background == 'light' ? 'dark' : 'light'<CR>
 colorscheme gruvbox
 
 nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
 """ Plugin Specific Commands and mappings
-let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
-let g:NERDTreeWinSize = 50
+"let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
+let g:NERDTreeWinSize = 30
 
 " Ack!
 nnoremap <leader>a :Ack!<space>
