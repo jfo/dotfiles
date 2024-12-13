@@ -62,6 +62,5 @@ Setup to doooooo
 - Switch to fish
 
 
-originally based on [maximum
-awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
+originally based on [maximum awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
 changes since then.
