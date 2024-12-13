@@ -113,8 +113,8 @@ local function get_macos_appearance()
 end
 
 local appearance = get_macos_appearance()
--- if appearance == "dark" then
---   vim.cmd('set background=dark')
--- else
---   vim.cmd('set background=light')
--- end
+if appearance == "dark" then
+  vim.cmd('set background=dark')
+else
+  vim.cmd('set background=light')
+end

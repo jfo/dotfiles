@@ -17,4 +17,4 @@ macos-non-native-fullscreen = true
 auto-update = download
 
 shell-integration-features = no-cursor
-theme = nord
+theme = GruvboxDark

@@ -97,6 +97,7 @@ Plug 'Mofiqul/vscode.nvim'
 Plug 'plan9-for-vimspace/acme-colors'
 Plug 'overcache/NeoSolarized'
 Plug 'nordtheme/vim'
+Plug 'morhetz/gruvbox'
 
 " Plug 'benjie/local-npm-bin.vim'
 " Plug 'altercation/vim-colors-solarized'
@@ -104,13 +105,12 @@ Plug 'nordtheme/vim'
 " Plug 'NicholasDunham/chuck.nvim'
 call plug#end()
 
-colorscheme nord
-
-nnoremap <F5> :colorscheme NeoSolarized<CR>:set background=light<CR>
-nnoremap <F6> :colorscheme NeoSolarized<CR>:set background=dark<CR>
-nnoremap <F7> :colorscheme nord<CR>
-nnoremap <F8> :colorscheme nord<CR>
-nnoremap <F9> :colorscheme acme<CR>
+nnoremap <F5> :colorscheme NeoSolarized<CR>:call SaveThemeSettings()<CR>
+nnoremap <F6> :colorscheme nord<CR>:call SaveThemeSettings()<CR>
+nnoremap <F7> :colorscheme gruvbox<CR>:call SaveThemeSettings()<CR>
+nnoremap <F8> :colorscheme vscode<CR>:call SaveThemeSettings()<CR>
+nnoremap <F9> :let &background = &background == 'light' ? 'dark' : 'light'<CR>
+colorscheme gruvbox
 
 nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
