@@ -87,7 +87,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'zig-lang/zig.vim'
+"Plug 'zig-lang/zig.vim'
 "Plug 'github/copilot.vim'
 
 Plug 'pasky/claude.vim'
@@ -98,11 +98,6 @@ Plug 'plan9-for-vimspace/acme-colors'
 Plug 'overcache/NeoSolarized'
 Plug 'nordtheme/vim'
 Plug 'morhetz/gruvbox'
-
-" Plug 'benjie/local-npm-bin.vim'
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'NicholasDunham/chuck.nvim'
 call plug#end()
 
 nnoremap <F5> :colorscheme NeoSolarized<CR>
@@ -150,20 +145,6 @@ autocmd FileType c setlocal commentstring=\/\/\ %s
 
 au BufRead,BufNewFile *.sld set filetype=scheme
 
-" https://github.com/christoomey/vim-tmux-navigator#configuration
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
-" neomake
-" let g:neomake_denolint_maker = {
-"     \ 'exe': 'deno',
-"     \ 'args': ['fmt', '--check'],
-"     \ }
-
-" let g:neomake_javascript_enabled_makers = ['denolint']
 let g:neomake_logfile='/tmp/neomake_error.log'
 call neomake#configure#automake('w')
 

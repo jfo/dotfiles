@@ -31,18 +31,11 @@ vim.g.claude_api_key = os.getenv('CLAUDE_API_KEY') or ''
 
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
--- lspconfig.denols.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.solargraph.setup{}
-lspconfig.svelte.setup{}
-
 lspconfig.terraformls.setup{}
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
---   pattern = {"*.tf", "*.tfvars"},
---   callback = vim.lsp.buf.formatting_sync(),
--- })
 
 vim.diagnostic.config({
   virtual_text = false
