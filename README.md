@@ -64,3 +64,6 @@ Setup to doooooo
 
 originally based on [maximum awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
 changes since then.
+
+
+didn't need the fish functions folder in here, must run `fish_config` for the informative vcs prompt and fzf setup for fish shell bindings.
