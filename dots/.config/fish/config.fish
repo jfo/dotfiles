@@ -76,3 +76,4 @@ _fnm_autoload_hook
 
 set fish_color_cwd grey
 set fish_greeting
+bind \cp fzf-file-widget
