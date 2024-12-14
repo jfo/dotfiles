@@ -47,6 +47,7 @@ Programs
     - parallel
     - awscli
     - jq
+    - bat
 - Docker desktop
 
 Setup to doooooo
