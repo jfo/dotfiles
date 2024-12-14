@@ -11,6 +11,7 @@ alias killswap='rm ~/.local/share/nvim/swap/*'
 alias udate='date +%s'
 alias python='python3'
 alias pip='pip3'
+alias cat='bat'
 
 function clone
   git clone git@github.com:$argv[1]
