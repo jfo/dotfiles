@@ -1,14 +1,12 @@
 # TODO: dynamic path here
 command = /opt/homebrew/bin/fish
 
-# TODO: find a new font
-font-family = Menlo
-# font-thicken = true
+font-family = PT Mono
 
 mouse-hide-while-typing = true
 
 # TODO: opacity in tmux / nvim?
-# background-opacity = 0.8
+background-opacity = 0.8
 background-blur-radius = 100
 
 # macos-titlebar-style = hidden
