@@ -31,6 +31,7 @@ Programs
     - jq
     - bat
     - font-hack (for ghostty)
+    - wireshark
 - Docker desktop
 
 Setup to doooooo
