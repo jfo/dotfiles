@@ -1,13 +1,52 @@
 # Dotfiles for days
 
-mostly for mac setup atm
+```
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+```
 
-* stow
-* ghostty
-* neovim
-* tmux
-* fish
-* git
+Programs
+---------
+- Table plus
+- Rectangle (?)
+- Ghostty
+- 1Password
+- Slack
+- Browsers
+    - Firefox
+    - Chrome
+    - 1password plugin on everything
+- Brew
+    - git
+    - fnm
+        - node (derr)
+    - nvim
+    - fish
+    - tmux
+    - stow
+    - rg
+    - hh
+    - parallel
+    - awscli
+    - jq
+    - bat
+    - font-hack (for ghostty)
+- Docker desktop
+
+Setup to doooooo
+- Rm all stuff from toolbar
+- Remap caps to ctrl (won't need to do this if the firmware does it for me)
+- Setup bluetooth mouse
+- Key repeat speed pls
+- Invert scroll on touchpad
+- Hot corners
+- All updates
+
+Originally based on [maximum awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
+changes since then.
+
+
+Didn't need the fish functions folder in here, must run `fish_config` for the informative vcs prompt and fzf setup for fish shell bindings.
 
 TODO
 ----
@@ -18,53 +57,3 @@ TODO
   - omnicomplete
   - linting / prettier / zig fmt, etc
 
-```
-defaults write -g InitialKeyRepeat -int 15
-defaults write -g KeyRepeat -int 2
-```
-
-Programs
----------
-- Table plus
-- Rectangle
-- ghostty
-- One password
-- Slack
-- Browsers
-    - Firefox
-    - Chrome
-    - 1password plugin on everything
-- Brew
-    - Git
-    - Fnm
-        - Node (derr)
-    - Nvim
-    - Fish
-    - Tmux
-    - Stow
-    - Ripgrep (rg)
-    - Gh
-    - parallel
-    - awscli
-    - jq
-    - bat
-- Docker desktop
-
-Setup to doooooo
-- Rm all stuff from toolbar
-- Autohide toolbar
-- Remap caps to ctrl
-- Set up external keyboard
-- Setup bluetooth mouse
-- Key repeat speed pls
-- Invert scroll on touchpad
-- Hot corners
-- All updates
-- Switch to fish
-
-
-originally based on [maximum awesome](https://developer.squareup.com/blog/fly-vim-first-class/), so many
-changes since then.
-
-
-didn't need the fish functions folder in here, must run `fish_config` for the informative vcs prompt and fzf setup for fish shell bindings.
