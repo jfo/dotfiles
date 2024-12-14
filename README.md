@@ -63,4 +63,5 @@ TODO
   - snippets
   - omnicomplete
   - linting / prettier / zig fmt, etc
+- [zvm](https://github.com/tristanisham/zvm) or similar for zig versioning...
 
