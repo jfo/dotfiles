@@ -29,6 +29,11 @@ vim.o.termguicolors = true
 
 vim.g.claude_api_key = os.getenv('CLAUDE_API_KEY') or ''
 
+vim.api.nvim_set_keymap('t', '<C-h>', '<C-\\><C-n><C-w>h', {noremap = true})
+vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n><C-w>j', {noremap = true})
+vim.api.nvim_set_keymap('t', '<C-k>', '<C-\\><C-n><C-w>k', {noremap = true})
+vim.api.nvim_set_keymap('t', '<C-l>', '<C-\\><C-n><C-w>l', {noremap = true})
+
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
 lspconfig.tsserver.setup{}
