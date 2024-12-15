@@ -9,7 +9,7 @@ dist
 default.nix
 .ignore
 .git-blame-ignore-revs
-.ccls-cache
+.ccls*
 zig-out
 a.out
 _build
