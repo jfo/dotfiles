@@ -62,3 +62,23 @@ fnm env --use-on-cd | source
 set fish_color_cwd grey
 set fish_greeting
 bind \cp fzf-file-widget
+
+function produce_ccls
+  echo 'zig cc' > .ccls
+  set capture 0
+  zig cc -E -x c - -v < /dev/null 2>&1 | \
+
+  while read -l line
+    if string match -q '*#include <...>*' $line
+      set capture 1
+      continue
+    else if string match -q '*End of search list*' $line
+      set capture 0
+      continue
+    end
+
+    if test $capture -eq 1
+      echo "-isystem"(string trim $line) >> .ccls
+    end
+  end
+end
