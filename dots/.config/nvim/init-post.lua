@@ -1,6 +1,3 @@
-vim.g.mapleader = '\\'
-
--- Set various options
 vim.o.clipboard = 'unnamed'
 vim.o.cursorline = true
 vim.o.expandtab = true
@@ -28,6 +25,7 @@ vim.o.mouse = 'a'
 vim.o.termguicolors = true
 
 vim.g.claude_api_key = os.getenv('CLAUDE_API_KEY') or ''
+vim.g.mapleader = '\\'
 
 vim.api.nvim_set_keymap('t', '<C-h>', '<C-\\><C-n><C-w>h', {noremap = true})
 vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n><C-w>j', {noremap = true})
