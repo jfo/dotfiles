@@ -59,11 +59,13 @@ vim.diagnostic.config({
 -- TS is providing as tokens. Everybody misunderstands this! Maybe it will be
 -- fixed, for now stay enabled in general for less used stuff and keep disabled
 -- in special cases.
+--
+-- Should learn more about motions and text objects wrt TS
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'all',
   auto_install = true, -- requires treesitter-cli
   highlight = {
-    enable = true,
+    enable = false,
     disable = { 'zig', 'lua', 'javascript' },
   },
 }
