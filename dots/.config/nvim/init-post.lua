@@ -105,17 +105,6 @@ for key, action in pairs(mappings) do
   vim.keymap.set('n', key, action, { silent = true })
 end
 
--- require'nvim-treesitter.configs'.setup {
---   ensure_installed = { "c", "vim", "vimdoc", "svelte" },
---   sync_install = false,
---   auto_install = false,
---   highlight = {
---     enable = true,
---     disable = { "zig", "javascript", "typescript" },
---     additional_vim_regex_highlighting = false,
---   },
--- }
-
 -- MacOS system mode aware color switch
 local function is_macos()
   local handle = io.popen('uname')
