@@ -80,23 +80,20 @@ Plug 'moll/vim-node'
 Plug 'neomake/neomake'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'pasky/claude.vim'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-"Plug 'zig-lang/zig.vim'
-"Plug 'github/copilot.vim'
-
-Plug 'pasky/claude.vim'
 
 " color schemes
 Plug 'Mofiqul/vscode.nvim'
-Plug 'plan9-for-vimspace/acme-colors'
-Plug 'overcache/NeoSolarized'
-Plug 'nordtheme/vim'
 Plug 'morhetz/gruvbox'
+Plug 'nordtheme/vim'
+Plug 'overcache/NeoSolarized'
+Plug 'plan9-for-vimspace/acme-colors'
 call plug#end()
 
 nnoremap <F5> :colorscheme NeoSolarized<CR>
