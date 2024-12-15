@@ -1,9 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
-" do not jump to next match immediately
-nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
-
 " quickly reload config
 map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 

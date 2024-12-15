@@ -34,6 +34,13 @@ vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n><C-w>j', {noremap = true})
 vim.api.nvim_set_keymap('t', '<C-k>', '<C-\\><C-n><C-w>k', {noremap = true})
 vim.api.nvim_set_keymap('t', '<C-l>', '<C-\\><C-n><C-w>l', {noremap = true})
 
+-- do not jump to next match immediately
+vim.keymap.set('n', '*', function()
+    local word = vim.fn.expand('<cword>')
+    vim.fn.setreg('/', '\\<' .. word .. '\\>')
+    vim.opt.hlsearch = true
+end, { silent = true })
+
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
 lspconfig.tsserver.setup{}
