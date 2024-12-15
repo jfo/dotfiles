@@ -79,6 +79,7 @@ Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 Plug 'neomake/neomake'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'pasky/claude.vim'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdtree'

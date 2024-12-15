@@ -41,10 +41,9 @@ end, { silent = true })
 
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
-lspconfig.tsserver.setup{}
+lspconfig.ts_ls.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
-lspconfig.solargraph.setup{}
 lspconfig.terraformls.setup{}
 
 vim.diagnostic.config({
@@ -54,6 +53,20 @@ vim.diagnostic.config({
   update_in_insert = false,
   virtual_text = false,
 })
+
+-- most treesitter highlighting looks pretty bad compared to the native. It's
+-- way more efficient, but the themes don't function as intended with whatever
+-- TS is providing as tokens. Everybody misunderstands this! Maybe it will be
+-- fixed, for now stay enabled in general for less used stuff and keep disabled
+-- in special cases.
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = 'all',
+  auto_install = true, -- requires treesitter-cli
+  highlight = {
+    enable = true,
+    disable = { 'zig', 'lua', 'javascript' },
+  },
+}
 
 -- https://github.com/neovim/neovim/issues/23526#issuecomment-1539580310
 -- much faster than the plugin, nasty as hell though
