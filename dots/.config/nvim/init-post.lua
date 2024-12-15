@@ -50,12 +50,38 @@ lspconfig.solargraph.setup{}
 lspconfig.terraformls.setup{}
 
 vim.diagnostic.config({
-  virtual_text = false
+  float = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  virtual_text = false,
 })
 
--- Show line diagnostics automatically in hover window
--- vim.o.updatetime = 250
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- https://github.com/neovim/neovim/issues/23526#issuecomment-1539580310
+-- much faster than the plugin, nasty as hell though
+local ns = vim.api.nvim_create_namespace('CurlineDiag')
+vim.opt.updatetime = 100
+vim.api.nvim_create_autocmd('LspAttach',{
+  callback = function(args)
+    vim.api.nvim_create_autocmd('CursorHold', {
+      buffer = args.buf,
+      callback = function()
+        pcall(vim.api.nvim_buf_clear_namespace,args.buf,ns, 0, -1)
+        local hi = { 'Error', 'Warn','Info','Hint'}
+        local curline = vim.api.nvim_win_get_cursor(0)[1]
+        local diagnostics = vim.diagnostic.get(args.buf, {lnum =curline - 1})
+        local virt_texts = { { (' '):rep(4) } }
+        for _, diag in ipairs(diagnostics) do
+          virt_texts[#virt_texts + 1] = {diag.message, 'Diagnostic'..hi[diag.severity]}
+        end
+        vim.api.nvim_buf_set_extmark(args.buf, ns, curline - 1, 0,{
+          virt_text = virt_texts,
+          hl_mode = 'combine'
+        })
+      end
+    })
+  end
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
