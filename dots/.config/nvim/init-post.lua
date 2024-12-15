@@ -66,7 +66,7 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true, -- requires treesitter-cli
   highlight = {
     enable = false,
-    disable = { 'zig', 'lua', 'javascript' },
+    disable = { 'zig', 'lua', 'javascript', 'c' },
   },
 }
 

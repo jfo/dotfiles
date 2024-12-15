@@ -1,3 +1,0 @@
-zig cc
--I~/code/zig/build/stage3/lib/zig/include
--I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
