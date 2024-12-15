@@ -58,6 +58,7 @@ fish_add_path /Users/jfo/code/zls/zig-out/bin
 fish_add_path /Users/jfo/code/depot_tools
 
 fnm env --use-on-cd | source
+fzf --fish | source
 
 set fish_color_cwd grey
 set fish_greeting
