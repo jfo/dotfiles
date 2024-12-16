@@ -1,6 +1,9 @@
 vim.o.clipboard = 'unnamed'
 vim.o.cursorline = true
 vim.o.expandtab = true
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = 'indent'
+vim.o.foldnestmax = 10
 vim.o.ignorecase = true
 vim.o.list = true
 vim.o.listchars = 'tab:| ,trail:▫'
@@ -74,8 +77,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- https://github.com/neovim/neovim/issues/23526#issuecomment-1539580310
 -- much faster than the plugin, nasty as hell though
