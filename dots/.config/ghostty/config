@@ -1,8 +1,10 @@
 # TODO: dynamic path here
 command = /opt/homebrew/bin/fish
 
+# just testing out some fonts
 # font-family = PT Mono
-font-family = Osaka
+# font-family = Osaka
+font-family = Hack
 
 mouse-hide-while-typing = true
 
