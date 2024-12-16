@@ -66,3 +66,4 @@ TODO
   - linting / prettier / zig fmt, etc
 - [zvm](https://github.com/tristanisham/zvm) or similar for zig versioning...
 
+- maybe something like [this for brew](https://matthiasportzel.com/brewfile/)
