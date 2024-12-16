@@ -1,9 +1,6 @@
 vim.o.clipboard = 'unnamed'
 vim.o.cursorline = true
 vim.o.expandtab = true
-vim.o.foldlevelstart = 99
-vim.o.foldmethod = 'indent'
-vim.o.foldnestmax = 10
 vim.o.ignorecase = true
 vim.o.list = true
 vim.o.listchars = 'tab:| ,trail:▫'
@@ -59,16 +56,26 @@ vim.diagnostic.config({
 -- way more efficient, but the themes don't function as intended with whatever
 -- TS is providing as tokens. Everybody misunderstands this! Maybe it will be
 -- fixed, for now stay enabled in general for less used stuff and keep disabled
--- in special cases.
+-- in special cases. Sticking with vim-polyglot for now unless I see startup
+-- time degradation.
 --
--- Should learn more about motions and text objects wrt TS
+-- That said, should be possible to get rid of most of the ugly with
+-- customizing things a bit... but that will take some focus and A/B against
+-- the standard grammars in polyglot f.ex
+-- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#highlight
 require'nvim-treesitter.configs'.setup {
   auto_install = true,
   highlight = {
     enable = false,
-    disable = { 'zig', 'lua', 'javascript', 'c' },
+    -- languages specifically not highlighted:
+    -- disable = {},
   },
+  indent = {
+    enable = true
+  }
 }
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- https://github.com/neovim/neovim/issues/23526#issuecomment-1539580310
 -- much faster than the plugin, nasty as hell though

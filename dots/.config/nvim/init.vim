@@ -92,6 +92,7 @@ Plug 'tpope/vim-surround'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'pmizio/typescript-tools.nvim'
+Plug 'sheerun/vim-polyglot'
 
 " color schemes
 Plug 'Mofiqul/vscode.nvim'
@@ -148,13 +149,6 @@ au BufRead,BufNewFile *.sld set filetype=scheme
 
 let g:neomake_logfile='/tmp/neomake_error.log'
 call neomake#configure#automake('w')
-
-function! FoldFunction()
-  return getline(v:foldstart)
-endfunction
-setlocal fillchars=fold:┈
-setlocal foldtext=FoldFunction()
-hi Folded none
 
 " typing λ
 imap <C-l> <C-k>*l
