@@ -82,6 +82,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'pasky/claude.vim'
 Plug 'prettier/vim-prettier'
+" consider [oil](https://github.com/stevearc/oil.nvim) as a replacement for
+" nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

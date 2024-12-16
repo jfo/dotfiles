@@ -64,6 +64,7 @@ set fish_color_cwd grey
 set fish_greeting
 bind \cp fzf-file-widget
 
+# TODO: move to a function file?
 function produce_ccls
   echo 'zig cc' > .ccls
   set capture 0
@@ -83,3 +84,5 @@ function produce_ccls
     end
   end
 end
+
+# TODO: make a bespoke prompt and source control it pls.
