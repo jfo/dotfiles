@@ -62,8 +62,7 @@ vim.diagnostic.config({
 --
 -- Should learn more about motions and text objects wrt TS
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = 'all',
-  auto_install = true, -- requires treesitter-cli
+  auto_install = true,
   highlight = {
     enable = false,
     disable = { 'zig', 'lua', 'javascript', 'c' },
@@ -145,9 +144,14 @@ local function get_macos_appearance()
   return "light"
 end
 
-local appearance = get_macos_appearance()
-if appearance == "dark" then
-  vim.cmd('set background=dark')
-else
-  vim.cmd('set background=light')
-end
+-- local appearance = get_macos_appearance()
+-- if appearance == "dark" then
+--   vim.cmd('set background=dark')
+-- else
+--   vim.cmd('set background=light')
+-- end
+
+-- So for now, gruvbox light makes the cursor disappear, because the cursor is
+-- controlled by the terminal, and the terminal is gruvbox dark, so they don't
+-- interact well! Maybe there is a nice way to work around that, but for now...
+vim.cmd('set background=dark')

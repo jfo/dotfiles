@@ -38,6 +38,7 @@ Programs
             - llm keys set claude
         - llm models default claude-3.5-[sonnet|haiku]
         - TODO: [get local models running](https://youtu.be/QUXQNi6jQ30?t=794&si=OABy0nFma2DGeCgH)
+    - treesitter-cli
 - Docker desktop
 
 Setup to doooooo

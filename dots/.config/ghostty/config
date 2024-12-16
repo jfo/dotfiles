@@ -1,7 +1,8 @@
 # TODO: dynamic path here
 command = /opt/homebrew/bin/fish
 
-font-family = PT Mono
+# font-family = PT Mono
+font-family = Osaka
 
 mouse-hide-while-typing = true
 
@@ -15,4 +16,4 @@ macos-non-native-fullscreen = true
 auto-update = download
 
 shell-integration-features = no-cursor
-theme = GruvboxDark
+theme = GruvboxDarkHard
