@@ -90,6 +90,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'pmizio/typescript-tools.nvim'
+
 " color schemes
 Plug 'Mofiqul/vscode.nvim'
 Plug 'morhetz/gruvbox'

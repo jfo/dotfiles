@@ -41,10 +41,11 @@ end, { silent = true })
 
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
-lspconfig.ts_ls.setup{}
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.terraformls.setup{}
+
+require("typescript-tools").setup{}
 
 vim.diagnostic.config({
   float = false,
