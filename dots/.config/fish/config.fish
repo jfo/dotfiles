@@ -51,7 +51,8 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 
 fzf --fish | source
-fnm env --use-on-cd | source
+
+fnm env --log-level=quiet --use-on-cd | source
 
 set fish_color_cwd grey
 set fish_greeting
