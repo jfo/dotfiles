@@ -79,4 +79,7 @@ function produce_ccls
   end
 end
 
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
 # TODO: make a bespoke prompt and source control it pls.
+#
