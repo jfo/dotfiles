@@ -1,5 +1,6 @@
 zig-cache
 node_modules
+.terraform
 .DS_Store
 ./tags
 .todo*
