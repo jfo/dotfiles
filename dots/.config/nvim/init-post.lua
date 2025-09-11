@@ -163,4 +163,4 @@ end
 -- So for now, gruvbox light makes the cursor disappear, because the cursor is
 -- controlled by the terminal, and the terminal is gruvbox dark, so they don't
 -- interact well! Maybe there is a nice way to work around that, but for now...
-vim.cmd('set background=dark')
+vim.cmd('set background=light')
