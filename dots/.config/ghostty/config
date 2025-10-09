@@ -18,4 +18,4 @@ macos-non-native-fullscreen = true
 auto-update = download
 
 shell-integration-features = no-cursor
-theme = GruvboxDarkHard
+theme = Gruvbox Dark Hard
