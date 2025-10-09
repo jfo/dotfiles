@@ -112,7 +112,7 @@ colorscheme gruvbox
 nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 
 """ Plugin Specific Commands and mappings
-"let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
+let g:ftplugin_sql_omni_key = '<Plug>DisableSqlOmni'
 let g:NERDTreeWinSize = 30
 
 " Ack!

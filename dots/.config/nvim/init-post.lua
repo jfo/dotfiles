@@ -153,12 +153,12 @@ local function get_macos_appearance()
   return "light"
 end
 
--- local appearance = get_macos_appearance()
--- if appearance == "dark" then
---   vim.cmd('set background=dark')
--- else
---   vim.cmd('set background=light')
--- end
+local appearance = get_macos_appearance()
+if appearance == "dark" then
+  vim.cmd('set background=dark')
+else
+  vim.cmd('set background=light')
+end
 
 -- So for now, gruvbox light makes the cursor disappear, because the cursor is
 -- controlled by the terminal, and the terminal is gruvbox dark, so they don't
