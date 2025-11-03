@@ -51,6 +51,23 @@ function! LineNumberToggle()
 endfunc
 nnoremap gn :call LineNumberToggle()<CR>
 
+function! OpenDailyNote()
+  if !exists('$OBSIDIAN_VAULT_PATH') || empty($OBSIDIAN_VAULT_PATH)
+    echoerr "OBSIDIAN_VAULT_PATH not set"
+    return
+  endif
+
+  " Build path like ~/ObsidianVault/2025-11-03.md
+  let filename = $OBSIDIAN_VAULT_PATH . '/' . strftime('%Y-%m-%d') . '.md'
+
+  " Ensure directory exists (in case vault path was nested)
+  call mkdir(fnamemodify(filename, ':h'), 'p')
+
+  " Open or create it in a new tab
+  execute 'tab drop' fnameescape(filename)
+endfunction
+nnoremap <leader>D :call OpenDailyNote()<CR>
+
 function! ToggleTodo(...)
   " Pick target file
   if a:0
