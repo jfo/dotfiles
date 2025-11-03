@@ -21,4 +21,4 @@ shell-integration-features = no-cursor
 
 # Dynamic theme based on system appearance or THEME_MODE env var
 # Will be managed by theme functions
-theme = Gruvbox Light Hard
+theme = Gruvbox Dark Hard

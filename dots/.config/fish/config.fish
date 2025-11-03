@@ -41,6 +41,10 @@ if test -f ~/.config/fish/secrets.fish
   source ~/.config/fish/secrets.fish
 end
 
+if test -f ~/.config/fish/theme-functions.fish
+  source ~/.config/fish/theme-functions.tfish
+end
+
 set -e fish_user_paths
 
 fish_add_path /usr/local/bin
@@ -80,4 +84,3 @@ function produce_ccls
 end
 
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-source ./theme-functions.fish
