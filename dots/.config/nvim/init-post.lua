@@ -128,22 +128,25 @@ for key, action in pairs(mappings) do
   vim.keymap.set('n', key, action, { silent = true })
 end
 
--- MacOS system mode aware color switch
-local function is_macos()
-  local handle = io.popen('uname')
-  if handle then
-    local result = handle:read("*a")
-    handle:close()
-    return result:match("Darwin") ~= nil
+-- Unified theme system - checks for manual override or system appearance
+local function get_current_theme()
+  -- Check for manual override file first
+  local theme_file = io.open('/tmp/nvim_theme_mode', 'r')
+  if theme_file then
+    local mode = theme_file:read("*line")
+    theme_file:close()
+    if mode and (mode == "dark" or mode == "light") then
+      return mode
+    end
   end
-  return false
-end
-
-local function get_macos_appearance()
-  if not is_macos() then
-    return "light"
+  
+  -- Check environment variable
+  local theme_mode = os.getenv('THEME_MODE')
+  if theme_mode and (theme_mode == "dark" or theme_mode == "light") then
+    return theme_mode
   end
-
+  
+  -- Fall back to system appearance
   local handle = io.popen('defaults read -g AppleInterfaceStyle 2>/dev/null')
   if handle then
     local result = handle:read("*a")
@@ -153,14 +156,26 @@ local function get_macos_appearance()
   return "light"
 end
 
-local appearance = get_macos_appearance()
-if appearance == "dark" then
-  vim.cmd('set background=dark')
-else
-  vim.cmd('set background=light')
-end
+-- Apply theme
+local current_theme = get_current_theme()
+vim.cmd('set background=' .. current_theme)
 
--- So for now, gruvbox light makes the cursor disappear, because the cursor is
--- controlled by the terminal, and the terminal is gruvbox dark, so they don't
--- interact well! Maybe there is a nice way to work around that, but for now...
-vim.cmd('set background=light')
+-- Create command to reload theme
+vim.api.nvim_create_user_command('ReloadTheme', function()
+  local new_theme = get_current_theme()
+  vim.cmd('set background=' .. new_theme)
+  print('Theme reloaded: ' .. new_theme)
+end, {})
+
+-- Auto-reload theme when gaining focus or on cursor hold
+local last_checked_theme = current_theme
+vim.api.nvim_create_autocmd({'FocusGained', 'CursorHold'}, {
+  pattern = '*',
+  callback = function()
+    local new_theme = get_current_theme()
+    if new_theme ~= last_checked_theme then
+      vim.cmd('set background=' .. new_theme)
+      last_checked_theme = new_theme
+    end
+  end,
+})

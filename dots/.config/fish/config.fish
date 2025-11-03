@@ -80,3 +80,4 @@ function produce_ccls
 end
 
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+source ./theme-functions.fish
