@@ -52,20 +52,33 @@ endfunc
 nnoremap gn :call LineNumberToggle()<CR>
 
 function! ToggleTodo(...)
+  " Pick target file
   if a:0
-    let filename = '~/.todo'
+    " Global: Obsidian vault if set, else ~/.todo
+    if exists('$OBSIDIAN_VAULT_PATH') && !empty($OBSIDIAN_VAULT_PATH)
+      let filename = $OBSIDIAN_VAULT_PATH . '/todo.md'
+    else
+      let filename = expand('~/.todo')
+    endif
   else
+    " Local
     let filename = '.todo'
   endif
 
-  if expand('%:t') == '.todo'
-    :w|bd
+  " Are we already in the target?
+  let in_target = a:0
+        \ ? resolve(expand('%:p')) == resolve(fnamemodify(filename, ':p'))
+        \ : expand('%:t') ==# '.todo'
+
+  if in_target
+    write | bd
   else
-    execute 'tab drop' filename
+    execute 'tab drop' fnameescape(filename)
   endif
 endfunction
-nnoremap <LEADER>t :call ToggleTodo()<CR>
-nnoremap <LEADER>T :call ToggleTodo('wat')<CR>
+
+nnoremap <leader>t :call ToggleTodo()<CR>
+nnoremap <leader>T :call ToggleTodo('global')<CR>
 
 " PLUGINS
 " ------------------------------------------------------------------------------
