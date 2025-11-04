@@ -59,7 +59,14 @@ function! OpenDailyNote()
 
   let filename = $OBSIDIAN_VAULT_PATH . '/Daily Notes/' . strftime('%Y-%m-%d') . '.md'
 
-  execute 'tab drop' fnameescape(filename)
+  " Are we already in the target?
+  let in_target = resolve(expand('%:p')) == resolve(fnamemodify(filename, ':p'))
+
+  if in_target
+    write | bd
+  else
+    execute 'tab drop' fnameescape(filename)
+  endif
 endfunction
 nnoremap <leader>D :call OpenDailyNote()<CR>
 
