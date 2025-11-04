@@ -57,13 +57,8 @@ function! OpenDailyNote()
     return
   endif
 
-  " Build path like ~/ObsidianVault/2025-11-03.md
-  let filename = $OBSIDIAN_VAULT_PATH . '/' . strftime('%Y-%m-%d') . '.md'
+  let filename = $OBSIDIAN_VAULT_PATH . '/Daily Notes/' . strftime('%Y-%m-%d') . '.md'
 
-  " Ensure directory exists (in case vault path was nested)
-  call mkdir(fnamemodify(filename, ':h'), 'p')
-
-  " Open or create it in a new tab
   execute 'tab drop' fnameescape(filename)
 endfunction
 nnoremap <leader>D :call OpenDailyNote()<CR>
