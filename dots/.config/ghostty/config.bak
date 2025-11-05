@@ -1,0 +1,24 @@
+# TODO: dynamic path here
+command = /opt/homebrew/bin/fish
+
+# just testing out some fonts
+# font-family = PT Mono
+# font-family = Osaka
+font-family = Hack
+
+mouse-hide-while-typing = true
+
+# TODO: opacity in tmux / nvim?
+background-opacity = 0.8
+background-blur-radius = 100
+
+# macos-titlebar-style = hidden
+window-decoration = false
+macos-non-native-fullscreen = true
+auto-update = download
+
+shell-integration-features = no-cursor
+
+# Dynamic theme based on system appearance or THEME_MODE env var
+# Will be managed by theme functions
+theme = Gruvbox Dark Hard
