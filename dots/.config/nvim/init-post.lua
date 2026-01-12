@@ -44,6 +44,20 @@ local lspconfig = require'lspconfig'
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.terraformls.setup{}
+lspconfig.elp.setup {
+  settings = {
+    elp = {
+      diagnostics = {
+        -- Uncomment to disable specific warnings globally
+        -- disabled = {
+        --   "W0030",
+        --   "W0031",
+        --   "W0032"
+        -- }
+      }
+    }
+  }
+}
 
 require("typescript-tools").setup{}
 
