@@ -16,6 +16,7 @@
 	diffm = "!f() { git diff $(git merge-base HEAD master); }; f"
 	cp = cherry-pick
 	wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:blue)%(refname:short)' refs/heads
+	contributors = "!git log --format='%an' | awk '{count[$0]++; total++} END {for(name in count) printf \"%5d %5.1f%% %s\\n\", count[name], (count[name]/total*100), name}' | sort -rn"
 
 [includeIf "gitdir:~/development/"]
 	path = ~/.gitconfig-work
