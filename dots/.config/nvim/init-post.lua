@@ -44,20 +44,16 @@ local lspconfig = require'lspconfig'
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.terraformls.setup{}
-lspconfig.elp.setup {
-  settings = {
-    elp = {
-      diagnostics = {
-        -- Uncomment to disable specific warnings globally
-        -- disabled = {
-        --   "W0030",
-        --   "W0031",
-        --   "W0032"
-        -- }
-      }
-    }
-  }
-}
+lspconfig.elp.setup {}
+
+-- Suppress elp LSP attach messages
+local orig_echo = vim.api.nvim_echo
+vim.api.nvim_echo = function(chunks, ...)
+  if chunks and chunks[1] and type(chunks[1][1]) == "string" and chunks[1][1]:match("LSP%[") then
+    return
+  end
+  orig_echo(chunks, ...)
+end
 
 require("typescript-tools").setup{}
 
