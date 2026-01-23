@@ -41,10 +41,6 @@ if test -f ~/.config/fish/secrets.fish
   source ~/.config/fish/secrets.fish
 end
 
-if test -f ~/.config/fish/theme-functions.fish
-  source ~/.config/fish/theme-functions.fish
-end
-
 set -e fish_user_paths
 
 fish_add_path /usr/local/bin
