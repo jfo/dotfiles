@@ -68,12 +68,26 @@ end
 require("typescript-tools").setup{}
 
 vim.diagnostic.config({
-  float = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  virtual_text = false,
+ virtual_text = { spacing = 1, prefix = ">", current_line = true },
+ signs = true,
+ underline = true,
+ update_in_insert = false,
+ severity_sort = true,
+ float = {
+   border = "rounded",
+   source = "if_many",
+   header = "",
+   focusable = false,
+   prefix = " ",
+   scope = "cursor",
+   max_width = 80,
+   max_height = 12,
+ },
 })
+
+vim.keymap.set("n", "gl", function()
+  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+end, { desc = "Diagnostics float" })
 
 -- most treesitter highlighting looks pretty bad compared to the native. It's
 -- way more efficient, but the themes don't function as intended with whatever
@@ -147,4 +161,3 @@ local mappings = {
 for key, action in pairs(mappings) do
   vim.keymap.set('n', key, action, { silent = true })
 end
-
