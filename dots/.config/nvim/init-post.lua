@@ -44,7 +44,17 @@ local lspconfig = require'lspconfig'
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.terraformls.setup{}
-lspconfig.elp.setup {}
+lspconfig.elp.setup {
+  settings = {
+    elp = {
+      diagnostics = {
+        disabled = {
+          "W0051"
+        }
+      }
+    }
+  }
+}
 
 -- Suppress elp LSP attach messages
 local orig_echo = vim.api.nvim_echo
