@@ -41,10 +41,18 @@ end, { silent = true })
 
 -- LSP client/server setup
 local lspconfig = require'lspconfig'
+local util = require("lspconfig.util")
 lspconfig.zls.setup{}
 lspconfig.ccls.setup{}
 lspconfig.terraformls.setup{}
-lspconfig.elp.setup {
+
+local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
+local build_lib = root .. "/_build/default/lib"
+lspconfig.elp.setup({
+  root_dir = root,
+  cmd_env = {
+    ERL_LIBS = build_lib,
+  },
   settings = {
     elp = {
       diagnostics = {
@@ -54,7 +62,7 @@ lspconfig.elp.setup {
       }
     }
   }
-}
+})
 
 -- Suppress elp LSP attach messages
 local orig_echo = vim.api.nvim_echo
@@ -85,7 +93,7 @@ vim.diagnostic.config({
  },
 })
 
-vim.keymap.set("n", "gl", function()
+vim.keymap.set("n", "gk", function()
   vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 end, { desc = "Diagnostics float" })
 
