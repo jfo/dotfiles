@@ -34,7 +34,13 @@ function listener
 end
 
 function annoy
-   osascript -e 'display notification "your ish is done"'
+   set -l message "your ish is done"
+
+   if test (count $argv) -gt 0
+     set message (string join " " $argv)
+   end
+
+   osascript -e "display notification \"$message\""
 end
 
 if test -f ~/.config/fish/secrets.fish
