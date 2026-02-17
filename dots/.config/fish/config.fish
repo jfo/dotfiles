@@ -34,13 +34,30 @@ function listener
 end
 
 function annoy
+   set -l title "Annoy"
    set -l message "your ish is done"
+   set -l args $argv
 
-   if test (count $argv) -gt 0
-     set message (string join " " $argv)
+   if test (count $argv) -ge 2
+     if test "$argv[1]" = "--title" -o "$argv[1]" = "-t"
+       set title "$argv[2]"
+       if test (count $argv) -ge 3
+         set args $argv[3..-1]
+       else
+         set args
+       end
+     end
    end
 
-   osascript -e "display notification \"$message\""
+   if test (count $args) -gt 0
+     set message (string join " " $args)
+   end
+
+   if type -q terminal-notifier
+     terminal-notifier -title "$title" -message "$message" -sender "com.apple.Terminal"
+   else
+     osascript -e "display notification \"$message\""
+   end
 end
 
 if test -f ~/.config/fish/secrets.fish
@@ -58,7 +75,7 @@ fish_add_path /opt/homebrew/sbin
 
 fzf --fish | source
 
-fnm env --log-level=quiet --use-on-cd | source
+# fnm env --log-level=quiet --use-on-cd | source
 
 set fish_color_cwd grey
 set fish_greeting
