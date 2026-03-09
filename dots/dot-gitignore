@@ -17,3 +17,7 @@ _build
 .vscode
 .aider*
 .claude
+
+.terraform
+terraform*
+.terraform.lock.hcl
