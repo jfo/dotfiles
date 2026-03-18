@@ -27,10 +27,7 @@ vim.o.termguicolors = true
 vim.g.claude_api_key = os.getenv('CLAUDE_API_KEY') or ''
 vim.g.mapleader = '\\'
 
-vim.api.nvim_set_keymap('t', '<C-h>', '<C-\\><C-n><C-w>h', {noremap = true})
-vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n><C-w>j', {noremap = true})
-vim.api.nvim_set_keymap('t', '<C-k>', '<C-\\><C-n><C-w>k', {noremap = true})
-vim.api.nvim_set_keymap('t', '<C-l>', '<C-\\><C-n><C-w>l', {noremap = true})
+require("ghostty-navigator").setup()
 
 -- do not jump to next match immediately
 vim.keymap.set('n', '*', function()
@@ -40,29 +37,29 @@ vim.keymap.set('n', '*', function()
 end, { silent = true })
 
 -- LSP client/server setup
-local lspconfig = require'lspconfig'
-local util = require("lspconfig.util")
-lspconfig.zls.setup{}
-lspconfig.ccls.setup{}
-lspconfig.terraformls.setup{}
+vim.lsp.config('zls', {})
+vim.lsp.config('ccls', {})
+vim.lsp.config('terraformls', {})
+vim.lsp.enable({ 'zls', 'ccls', 'terraformls' })
 
-local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
-local build_lib = root .. "/_build/default/lib"
-lspconfig.elp.setup({
-  root_dir = root,
-  cmd_env = {
-    ERL_LIBS = build_lib,
-  },
-  settings = {
-    elp = {
-      diagnostics = {
-        disabled = {
-          "W0051"
-        }
-      }
-    }
-  }
-})
+-- local util = require("lspconfig.util")
+-- local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
+-- local build_lib = root .. "/_build/default/lib"
+-- lspconfig.elp.setup({
+--   root_dir = root,
+--   cmd_env = {
+--     ERL_LIBS = build_lib,
+--   },
+--   settings = {
+--     elp = {
+--       diagnostics = {
+--         disabled = {
+--           "W0051"
+--         }
+--       }
+--     }
+--   }
+-- })
 
 -- Suppress elp LSP attach messages
 local orig_echo = vim.api.nvim_echo
@@ -108,17 +105,20 @@ end, { desc = "Diagnostics float" })
 -- customizing things a bit... but that will take some focus and A/B against
 -- the standard grammars in polyglot f.ex
 -- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#highlight
-require'nvim-treesitter.configs'.setup {
-  auto_install = true,
-  highlight = {
-    enable = false,
-    -- languages specifically not highlighted:
-    -- disable = {},
-  },
-  indent = {
-    enable = true
+local treesitter_ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+if treesitter_ok then
+  treesitter.setup {
+    auto_install = true,
+    highlight = {
+      enable = false,
+      -- languages specifically not highlighted:
+      -- disable = {},
+    },
+    indent = {
+      enable = true
+    }
   }
-}
+end
 
 -- https://github.com/neovim/neovim/issues/23526#issuecomment-1539580310
 -- much faster than the plugin, nasty as hell though

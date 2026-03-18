@@ -103,7 +103,7 @@ nnoremap <leader>T :call ToggleTodo('global')<CR>
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmm/ghostty-navigator.nvim', { 'do': 'make' }
 Plug 'jfo/vim-runners'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
