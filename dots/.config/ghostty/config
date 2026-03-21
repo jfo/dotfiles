@@ -10,4 +10,3 @@ auto-update = download
 shell-integration-features = no-cursor
 
 theme = Gruvbox Material Dark
-theme = Gruvbox Material Light
