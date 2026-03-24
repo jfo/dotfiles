@@ -36,30 +36,29 @@ vim.keymap.set('n', '*', function()
   vim.opt.hlsearch = true
 end, { silent = true })
 
+local util = require("lspconfig.util")
+local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
+local build_lib = root .. "/_build/default/lib"
 -- LSP client/server setup
 vim.lsp.config('zls', {})
 vim.lsp.config('ccls', {})
 vim.lsp.config('terraformls', {})
-vim.lsp.enable({ 'zls', 'ccls', 'terraformls' })
-
--- local util = require("lspconfig.util")
--- local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
--- local build_lib = root .. "/_build/default/lib"
--- lspconfig.elp.setup({
---   root_dir = root,
---   cmd_env = {
---     ERL_LIBS = build_lib,
---   },
---   settings = {
---     elp = {
---       diagnostics = {
---         disabled = {
---           "W0051"
---         }
---       }
---     }
---   }
--- })
+vim.lsp.config('elp', {
+    root_dir = root,
+    cmd_env = {
+      ERL_LIBS = build_lib,
+    },
+    settings = {
+      elp = {
+        diagnostics = {
+          disabled = {
+            "W0051"
+          }
+        }
+      }
+    }
+  })
+vim.lsp.enable({ 'zls', 'ccls', 'terraformls', 'elp' })
 
 -- Suppress elp LSP attach messages
 local orig_echo = vim.api.nvim_echo
