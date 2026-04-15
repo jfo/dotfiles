@@ -114,3 +114,23 @@ if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
+
+function tt --description "Toggle light/dark theme for ghostty and neovim"
+    set config ~/.config/ghostty/config
+
+    if grep -q "Gruvbox Material Dark" $config
+        perl -pi -e 's/theme = Gruvbox Material Dark/theme = Gruvbox Material Light/' $config
+        set bg light
+    else
+        perl -pi -e 's/theme = Gruvbox Material Light/theme = Gruvbox Material Dark/' $config
+        set bg dark
+    end
+
+    killall -USR2 ghostty
+
+    perl -pi -e "s/set background=(dark|light)/set background=$bg/" ~/.config/nvim/init.vim
+
+    for socket in (lsof -c nvim -a -U 2>/dev/null | awk 'NR>1{print $NF}' | grep '^/')
+        nvim --server $socket --remote-send ":set background=$bg<CR>" 2>/dev/null
+    end
+end
