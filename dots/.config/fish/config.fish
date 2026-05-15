@@ -76,7 +76,7 @@ fish_add_path /Applications/Tailscale.app/Contents/MacOS
 
 fzf --fish | source
 
-# fnm env --log-level=quiet --use-on-cd | source
+fnm env --log-level=quiet --use-on-cd | source
 
 set fish_color_cwd grey
 set fish_greeting
@@ -134,3 +134,4 @@ function tt --description "Toggle light/dark theme for ghostty and neovim"
         nvim --server $socket --remote-send ":set background=$bg<CR>" 2>/dev/null
     end
 end
+export PATH="$HOME/.local/bin:$PATH"
