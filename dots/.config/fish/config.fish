@@ -68,11 +68,10 @@ set -e fish_user_paths
 
 fish_add_path /usr/local/bin
 fish_add_path /Users/jfo/.fzf/bin
-fish_add_path /Users/jfo/code/zig/build/stage3/bin
-fish_add_path /Users/jfo/code/zls/zig-out/bin
+fish_add_path /Applications/Tailscale.app/Contents/MacOS
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
-fish_add_path /Applications/Tailscale.app/Contents/MacOS
+fish_add_path /Users/jfo/code/zig-bootstrap/out/build-zig-host/stage3/bin
 
 fzf --fish | source
 

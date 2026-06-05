@@ -125,7 +125,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'pmizio/typescript-tools.nvim'
-Plug 'sheerun/vim-polyglot'
 
 " color schemes
 Plug 'Mofiqul/vscode.nvim'
@@ -140,6 +139,7 @@ nnoremap <F6> :colorscheme nord<CR>
 nnoremap <F7> :colorscheme gruvbox<CR>
 nnoremap <F8> :colorscheme vscode<CR>
 nnoremap <F9> :let &background = &background == 'light' ? 'dark' : 'light'<CR>
+set background=dark
 colorscheme Gruvbox
 
 nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
