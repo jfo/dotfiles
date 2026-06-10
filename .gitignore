@@ -1,2 +1,4 @@
 *secret*
 .git-blame-ignore-revs
+
+!dots/.claude/
