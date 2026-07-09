@@ -11,5 +11,7 @@
   },
   "theme": "light",
   "voiceEnabled": true,
-  "defaultMode": "auto"
+  "defaultMode": "auto",
+  "spinnerTipsEnabled": false,
+  "preferredNotifChannel": "notifications_disabled"
 }
