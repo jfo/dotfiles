@@ -123,8 +123,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'pmizio/typescript-tools.nvim'
+" replaced by native tsgo LSP (see init-post.lua); restore if working in TS5 repos
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'pmizio/typescript-tools.nvim'
 
 " color schemes
 Plug 'Mofiqul/vscode.nvim'

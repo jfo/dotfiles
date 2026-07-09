@@ -1,9 +1,15 @@
 {
-  "model": "haiku",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": false
   },
   "effortLevel": "medium",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "theme": "light",
+  "voiceEnabled": true,
   "defaultMode": "auto"
 }

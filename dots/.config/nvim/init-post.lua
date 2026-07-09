@@ -69,7 +69,32 @@ vim.api.nvim_echo = function(chunks, ...)
   orig_echo(chunks, ...)
 end
 
-require("typescript-tools").setup{}
+-- Native TS compiler LSP (typescript@7 / tsgo). typescript@7 names the bin
+-- `tsc`; only use it when tsserver.js is absent so TS5 repos aren't handed
+-- a tsc that doesn't understand --lsp.
+vim.lsp.config('tsgo', {
+  cmd = function(dispatchers, config)
+    local cmd = 'tsgo'
+    local root = (config or {}).root_dir
+    if root then
+      local bin = vim.fs.joinpath(root, 'node_modules/.bin/tsgo')
+      local tsc = vim.fs.joinpath(root, 'node_modules/.bin/tsc')
+      local is_ts7 = vim.uv.fs_stat(vim.fs.joinpath(root, 'node_modules/typescript/lib/tsserver.js')) == nil
+      if vim.fn.executable(bin) == 1 then
+        cmd = bin
+      elseif is_ts7 and vim.fn.executable(tsc) == 1 then
+        cmd = tsc
+      end
+    end
+    return vim.lsp.rpc.start({ cmd, '--lsp', '--stdio' }, dispatchers)
+  end,
+  -- stock config roots at the nearest lockfile, but package-lock=false in
+  -- ~/.npmrc means projects here have none; root at the project itself
+  root_dir = function(bufnr, on_dir)
+    on_dir(vim.fs.root(bufnr, { { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' } }) or vim.fn.getcwd())
+  end,
+})
+vim.lsp.enable('tsgo')
 
 vim.diagnostic.config({
  virtual_text = { spacing = 1, prefix = ">", current_line = true },
