@@ -140,8 +140,12 @@ nnoremap <F6> :colorscheme nord<CR>
 nnoremap <F7> :colorscheme gruvbox<CR>
 nnoremap <F8> :colorscheme vscode<CR>
 nnoremap <F9> :let &background = &background == 'light' ? 'dark' : 'light'<CR>
-set background=dark
-colorscheme Gruvbox
+" Shared light/dark state, written by the `tt` fish function. Read here rather
+" than rewritten in place, which used to break the stow symlink on this file.
+let s:theme_state = expand('~/.local/state/theme')
+let s:bg = trim(get(filereadable(s:theme_state) ? readfile(s:theme_state) : [], 0, 'dark'))
+let &background = s:bg ==# 'light' ? 'light' : 'dark'
+colorscheme gruvbox
 
 nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>-----------------------<CR><CR><Esc>
 

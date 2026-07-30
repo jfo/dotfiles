@@ -19,7 +19,6 @@ vim.o.softtabstop = 2
 vim.o.tabstop = 8
 vim.o.wildmode = 'longest,list,full'
 vim.o.synmaxcol = 240
-vim.o.updatetime = 1000
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.termguicolors = true
@@ -36,28 +35,42 @@ vim.keymap.set('n', '*', function()
   vim.opt.hlsearch = true
 end, { silent = true })
 
--- local util = require("lspconfig.util")
--- local root = util.root_pattern("rebar.config", ".git")(vim.fn.getcwd())
--- local build_lib = root .. "/_build/default/lib"
 -- LSP client/server setup
 vim.lsp.config('zls', {})
 vim.lsp.config('clangd', {})
 vim.lsp.config('terraformls', {})
+
+-- elp wants ERL_LIBS pointing at the project's built deps, which is per-project
+-- and so cannot be a static cmd_env.
+--
+-- Note nvim calls a function `cmd` as cmd(dispatchers) -- there is NO config
+-- argument (see self.rpc = config_cmd(dispatchers) in vim/lsp/client.lua), so
+-- the root cannot be read there. Capture it in root_dir, which runs first, and
+-- read it back through this upvalue. env is merged into the parent
+-- environment, so PATH still resolves erl.
+local elp_root
 vim.lsp.config('elp', {
-    root_dir = root,
-    cmd_env = {
-      ERL_LIBS = build_lib,
-    },
-    settings = {
-      elp = {
-        diagnostics = {
-          disabled = {
-            "W0051"
-          }
+  root_dir = function(bufnr, on_dir)
+    elp_root = vim.fs.root(bufnr, { 'rebar.config', 'erlang.mk', '.git' })
+    on_dir(elp_root)
+  end,
+  cmd = function(dispatchers)
+    local env
+    if elp_root then
+      env = { ERL_LIBS = vim.fs.joinpath(elp_root, '_build/default/lib') }
+    end
+    return vim.lsp.rpc.start({ 'elp', 'server' }, dispatchers, { env = env })
+  end,
+  settings = {
+    elp = {
+      diagnostics = {
+        disabled = {
+          "W0051"
         }
       }
     }
-  })
+  }
+})
 vim.lsp.enable({ 'zls', 'clangd', 'terraformls', 'elp' })
 
 -- Suppress elp LSP attach messages
@@ -72,10 +85,22 @@ end
 -- Native TS compiler LSP (typescript@7 / tsgo). typescript@7 names the bin
 -- `tsc`; only use it when tsserver.js is absent so TS5 repos aren't handed
 -- a tsc that doesn't understand --lsp.
+-- Same upvalue trick as elp above: cmd() receives only dispatchers, so reading
+-- config.root_dir there always yielded nil and this local-binary detection
+-- never actually ran -- it silently always spawned bare `tsgo` from PATH.
+local tsgo_root
 vim.lsp.config('tsgo', {
-  cmd = function(dispatchers, config)
+  -- stock config roots at the nearest lockfile, but package-lock=false in
+  -- ~/.npmrc means projects here have none; root at the project itself.
+  -- The marker list must be flat -- vim.fs.root in 0.11 throws on a nested
+  -- table, which made this error out on every TypeScript buffer.
+  root_dir = function(bufnr, on_dir)
+    tsgo_root = vim.fs.root(bufnr, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' }) or vim.fn.getcwd()
+    on_dir(tsgo_root)
+  end,
+  cmd = function(dispatchers)
     local cmd = 'tsgo'
-    local root = (config or {}).root_dir
+    local root = tsgo_root
     if root then
       local bin = vim.fs.joinpath(root, 'node_modules/.bin/tsgo')
       local tsc = vim.fs.joinpath(root, 'node_modules/.bin/tsc')
@@ -87,11 +112,6 @@ vim.lsp.config('tsgo', {
       end
     end
     return vim.lsp.rpc.start({ cmd, '--lsp', '--stdio' }, dispatchers)
-  end,
-  -- stock config roots at the nearest lockfile, but package-lock=false in
-  -- ~/.npmrc means projects here have none; root at the project itself
-  root_dir = function(bufnr, on_dir)
-    on_dir(vim.fs.root(bufnr, { { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' } }) or vim.fn.getcwd())
   end,
 })
 vim.lsp.enable('tsgo')

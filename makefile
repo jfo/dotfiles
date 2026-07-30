@@ -14,4 +14,4 @@ plug:
 last:
 	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
 
-.PHONY: nix zig clean all
+.PHONY: all stow clean plug last

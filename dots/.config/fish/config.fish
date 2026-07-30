@@ -66,12 +66,13 @@ end
 
 set -e fish_user_paths
 
-fish_add_path /usr/local/bin
-fish_add_path /Users/jfo/.fzf/bin
-fish_add_path /Applications/Tailscale.app/Contents/MacOS
-fish_add_path /opt/homebrew/bin
-fish_add_path /opt/homebrew/sbin
-fish_add_path /Users/jfo/code/zig-bootstrap/out/build-zig-host/stage3/bin
+fish_add_path $HOME/.local/bin \
+    $HOME/code/zig-bootstrap/out/build-zig-host/stage3/bin \
+    /opt/homebrew/bin \
+    /opt/homebrew/sbin \
+    $HOME/.fzf/bin \
+    /Applications/Tailscale.app/Contents/MacOS \
+    /usr/local/bin
 
 fzf --fish | source
 
@@ -103,34 +104,37 @@ function produce_ccls
 end
 
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-set -x PATH "/opt/miniconda3/bin" $PATH
-
-set _asdf_shims "$HOME/.asdf/shims"
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
 
 function tt --description "Toggle light/dark theme for ghostty and neovim"
-    set config ~/.config/ghostty/config
+    # Never edit the stowed config files themselves: they are symlinks into the
+    # dotfiles repo, and an in-place rewrite (perl -i) replaces the symlink with
+    # a regular file, silently severing the repo from the live config. Write
+    # only these two untracked files instead.
+    set -l state ~/.local/state/theme
+    set -l ghostty_theme ~/.config/ghostty/theme.conf
 
-    if grep -q "Gruvbox Material Dark" $config
-        perl -pi -e 's/theme = Gruvbox Material Dark/theme = Gruvbox Material Light/' $config
-        set bg light
-    else
-        perl -pi -e 's/theme = Gruvbox Material Light/theme = Gruvbox Material Dark/' $config
+    set -l current dark
+    if test -r $state
+        set current (string trim <$state)
+    end
+
+    set -l bg light
+    if test "$current" = light
         set bg dark
     end
 
-    killall -USR2 ghostty
+    mkdir -p (dirname $state) (dirname $ghostty_theme)
+    echo $bg >$state
 
-    perl -pi -e "s/set background=(dark|light)/set background=$bg/" ~/.config/nvim/init.vim
+    # ghostty has no runtime theme API; it re-reads its config on SIGUSR2.
+    if test "$bg" = light
+        echo "theme = Gruvbox Material Light" >$ghostty_theme
+    else
+        echo "theme = Gruvbox Material Dark" >$ghostty_theme
+    end
+    killall -USR2 ghostty
 
     for socket in (lsof -c nvim -a -U 2>/dev/null | awk 'NR>1{print $NF}' | grep '^/')
         nvim --server $socket --remote-send ":set background=$bg<CR>" 2>/dev/null
     end
 end
-export PATH="$HOME/.local/bin:$PATH"

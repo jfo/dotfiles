@@ -11,6 +11,11 @@ shell-integration-features = no-cursor
 
 theme = Gruvbox Material Dark
 
+# `tt` writes theme.conf to toggle light/dark. It is untracked and optional (?),
+# and loads last so it overrides the default above. Editing this file directly
+# would break the stow symlink.
+config-file = ?theme.conf
+
 # Normal Ghostty pane navigation outside Neovim.
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:down
