@@ -67,6 +67,7 @@ end
 set -e fish_user_paths
 
 fish_add_path $HOME/.local/bin \
+    $HOME/.asdf/shims \
     $HOME/code/zig-bootstrap/out/build-zig-host/stage3/bin \
     /opt/homebrew/bin \
     /opt/homebrew/sbin \
