@@ -14,4 +14,11 @@ plug:
 last:
 	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
 
-.PHONY: all stow clean plug last
+# Copy the app-portable half of CLAUDE.md (everything above the
+# claude-code-only marker) to the clipboard, for pasting into
+# claude.ai -> Settings -> Profile. There is no automatic sync.
+claude-app:
+	@sed '/claude-code-only below this line/,$$d' dots/.claude/CLAUDE.md | pbcopy
+	@echo "Copied. Paste into claude.ai -> Settings -> Profile."
+
+.PHONY: all stow clean plug last claude-app
