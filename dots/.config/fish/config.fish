@@ -139,3 +139,5 @@ function tt --description "Toggle light/dark theme for ghostty and neovim"
         nvim --server $socket --remote-send ":set background=$bg<CR>" 2>/dev/null
     end
 end
+
+eval "$(/opt/homebrew/bin/brew shellenv fish)"
