@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-# macOS defaults. Previously prose in the README; now runnable.
-# Safe to re-run. Log out (or restart the affected app) for everything to apply.
+
 set -euo pipefail
 
 echo "==> keyboard"
 # Key repeat speed pls
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+
 # No smart quotes / dashes / autocorrect while writing code
 defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
 # Full keyboard access: tab through every control in dialogs
 defaults write -g AppleKeyboardUIMode -int 3
+
 # Hold-key repeats instead of showing the accent picker
 defaults write -g ApplePressAndHoldEnabled -bool false
 
@@ -53,6 +55,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write -g AppleShowAllExtensions -bool true
+
 # No .DS_Store on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
