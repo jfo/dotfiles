@@ -7,7 +7,7 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
-STEPS=(brew shell stow vim tmux node erlang rust llm go cargo npm checks)
+STEPS=(brew shell stow vim tmux node erlang rust llm go cargo npm k9s checks)
 have() { command -v "$1" >/dev/null 2>&1; }
 step() { echo ""; echo "==================== $1"; }
 
@@ -99,6 +99,22 @@ step_go()    { have go || return 1
 step_cargo() { have cargo || return 1; cargo install bpf-linker; }
 
 step_npm()   { have npm || return 1; npm install -g onomondo-live; }
+
+# k9s keeps its config in ~/Library/Application Support/k9s on macOS, which stow
+# cannot target; K9S_CONFIG_DIR in config.fish redirects it to ~/.config/k9s.
+# The skins themselves are stowed -- only config.yaml (which k9s rewrites
+# itself) and the current.yaml the `tt` toggle swaps are seeded here.
+step_k9s() {
+  have k9s || { echo "!! k9s missing"; return 1; }
+  local dir="$HOME/.config/k9s"
+  mkdir -p "$dir/skins"
+  [ -f "$dir/config.yaml" ] || printf 'k9s:\n  ui: {}\n' > "$dir/config.yaml"
+  yq -i ".k9s.ui.skin = \"current\" | .k9s.ui.reactive = true" "$dir/config.yaml"
+  local bg
+  bg=$(cat "$HOME/.local/state/theme" 2>/dev/null || echo dark)
+  cp "$dir/skins/gruvbox-$bg.yaml" "$dir/skins/current.yaml"
+  echo "-- skin: gruvbox-$bg (toggle with \`tt\`)"
+}
 
 step_checks() {
   echo "-- git identity"

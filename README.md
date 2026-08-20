@@ -48,6 +48,4 @@ TODO
   - omnicomplete
   - linting / prettier / zig fmt, etc
 - [zvm](https://github.com/tristanisham/zvm) or similar for zig versioning...
-- `tt` is defined twice — as a function in `config.fish` and as
-  `functions/tt.fish`. The function file wins. Pick one.
 - `ghostty/config` hardcodes `command = /opt/homebrew/bin/fish`
