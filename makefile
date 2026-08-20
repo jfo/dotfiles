@@ -14,11 +14,18 @@ plug:
 last:
 	mkdir -p ~/.vim/sessions && touch ~/.vim/sessions/last.vim
 
-# Copy the app-portable half of CLAUDE.md (everything above the
-# claude-code-only marker) to the clipboard, for pasting into
-# claude.ai -> Settings -> Profile. There is no automatic sync.
+bootstrap:
+	./bootstrap.sh
+
+macos:
+	./macos.sh
+
+brewfile:
+	brew bundle dump --file=Brewfile.new --describe --force
+	@echo "wrote Brewfile.new -- diff it against Brewfile before replacing"
+
 claude-app:
 	@sed '/claude-code-only below this line/,$$d' dots/.claude/CLAUDE.md | pbcopy
 	@echo "Copied. Paste into claude.ai -> Settings -> Profile."
 
-.PHONY: all stow clean plug last claude-app
+.PHONY: all stow clean plug last bootstrap macos claude-app

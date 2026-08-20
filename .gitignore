@@ -1,4 +1,6 @@
 *secret*
 .git-blame-ignore-revs
+.DS_Store
+Brewfile.new
 
 !dots/.claude/
