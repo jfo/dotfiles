@@ -1,6 +1,3 @@
-tap "derailed/k9s"
-tap "homebrew/services"
-
 # ---------- shell, editor, terminal ----------
 brew "fish"                       # login shell
 brew "stow"                       # dotfile symlinking (this repo)
@@ -37,8 +34,6 @@ brew "automake"
 brew "cmake"
 brew "ninja"
 brew "ccache"
-brew "gperf"
-brew "dtc"
 brew "ccls"                       # C/C++ LSP; see `produce_ccls` in config.fish
 brew "tree-sitter"
 
@@ -48,7 +43,6 @@ brew "asdf"                       # erlang/java/rebar via .tool-versions
 brew "rebar3"
 brew "erlang-language-platform"
 brew "kerl"
-brew "zig"
 brew "zls"
 brew "pyenv"
 brew "pyenv-virtualenv"
@@ -56,8 +50,6 @@ brew "uv"
 
 # ---------- cloud and infra ----------
 brew "awscli"
-brew "terraform"
-brew "terraform-ls"
 brew "opentofu"
 brew "ansible"
 brew "ansible-lint"
@@ -65,15 +57,8 @@ brew "kubernetes-cli"
 brew "helm"
 brew "argocd"
 brew "stern"
-brew "derailed/k9s/k9s"
+# brew "derailed/k9s/k9s"
 brew "docker-credential-helper-ecr"
-brew "dive"
-brew "teller"
-
-# ---------- data ----------
-brew "postgresql@16"
-brew "redis"
-# brew "postgresql@14"            # left out on purpose. Uncomment if something needs 14.
 
 # ---------- network, embedded, hardware ----------
 brew "west"                       # zephyr meta-tool
@@ -83,26 +68,12 @@ brew "opensc"
 brew "nss"
 brew "nmap"
 brew "nginx"
-brew "wxwidgets"
-brew "openssl@3"
 brew "zstd"
-
-# ---------- llm ----------
-brew "llm"                        # plugins installed by bootstrap.sh
-brew "ollama"
 
 # ---------- media, fun, misc ----------
 brew "ffmpeg"
-brew "chuck"
-brew "serialosc", restart_service: :changed
-brew "rogue"
 
 # ---------- casks ----------
 cask "1password-cli"
 cask "font-hack"                  # ghostty font-family
 cask "wireshark-app"
-cask "nrfutil"
-cask "nordic-nrf-command-line-tools"
-cask "segger-jlink"
-cask "arduino-ide"
-cask "qucs-s"
