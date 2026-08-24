@@ -2,10 +2,11 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enabledPlugins": {},
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "tui": "fullscreen",
+  "theme": "auto",
   "agentPushNotifEnabled": true
 }
