@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/jfo/.docker/bin"
+# End of Docker Desktop section.
+
 set -gx EDITOR nvim
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
@@ -71,7 +75,7 @@ set -e fish_user_paths
 
 fish_add_path $HOME/.local/bin \
     $HOME/.asdf/shims \
-    $HOME/code/zig-bootstrap/out/build-zig-host/stage3/bin \
+    $HOME/code/zig/build/stage3/bin \
     /opt/homebrew/bin \
     /opt/homebrew/sbin \
     $HOME/.fzf/bin \
