@@ -3,7 +3,7 @@
 .aider*
 .cache
 .ccls*
-.claude/settings.local.json
+.claude
 .git-blame-ignore-revs
 .ignore
 .terraform
