@@ -137,7 +137,7 @@ function tt --description "Toggle light/dark theme for ghostty, neovim and k9s"
 
     # ghostty has no runtime theme API; it re-reads its config on SIGUSR2.
     if test "$bg" = light
-        echo "theme = Gruvbox Material Light" >$ghostty_theme
+        echo "theme = jung" >$ghostty_theme
     else
         echo "theme = Gruvbox Material Dark" >$ghostty_theme
     end
