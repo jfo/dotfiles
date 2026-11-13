@@ -123,7 +123,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 
-" replaced by native tsgo LSP (see init-post.lua); restore if working in TS5 repos
+" replaced by native tsc (TS7) LSP (see init-post.lua); restore if working in TS5 repos
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'pmizio/typescript-tools.nvim'
 

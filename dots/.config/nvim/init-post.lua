@@ -82,39 +82,30 @@ vim.api.nvim_echo = function(chunks, ...)
   orig_echo(chunks, ...)
 end
 
--- Native TS compiler LSP (typescript@7 / tsgo). typescript@7 names the bin
--- `tsc`; only use it when tsserver.js is absent so TS5 repos aren't handed
--- a tsc that doesn't understand --lsp.
--- Same upvalue trick as elp above: cmd() receives only dispatchers, so reading
--- config.root_dir there always yielded nil and this local-binary detection
--- never actually ran -- it silently always spawned bare `tsgo` from PATH.
-local tsgo_root
-vim.lsp.config('tsgo', {
+-- Native TS compiler LSP (typescript@7, `tsc --lsp`). lspconfig's `tsgo`
+-- config is deprecated in favor of `tsc`.
+vim.lsp.config('tsc', {
   -- stock config roots at the nearest lockfile, but package-lock=false in
   -- ~/.npmrc means projects here have none; root at the project itself.
-  -- The marker list must be flat -- vim.fs.root in 0.11 throws on a nested
-  -- table, which made this error out on every TypeScript buffer.
   root_dir = function(bufnr, on_dir)
-    tsgo_root = vim.fs.root(bufnr, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' }) or vim.fn.getcwd()
-    on_dir(tsgo_root)
+    on_dir(vim.fs.root(bufnr, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' }) or vim.fn.getcwd())
   end,
-  cmd = function(dispatchers)
-    local cmd = 'tsgo'
-    local root = tsgo_root
+  -- overriding root_dir skips the stock binary detection, so redo it: prefer
+  -- the project's tsc only if it's TS7 (no tsserver.js), else the global one.
+  cmd = function(dispatchers, config)
+    local cmd = 'tsc'
+    local root = config.root_dir
     if root then
-      local bin = vim.fs.joinpath(root, 'node_modules/.bin/tsgo')
       local tsc = vim.fs.joinpath(root, 'node_modules/.bin/tsc')
       local is_ts7 = vim.uv.fs_stat(vim.fs.joinpath(root, 'node_modules/typescript/lib/tsserver.js')) == nil
-      if vim.fn.executable(bin) == 1 then
-        cmd = bin
-      elseif is_ts7 and vim.fn.executable(tsc) == 1 then
+      if is_ts7 and vim.fn.executable(tsc) == 1 then
         cmd = tsc
       end
     end
     return vim.lsp.rpc.start({ cmd, '--lsp', '--stdio' }, dispatchers)
   end,
 })
-vim.lsp.enable('tsgo')
+vim.lsp.enable('tsc')
 
 vim.diagnostic.config({
  virtual_text = { spacing = 1, prefix = ">", current_line = true },
