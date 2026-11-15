@@ -57,7 +57,7 @@ function! OpenDailyNote()
     return
   endif
 
-  let filename = $OBSIDIAN_VAULT_PATH . '/Daily Notes/' . strftime('%Y-%m-%d') . '.md'
+  let filename = $OBSIDIAN_VAULT_PATH . '/Daily/' . strftime('%Y-%m-%d') . '.md'
 
   " Are we already in the target?
   let in_target = resolve(expand('%:p')) == resolve(fnamemodify(filename, ':p'))
