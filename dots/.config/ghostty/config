@@ -21,3 +21,7 @@ keybind = nvim/ctrl+h=text:\x08
 keybind = nvim/ctrl+j=text:\x0a
 keybind = nvim/ctrl+k=text:\x0b
 keybind = nvim/ctrl+l=text:\x0c
+
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
+cursor-style = block
+cursor-style-blink = true
